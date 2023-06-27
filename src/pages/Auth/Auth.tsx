@@ -24,12 +24,6 @@ const Auth = () => {
 
     const fromPage = location.state?.from?.pathname || '/'
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-            .then(response => response.json())
-            .then(json => console.log(json))
-    }, [])
-
 
     const handleSetType = () => {
         if (type === 'login') {
@@ -46,7 +40,7 @@ const Auth = () => {
             return dispatch(register({
                 email,
                 password,
-                username: username ? username : ''
+                username: username || ''
             })).then(() => navigate(fromPage))
         }
         return dispatch(login({

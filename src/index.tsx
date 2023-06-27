@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {setupStore} from "./store/store";
 import {ThemeProvider} from "./providers/ThemeProvider";
+import {PayPalScriptProvider} from '@paypal/react-paypal-js';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -15,12 +16,16 @@ const store = setupStore()
 
 root.render(
     <React.StrictMode>
-        <ThemeProvider>
-            <Provider store={store}>
-                <BrowserRouter>
-                    <App/>
-                </BrowserRouter>
-            </Provider>
-        </ThemeProvider>
+        <PayPalScriptProvider options={{
+            clientId: process.env.REACT_APP_PAYPAL_CLIENT_ID as string
+        }}>
+            <ThemeProvider>
+                <Provider store={store}>
+                    <BrowserRouter>
+                        <App/>
+                    </BrowserRouter>
+                </Provider>
+            </ThemeProvider>
+        </PayPalScriptProvider>
     </React.StrictMode>
 )
