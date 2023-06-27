@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEvent, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import cls from './Auth.module.css'
 import Form from "../../components/AuthPage/Form/Form";
 import {Link} from "react-router-dom";
@@ -23,6 +23,12 @@ const Auth = () => {
     const {email, username, password} = credentials
 
     const fromPage = location.state?.from?.pathname || '/'
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => console.log(json))
+    }, [])
 
 
     const handleSetType = () => {
