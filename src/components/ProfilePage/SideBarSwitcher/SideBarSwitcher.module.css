@@ -1,0 +1,21 @@
+.switcher {
+    /*border: 1px solid white;*/
+    position: absolute;
+    bottom: 52px;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.toggle.unchecked {
+    justify-content: flex-end;
+    padding-right: 6px;
+}
+
+.toggle.checked {
+    justify-content: flex-start;
+    padding-left: 6px;
+}

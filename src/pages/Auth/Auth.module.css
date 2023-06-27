@@ -1,0 +1,12 @@
+.page {
+    display: flex;
+    background-color: #242529;
+    height: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page img {
+    filter: invert(100%);
+}

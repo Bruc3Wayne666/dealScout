@@ -1,0 +1,18 @@
+.header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9;
+    /*position: fixed;*/
+    width: 100%;
+    background-color: #CC5500;
+}
+
+.headerSection {
+    padding: 20px;
+}
+
+.header .headerSection img {
+    height: 80px;
+}

@@ -1,0 +1,19 @@
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    transition: .3s;
+}
+
+.content.light {
+    color: black;
+}
+
+.content.dark {
+    color: white;
+}
+
+.content span {
+    color: green;
+}

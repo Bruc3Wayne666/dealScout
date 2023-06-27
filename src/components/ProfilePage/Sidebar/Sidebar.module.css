@@ -1,0 +1,20 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    width: 13%;
+    height: 100%;
+    padding: 20px 8px;
+    box-sizing: border-box;
+    align-items: center;
+    position: relative;
+    /*justify-content: space-between;*/
+}
+
+.sidebar.light {
+    border-right: 2px solid #ddd;
+}
+
+.sidebar.dark {
+    border-right: 2px solid #36383E;
+}

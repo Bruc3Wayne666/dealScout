@@ -1,0 +1,97 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #36383E;
+    width: 50%;
+    min-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 24px;
+
+    /*border: 2px solid white;*/
+}
+
+.form.login {
+    height: 32%;
+}
+
+.form.register {
+    height: 43%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    /*border: 1px solid white;*/
+    /*padding: 20px;*/
+
+}
+
+.content .input {
+    height: 60px;
+    background-color: #242529;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-right: 22px;
+}
+
+.content .input img {
+    height: 24px;
+}
+
+.content .input input {
+    height: 80%;
+    width: 86%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.content .input input::placeholder {
+    color: #36383E;
+}
+
+.content .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content .bottom .text{
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    padding-left: 12px;
+}
+
+.content .bottom span {
+    color: #14FF00;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.content .bottom button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    border-radius: 20px;
+    height: 32px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #CC5500;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
