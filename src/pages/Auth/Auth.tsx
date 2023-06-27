@@ -4,14 +4,16 @@ import Form from "../../components/AuthPage/Form/Form";
 import {Link} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router";
 import {UserCredentials} from "../../models/User";
-import {login, register} from "../../store/reducers/user/userActions";
+import {login, register, restorePassword} from "../../store/reducers/user/userActions";
 import {useAppDispatch} from "../../hooks/redux";
+import {UserAPI} from "../../api/user";
 
 
 const initialState: UserCredentials = {
     username: '',
     email: '',
-    password: ''
+    password: '',
+    pin: ''
 }
 
 const Auth = () => {
@@ -20,33 +22,44 @@ const Auth = () => {
     const location = useLocation()
     const [type, setType] = useState('register')
     const [credentials, setCredentials] = useState(initialState)
-    const {email, username, password} = credentials
+    const {email, username, password, pin} = credentials
+    const [isLoading, setIsLoading] = useState(false)
 
     const fromPage = location.state?.from?.pathname || '/'
 
 
-    const handleSetType = () => {
-        if (type === 'login') {
-            setCredentials(initialState)
-            return setType('register')
-        }
+    const handleSetType = (val: string) => {
         setCredentials(initialState)
-        return setType('login')
+        setType(val)
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setIsLoading(true)
         if (type === 'register') {
             return dispatch(register({
-                email,
-                password,
+                ...credentials,
                 username: username || ''
-            })).then(() => navigate(fromPage))
+            })).then(() => {
+                setIsLoading(false)
+                navigate(fromPage)
+            })
+        } else if (type === 'login') {
+            return dispatch(login({
+                email,
+                password
+            })).then(() => {
+                setIsLoading(false)
+                navigate(fromPage)
+            })
+        } else if (type === 'pin') {
+            return dispatch(restorePassword({email, password, pin})).then(() => {
+                setIsLoading(false)
+                navigate(fromPage)
+            })
+        } else {
+            handleRequestPin()
         }
-        return dispatch(login({
-            email,
-            password
-        })).then(() => navigate(fromPage))
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -54,6 +67,14 @@ const Auth = () => {
             ...credentials,
             [e.currentTarget.name]: e.currentTarget.value
         })
+    }
+
+    const handleRequestPin = () => {
+        UserAPI.requestPin({email})
+            .then(res => {
+                setIsLoading(false)
+                setType('pin')
+            })
     }
 
     return (
@@ -67,6 +88,7 @@ const Auth = () => {
             </Link>
             <Form
                 type={type}
+                isLoading={isLoading}
                 handleSetType={handleSetType}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}

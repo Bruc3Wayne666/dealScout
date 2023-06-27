@@ -1,5 +1,6 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 import {PayPalButtons} from "@paypal/react-paypal-js";
+import {ThemeContext, ThemeContextType} from "../../providers/ThemeProvider";
 
 
 const PaypalCheckoutButton: FC<any> = ({product}) => {
@@ -18,10 +19,11 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
 
     return <PayPalButtons
         style={{
-            color: 'black',
+            color: 'blue',
             layout: 'vertical',
             height: 40,
-            shape: 'pill'
+            shape: 'pill',
+            label: 'buynow'
         }}
 
         onClick={

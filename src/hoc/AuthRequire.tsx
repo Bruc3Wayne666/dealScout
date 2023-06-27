@@ -7,9 +7,9 @@ const AuthRequire: FC<any> = ({children}) => {
     const { user_session } = useAppSelector(state => state.userSlice)
 
 
-    // if (!user_session) {
-    //     return <Navigate to='/auth' state={{from: location}}/>
-    // }
+    if (!user_session) {
+        return <Navigate to='/auth' state={{from: location}}/>
+    }
 
     return children
 };

@@ -1,25 +1,12 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {instance} from "../../../api";
+import {ILoginArgs, IRegisterArgs, IRestorePasswordProps, UserAPI} from "../../../api/user";
 
-interface ILoginArgs {
-    email: string
-    password: string
-}
-
-interface IRegisterArgs extends ILoginArgs {
-    username: string
-}
 
 export const register = createAsyncThunk(
     'user/register',
     async ({email, password, username}: IRegisterArgs, {rejectWithValue}) => {
         try {
-            const {data} = await instance.post('registration', {
-                email,
-                password
-            })
-            console.log(data)
-            return data
+            return await UserAPI.register({email, password, username})
         } catch (err) {
             return rejectWithValue(err)
         }
@@ -28,14 +15,22 @@ export const register = createAsyncThunk(
 
 
 export const login = createAsyncThunk(
-    'user/register',
+    'user/login',
     async ({email, password}: ILoginArgs, {rejectWithValue}) => {
         try {
-            const {data} = await instance.post('login', {
-                email,
-                password
-            })
-            return data
+            return await UserAPI.login({email, password})
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
+
+export const restorePassword = createAsyncThunk(
+    'user/restorePassword',
+    async ({email, password, pin}: IRestorePasswordProps, {rejectWithValue}) => {
+        try {
+            return await UserAPI.changePassword({email, password, pin})
         } catch (err) {
             return rejectWithValue(err)
         }
