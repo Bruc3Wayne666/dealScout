@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {login, register, restorePassword} from "./userActions";
 import {IUser} from "../../../models/User";
-import {loadLanguages} from "i18next";
 
 
 interface IUserState extends IUser {
@@ -18,7 +17,16 @@ const initialState: IUserState = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        setUser: (state, {payload}: PayloadAction<string>) => {
+            state.user_session = payload
+        },
+        logout: (state) => {
+            state.error = false
+            state.user_session = ''
+            state.message = ''
+        }
+    },
     extraReducers: {
         [register.pending.type]: (state) => {
             state.isLoading = true
@@ -53,4 +61,5 @@ export const userSlice = createSlice({
     }
 })
 
+export const {setUser, logout} = userSlice.actions
 export default userSlice.reducer

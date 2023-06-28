@@ -1,6 +1,6 @@
 import React from 'react';
 import cls from './Header.module.css'
-import AuthBtn from "../AuthBtn/AuthBtn";
+import {AuthBtn, ProfileBtn} from "../AuthBtn/AuthBtn";
 
 const Header = () => {
     return (
@@ -10,6 +10,7 @@ const Header = () => {
             </div>
             <div className={cls.headerSection}>
                 <AuthBtn/>
+                <ProfileBtn/>
             </div>
         </header>
     );

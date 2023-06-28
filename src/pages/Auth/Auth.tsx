@@ -27,7 +27,6 @@ const Auth = () => {
 
     const fromPage = location.state?.from?.pathname || '/'
 
-
     const handleSetType = (val: string) => {
         setCredentials(initialState)
         setType(val)

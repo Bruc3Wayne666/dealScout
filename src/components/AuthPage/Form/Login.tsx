@@ -27,8 +27,8 @@ const Login: FC<LoginProps> = ({
                     onChange={handleChange}
                     value={email}
                     name='email'
-                    type="email"
-                    placeholder='Email'
+                    type="text"
+                    placeholder='Email or Username'
                     disabled={isLoading}
                 />
             </div>

@@ -1,13 +1,11 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {useLocation, Navigate} from "react-router";
 import {useAppSelector} from "../hooks/redux";
 
 const AuthRequire: FC<any> = ({children}) => {
     const location = useLocation()
-    const { user_session } = useAppSelector(state => state.userSlice)
 
-
-    if (!user_session) {
+    if (!localStorage.getItem('user_session')) {
         return <Navigate to='/auth' state={{from: location}}/>
     }
 
