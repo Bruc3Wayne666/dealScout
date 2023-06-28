@@ -31,6 +31,14 @@
       display: grid;
       grid-template-columns: repeat(4, auto);
       gap: 10px;
+
+      @media screen and (max-width: 1024px){
+        grid-template-columns: repeat(3, auto);
+      }
+
+      @media screen and (max-width: 840px){
+        grid-template-columns: repeat(2, auto);
+      }
     }
   }
 }
