@@ -1,0 +1,163 @@
+.card {
+    width: 24%;
+    height: 400px;
+    border-radius: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    transition: .3s;
+}
+
+.card:hover {
+    width: 28%;
+    height: 420px;
+}
+
+.cardPro:hover {
+    width: 28%;
+    height: 420px;
+}
+
+.cardPro {
+    width: 24%;
+    height: 400px;
+    border-radius: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #121562 0%, #5D6694 100%);
+    transition: .3s;
+}
+
+.card img {
+    width: 50%;
+    height: 50%;
+}
+
+.cardPro img {
+    width: 50%;
+    height: 50%;
+}
+
+.card .start {
+    height: 48%;
+    border-radius: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #679AE7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .advanced{
+    height: 48%;
+    border-radius: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #E4D00A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardPro .pro{
+    height: 48%;
+    border-radius: 14px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.cardPro .info {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.card .infoTop {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-left: 14px;
+    padding-top: 12px;
+    justify-content: center;
+    margin-bottom: 92px;
+}
+
+.card .infoTop h3 {
+    margin-bottom: 6px;
+    font-size: 22px;
+}
+
+.card .infoTop span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card .infoBottom {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    padding-right: 14px;
+}
+
+.card .infoBottom button {
+    background-color: #CC5500;
+    color: white;
+    font-size: 12px;
+    width: 70px;
+    text-align: center;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+
+.cardPro .infoTop {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-left: 14px;
+    padding-top: 12px;
+    justify-content: center;
+    margin-bottom: 92px;
+}
+
+.cardPro .infoTop h3 {
+    color: white;
+    margin-bottom: 6px;
+    font-size: 22px;
+}
+
+.cardPro .infoTop span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+}
+
+.cardPro .infoBottom {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    padding-right: 14px;
+}
+
+.cardPro .infoBottom button {
+    background-color: #CC5500;
+    color: white;
+    font-size: 12px;
+    width: 70px;
+    text-align: center;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    padding: 4px;
+    cursor: pointer;
+}

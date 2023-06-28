@@ -1,0 +1,8 @@
+{
+    "usernamePlaceholder": "Имя пользователя (Опционально)",
+    "emailPlaceholder": "Электронная почта",
+    "passwordPlaceholder": "Пароль",
+    "Sign Up": "Зарегистрироваться",
+    "Sign In": "Войти",
+    "AlreadyHaveAcc": "Уже есть аккаунт?"
+}

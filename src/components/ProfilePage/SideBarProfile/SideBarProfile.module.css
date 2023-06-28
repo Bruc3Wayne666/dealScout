@@ -1,0 +1,32 @@
+.profile {
+    /*border: 1px solid white;*/
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    margin-bottom: 30px;
+}
+
+.profile img {
+    height: 60px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    border: 1px solid #CC5500;
+}
+
+.profile h5 {
+    /*border: 1px solid white;*/
+    margin: 0;
+    font-weight: 600;
+}
+
+.profile.light h5 {
+    color: #222;
+}
+
+.profile.dark h5 {
+    color: white;
+}
