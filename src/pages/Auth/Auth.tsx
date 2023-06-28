@@ -25,7 +25,8 @@ const Auth = () => {
     const {email, username, password, pin} = credentials
     const [isLoading, setIsLoading] = useState(false)
 
-    const fromPage = location.state?.from?.pathname || '/'
+    // const fromPage = location.state?.from?.pathname || '/'
+    const fromPage = 'profile'
 
 
     const handleSetType = (val: string) => {
