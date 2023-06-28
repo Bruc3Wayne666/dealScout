@@ -4,12 +4,14 @@ import cls from "./Form.module.css";
 interface RestoreProps {
     isLoading: boolean
     pin: string | number
+    password: string
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const Restore: FC<RestoreProps> = ({
                                        isLoading,
                                        pin,
+                                       password,
                                        handleChange,
                                    }) => {
     return (
@@ -26,6 +28,20 @@ const Restore: FC<RestoreProps> = ({
                     name='pin'
                     type='text'
                     placeholder='Enter PIN here'
+                    disabled={isLoading}
+                />
+            </div>
+            <div className={cls.input}>
+                <img
+                    src={require('../../../assets/images/svg/at.svg').default}
+                    alt="lock"
+                />
+                <input
+                    onChange={handleChange}
+                    value={password}
+                    name='password'
+                    type='password'
+                    placeholder='Your new password'
                     disabled={isLoading}
                 />
             </div>

@@ -30,6 +30,7 @@ export const restorePassword = createAsyncThunk(
     'user/restorePassword',
     async ({email, password, pin}: IRestorePasswordProps, {rejectWithValue}) => {
         try {
+            console.log('=================', password)
             return await UserAPI.changePassword({email, password, pin})
         } catch (err) {
             return rejectWithValue(err)

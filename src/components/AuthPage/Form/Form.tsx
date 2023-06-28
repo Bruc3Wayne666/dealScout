@@ -63,6 +63,7 @@ const Form: FC<FormProps> = ({
                     <Restore
                         isLoading={isLoading}
                         pin={pin}
+                        password={password}
                         handleChange={handleChange}
                     />
                 }
