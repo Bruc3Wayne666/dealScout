@@ -4,16 +4,16 @@
     justify-content: center;
     flex: 1;
     transition: .3s;
-}
 
-.content.light {
-    color: black;
-}
+    .light {
+        color: black;
+    }
 
-.content.dark {
-    color: white;
-}
+    &.dark {
+        color: white;
+    }
 
-.content span {
-    color: green;
+    span {
+        color: green;
+    }
 }

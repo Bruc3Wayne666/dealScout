@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './Sidebar.module.css'
+import cls from './Sidebar.module.scss'
 import SideBarHeader from "../SideBarHeader/SideBarHeader";
 import SideBarProfile from "../SideBarProfile/SideBarProfile";
 import SideBarMenu from "../SideBarMenu/SideBarMenu";

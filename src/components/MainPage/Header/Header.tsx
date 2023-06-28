@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './Header.module.css'
+import cls from './Header.module.scss'
 import {AuthBtn, ProfileBtn} from "../AuthBtn/AuthBtn";
 
 const Header = () => {

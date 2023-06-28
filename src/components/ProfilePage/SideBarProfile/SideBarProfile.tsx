@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './SideBarProfile.module.css'
+import cls from './SideBarProfile.module.scss'
 import {useAppSelector} from "../../../hooks/redux";
 
 const SideBarProfile = ({theme}: {theme: string}) => {
@@ -10,7 +10,7 @@ const SideBarProfile = ({theme}: {theme: string}) => {
                 src={require(`../../../assets/images/svg/${theme}/profile.svg`)}
                 alt="Profile"
             />
-            <h5>{user_session}</h5>
+            <h5>{user_session.substr(1, 12)}</h5>
         </div>
     );
 };

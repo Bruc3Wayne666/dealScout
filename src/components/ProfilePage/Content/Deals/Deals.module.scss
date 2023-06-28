@@ -1,0 +1,36 @@
+.deals {
+  //border: 1px solid yellow;
+  width: 90%;
+  height: 90vh;
+  padding: 12px 10px;
+  box-sizing: border-box;
+  font-size: 8px;
+
+  .options {
+    //border: 2px solid cyan;
+    height: 10%;
+  }
+
+  .items {
+    overflow-y: scroll;
+    //border: 2px solid red;
+    height: 90%;
+    box-sizing: border-box;
+    padding-top: 20px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &.flex {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.grid {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 10px;
+    }
+  }
+}

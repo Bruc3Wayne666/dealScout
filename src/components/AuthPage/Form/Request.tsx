@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC} from "react";
-import cls from "./Form.module.css";
+import cls from "./Form.module.scss";
 
 interface RestoreProps {
     isLoading: boolean

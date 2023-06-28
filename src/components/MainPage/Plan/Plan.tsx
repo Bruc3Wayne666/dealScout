@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import cls from './Plan.module.css'
+import cls from './Plan.module.scss'
 
 export const PlanStart = () => {
     const [isShowInfo, setIsShowInfo] = useState(false)

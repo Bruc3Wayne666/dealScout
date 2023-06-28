@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import cls from "./Form.module.css";
+import cls from "./Form.module.scss";
 import {LoginProps} from "./Login";
 
 interface RegisterProps extends LoginProps {}

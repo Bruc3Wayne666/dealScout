@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './AboutSection.module.css'
+import cls from './AboutSection.module.scss'
 import SectionLine from "./SectionLine";
 
 const AboutSection = () => {

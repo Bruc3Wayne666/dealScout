@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './WelcomeSection.module.css'
+import cls from './WelcomeSection.module.scss'
 
 const WelcomeSection = () => {
     return (

@@ -1,10 +1,12 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import sidebarSlice from "./reducers/sidebar/sidebarSlice";
 import userSlice from "./reducers/user/userSlice";
+import dealSlice from "./reducers/deal/dealSlice";
 
 const rootReducer = combineReducers({
     sidebarSlice,
-    userSlice
+    userSlice,
+    dealSlice
 })
 
 export const setupStore = () => {

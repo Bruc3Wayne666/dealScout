@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import cls from './SideBarMenuOption.module.css'
+import cls from './SideBarMenuOption.module.scss'
 
 interface SidebarMenuProps {
     title: string

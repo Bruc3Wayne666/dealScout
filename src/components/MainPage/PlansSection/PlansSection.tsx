@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './PlansSection.module.css'
+import cls from './PlansSection.module.scss'
 import {PlanStart, PlanAdvanced, PlanPRO} from "../Plan/Plan";
 
 const PlansSection = () => {

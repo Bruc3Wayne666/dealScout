@@ -4,9 +4,9 @@ import {ILoginArgs, IRegisterArgs, IRestorePasswordProps, UserAPI} from "../../.
 
 export const register = createAsyncThunk(
     'user/register',
-    async ({email, password, username}: IRegisterArgs, {rejectWithValue}) => {
+    async (args: IRegisterArgs, {rejectWithValue}) => {
         try {
-            const data = await UserAPI.register({email, password, username})
+            const data = await UserAPI.register({...args})
             localStorage.setItem('user_session', data.user_session)
             localStorage.setItem('isLogin', 'true')
             return data
@@ -19,9 +19,9 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
     'user/login',
-    async ({email, password}: ILoginArgs, {rejectWithValue}) => {
+    async (args: ILoginArgs, {rejectWithValue}) => {
         try {
-            const data = await UserAPI.login({email, password})
+            const data = await UserAPI.login({...args})
             localStorage.setItem('user_session', data.user_session)
             localStorage.setItem('isLogin', 'true')
             return data
@@ -34,9 +34,9 @@ export const login = createAsyncThunk(
 
 export const restorePassword = createAsyncThunk(
     'user/restorePassword',
-    async ({email, password, pin}: IRestorePasswordProps, {rejectWithValue}) => {
+    async (args: IRestorePasswordProps, {rejectWithValue}) => {
         try {
-            const data = await UserAPI.changePassword({email, password, pin})
+            const data = await UserAPI.changePassword({...args})
             localStorage.setItem('user_session', data.user_session)
             localStorage.setItem('isLogin', 'true')
             return data

@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import cls from './SectionLine.module.css'
+import cls from './SectionLine.module.scss'
 
 const SectionLine: FC<any> = ({type}: {type: string}) => {
     return (

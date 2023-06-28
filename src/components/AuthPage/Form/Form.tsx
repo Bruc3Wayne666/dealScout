@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC, FormEvent, useState} from 'react';
-import cls from './Form.module.css'
+import cls from './Form.module.scss'
 import {login, register} from "../../../store/reducers/user/userActions";
 import {UserCredentials} from "../../../models/User";
 import Register from "./Register";

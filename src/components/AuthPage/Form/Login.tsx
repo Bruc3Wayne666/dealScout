@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC} from "react";
 import {UserCredentials} from "../../../models/User";
-import cls from "./Form.module.css";
+import cls from "./Form.module.scss";
 
 export interface LoginProps {
     isLoading: boolean

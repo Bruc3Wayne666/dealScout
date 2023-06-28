@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './Auth.module.css'
+import cls from './Auth.module.scss'
 import {Link} from "react-router-dom";
 
 export const AuthBtn = () => {

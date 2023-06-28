@@ -1,5 +1,5 @@
 import React from 'react';
-import cls from './SideBarHeader.module.css'
+import cls from './SideBarHeader.module.scss'
 import {Link} from "react-router-dom";
 
 const SideBarHeader = ({theme}: {theme: string}) => {

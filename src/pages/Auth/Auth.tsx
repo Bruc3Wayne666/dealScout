@@ -1,5 +1,5 @@
-import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
-import cls from './Auth.module.css'
+import React, {ChangeEvent, FormEvent, useState} from 'react';
+import cls from './Auth.module.scss'
 import Form from "../../components/AuthPage/Form/Form";
 import {Link} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router";
@@ -70,7 +70,7 @@ const Auth = () => {
 
     const handleRequestPin = () => {
         UserAPI.requestPin({email})
-            .then(res => {
+            .then(() => {
                 setIsLoading(false)
                 setType('pin')
             })

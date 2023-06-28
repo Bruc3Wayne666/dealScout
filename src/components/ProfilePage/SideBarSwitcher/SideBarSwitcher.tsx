@@ -1,5 +1,5 @@
 import React, {FC, useContext} from 'react';
-import cls from './SideBarSwitcher.module.css'
+import cls from './SideBarSwitcher.module.scss'
 import Switch from "react-switch";
 import {ThemeContext, ThemeContextType} from "../../../providers/ThemeProvider";
 

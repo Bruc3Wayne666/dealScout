@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import cls from './Profile.module.css'
+import cls from './Profile.module.scss'
 import Sidebar from "../../components/ProfilePage/Sidebar/Sidebar";
 import Content from "../../components/ProfilePage/Content/Content";
 import {ThemeContext, ThemeContextType,} from "../../providers/ThemeProvider";
