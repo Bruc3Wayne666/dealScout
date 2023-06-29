@@ -1,26 +1,53 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import cls from './Plan.module.scss'
+import {capitalize} from "../../../shared/utils";
 
-export const PlanStart = () => {
+
+interface PlanProps {
+    plan: string
+    price: number
+    description?: string
+}
+
+const Plan: FC<PlanProps> = ({plan, price}) => {
     const [isShowInfo, setIsShowInfo] = useState(false)
 
     return (
         // <div className={cls.card} onMouseEnter={() => setIsShowInfo(true)} onMouseLeave={() => setIsShowInfo(false)}>
-        <div className={cls.card}>
+        <div
+            onMouseLeave={() => setIsShowInfo(false)}
+            className={`${cls.card} ${cls[plan]}`}
+        >
             {
                 isShowInfo
-                    ? <h1>lol</h1>
+                    ? <>
+                    <div className={`${cls.description}`}>
+                       <span
+                           onClick={() => setIsShowInfo(false)}
+                       >&times;</span>
+                        <h3>{capitalize(plan)} plan</h3>
+                        <ul>
+                            <li>999 users</li>
+                            <li>999 deals</li>
+                            <li>discounts</li>
+                            <li>top</li>
+                        </ul>
+                    </div>
+                    </>
                     : <>
                         {/*<div className={cls.card}>*/}
-                            <div className={cls.start}>
-                                <img src={require('../../../assets/images/svg/plan_start.svg').default} alt={'Start'}/>
+                            <div
+                                onClick={() => setIsShowInfo(true)}
+                                className={`${cls.plan} ${cls[plan]}`}
+                            >
+                                <img src={require(`../../../assets/images/svg/plan_${plan}.svg`)} alt={'Start'}/>
                             </div>
                             <div className={cls.info}>
-                                <div className={cls.infoTop}>
-                                    <h3>Starter Plan</h3>
-                                    <span>$24.99</span>
+                                <div className={cls.top}>
+                                    <h3>{capitalize(plan)} Plan</h3>
+                                    <span>${price}</span>
                                 </div>
-                                <div className={cls.infoBottom}>
+                                <div className={cls.bottom}>
                                     <button>
                                         Get
                                     </button>
@@ -33,45 +60,4 @@ export const PlanStart = () => {
     );
 };
 
-
-export const PlanAdvanced = () => {
-    return (
-        <div className={cls.card}>
-            <div className={cls.advanced}>
-                <img src={require('../../../assets/images/svg/plan_advanced.svg').default} alt={'Advanced'}/>
-            </div>
-            <div className={cls.info}>
-                <div className={cls.infoTop}>
-                    <h3>Advanced Plan</h3>
-                    <span>$34.99</span>
-                </div>
-                <div className={cls.infoBottom}>
-                    <button>
-                        Get
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-export const PlanPRO = () => {
-    return (
-        <div className={cls.cardPro}>
-            <div className={cls.pro}>
-                <img src={require('../../../assets/images/svg/plan_pro.svg').default} alt={'PRO'}/>
-            </div>
-            <div className={cls.info}>
-                <div className={cls.infoTop}>
-                    <h3>PRO Plan</h3>
-                    <span>$49.99</span>
-                </div>
-                <div className={cls.infoBottom}>
-                    <button>
-                        Get
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
-};
+export default Plan

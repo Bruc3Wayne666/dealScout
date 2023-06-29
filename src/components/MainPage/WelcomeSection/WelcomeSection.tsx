@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
 import cls from './WelcomeSection.module.scss'
 
-const WelcomeSection = () => {
+interface WelcomeSectionProps {
+    // ref: LegacyRef<HTMLDivElement>
+    handleScroll: () => void
+}
+
+const WelcomeSection: FC<WelcomeSectionProps> = ({handleScroll}) => {
     return (
         <section className={cls.section}>
             <div className={cls.sectionContent}>
@@ -12,7 +17,7 @@ const WelcomeSection = () => {
                     </h1>
                 </div>
                 <div className={cls.sectionContentBtn}>
-                    <button>
+                    <button onClick={handleScroll}>
                         <span>Choose Plan</span>
                     </button>
                 </div>

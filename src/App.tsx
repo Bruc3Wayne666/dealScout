@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import './App.scss';
 import {Route, Routes} from "react-router";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";

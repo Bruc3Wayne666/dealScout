@@ -1,17 +1,23 @@
-import React from 'react';
+import React, {FC, LegacyRef} from 'react';
 import cls from './PlansSection.module.scss'
-import {PlanStart, PlanAdvanced, PlanPRO} from "../Plan/Plan";
+import Plan from "../Plan/Plan";
 
-const PlansSection = () => {
+
+interface PlansSectionProps {
+    // ref: LegacyRef<HTMLDivElement>
+    ref: LegacyRef<HTMLDivElement>
+}
+
+const PlansSection: FC<PlansSectionProps> = ({ref}) => {
     return (
-        <section className={cls.section}>
+        <section ref={ref} className={cls.section}>
             <div className={cls.sectionHeader}>
                 <h2>Available Plans</h2>
             </div>
             <div className={cls.plans}>
-                <PlanStart/>
-                <PlanAdvanced/>
-                <PlanPRO/>
+                <Plan plan={'start'} price={24.99}/>
+                <Plan plan={'advanced'} price={34.99}/>
+                <Plan plan={'pro'} price={49.99}/>
             </div>
             <div className={cls.sectionBottom}>
                 <img src={require('../../../assets/images/svg/wave.svg').default} alt="..."/>
