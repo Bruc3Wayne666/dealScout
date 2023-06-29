@@ -117,9 +117,19 @@
     .bottom {
       //border: 1px solid black;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       padding-right: 14px;
       padding-bottom: 14px;
+      padding-left: 14px;
+      align-items: center;
+      //position: relative;
+
+      span {
+        font-size: 12px;
+        cursor: pointer;
+        text-decoration: underline dotted;
+        //position: absolute;
+      }
 
       button {
         background-color: #CC5500;

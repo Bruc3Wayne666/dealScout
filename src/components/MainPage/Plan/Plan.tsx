@@ -48,6 +48,7 @@ const Plan: FC<PlanProps> = ({plan, price}) => {
                                     <span>${price}</span>
                                 </div>
                                 <div className={cls.bottom}>
+                                    <span onClick={() => setIsShowInfo(true)}>More information</span>
                                     <button>
                                         Get
                                     </button>

@@ -1,5 +1,9 @@
 .section {
-    background-color: #CC5500;
+    background-color: #c50;
+    opacity: 1;
+    background-image: radial-gradient(rgba(0,0,0,0.8) 0.2px, #c50 0.2px);
+    background-size: 4px 4px;
+    //background-color: #CC5500;
     width: 100%;
     height: calc(100vh - 86px);
     display: flex;
