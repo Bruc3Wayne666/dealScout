@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import cls from './Auth.module.scss'
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 
 interface AuthBtnProps {
@@ -9,6 +10,7 @@ interface AuthBtnProps {
 }
 
 export const AuthBtn: FC<AuthBtnProps> = ({isLogged, handleLogout}) => {
+    const {t} = useTranslation('main')
     return (
         <Link
             to={isLogged ? '' : '/auth'}
@@ -21,7 +23,7 @@ export const AuthBtn: FC<AuthBtnProps> = ({isLogged, handleLogout}) => {
             {/*    <img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>*/}
             {/*</div>*/}
             <div className={cls.authBtnSection}>
-                <span>{isLogged ? 'Log Out' : 'Sign In'}</span>
+                <span>{isLogged ? 'Log Out' : t('Sign In')}</span>
             </div>
         </Link>
     );
@@ -29,13 +31,14 @@ export const AuthBtn: FC<AuthBtnProps> = ({isLogged, handleLogout}) => {
 
 
 export const ProfileBtn = () => {
+    const {t} = useTranslation('main')
     return (
         <Link to={'/profile'} className={cls.authBtn}>
             <div className={cls.authBtnSection}>
                 {/*<img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>*/}
             </div>
             <div className={cls.authBtnSection}>
-                <span>Profile</span>
+                <span>{t('Profile')}</span>
             </div>
         </Link>
     );

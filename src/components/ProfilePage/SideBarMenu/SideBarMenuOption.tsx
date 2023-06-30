@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import cls from './SideBarMenuOption.module.scss'
+import {useTranslation} from "react-i18next";
 
 interface SidebarMenuProps {
     title: string
@@ -14,6 +15,8 @@ const SideBarMenuOption: FC<SidebarMenuProps> = ({
                                                      handlePress,
                                                      theme
                                                  }) => {
+    const {t, i18n} = useTranslation('profile')
+
     return (
         <div
             onClick={() => handlePress(title)}
@@ -31,7 +34,7 @@ const SideBarMenuOption: FC<SidebarMenuProps> = ({
                     />
             }
 
-            <span>{title}</span>
+            <span>{t(title.toString())}</span>
         </div>
     );
 };

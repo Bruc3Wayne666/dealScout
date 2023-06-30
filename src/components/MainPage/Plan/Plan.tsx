@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react';
 import cls from './Plan.module.scss'
 import {capitalize} from "../../../shared/utils";
+import {useTranslation} from "react-i18next";
 
 
 interface PlanProps {
@@ -11,6 +12,7 @@ interface PlanProps {
 
 const Plan: FC<PlanProps> = ({plan, price}) => {
     const [isShowInfo, setIsShowInfo] = useState(false)
+    const {t} = useTranslation('main')
 
     return (
         // <div className={cls.card} onMouseEnter={() => setIsShowInfo(true)} onMouseLeave={() => setIsShowInfo(false)}>
@@ -44,13 +46,13 @@ const Plan: FC<PlanProps> = ({plan, price}) => {
                             </div>
                             <div className={cls.info}>
                                 <div className={cls.top}>
-                                    <h3>{capitalize(plan)} Plan</h3>
+                                    <h3>{t(`${capitalize(plan)} Plan`)} </h3>
                                     <span>${price}</span>
                                 </div>
                                 <div className={cls.bottom}>
                                     <span onClick={() => setIsShowInfo(true)}>More information</span>
                                     <button>
-                                        Get
+                                        {t('Get')}
                                     </button>
                                 </div>
                             </div>

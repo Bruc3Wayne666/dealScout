@@ -1,5 +1,6 @@
 import React, {ChangeEvent, FC} from "react";
 import cls from "./Form.module.scss";
+import {useTranslation} from "react-i18next";
 
 interface RestoreProps {
     isLoading: boolean
@@ -14,9 +15,10 @@ const Restore: FC<RestoreProps> = ({
                                        password,
                                        handleChange,
                                    }) => {
+    const {t} = useTranslation("restore")
     return (
         <>
-            <h3>Enter PIN</h3>
+            <h3>{t('Enter PIN')}</h3>
             <div className={cls.input}>
                 <img
                     src={require('../../../assets/images/svg/at.svg').default}
@@ -27,7 +29,7 @@ const Restore: FC<RestoreProps> = ({
                     value={pin}
                     name='pin'
                     type='text'
-                    placeholder='Enter PIN here'
+                    placeholder={t('Enter PIN here')}
                     disabled={isLoading}
                 />
             </div>
@@ -41,7 +43,7 @@ const Restore: FC<RestoreProps> = ({
                     value={password}
                     name='password'
                     type='password'
-                    placeholder='Your new password'
+                    placeholder={t('YourNewPass')}
                     disabled={isLoading}
                 />
             </div>
@@ -55,7 +57,7 @@ const Restore: FC<RestoreProps> = ({
                                 height={20}
                                 width={20}
                             />
-                            : 'Continue'
+                            : t('Continue')
                     }
                 </button>
             </div>

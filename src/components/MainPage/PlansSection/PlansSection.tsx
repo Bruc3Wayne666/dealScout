@@ -1,6 +1,7 @@
 import React, {FC, LegacyRef} from 'react';
 import cls from './PlansSection.module.scss'
 import Plan from "../Plan/Plan";
+import {useTranslation} from "react-i18next";
 
 
 interface PlansSectionProps {
@@ -9,10 +10,12 @@ interface PlansSectionProps {
 }
 
 const PlansSection: FC<PlansSectionProps> = ({ref}) => {
+    const {t} = useTranslation('main')
+
     return (
         <section ref={ref} className={cls.section}>
             <div className={cls.sectionHeader}>
-                <h2>Available Plans</h2>
+                <h2>{t('Available Plans')}</h2>
             </div>
             <div className={cls.plans}>
                 <Plan plan={'start'} price={24.99}/>

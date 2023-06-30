@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC} from "react";
 import {UserCredentials} from "../../../models/User";
 import cls from "./Form.module.scss";
+import {useTranslation} from "react-i18next";
 
 export interface LoginProps {
     isLoading: boolean
@@ -16,6 +17,7 @@ const Login: FC<LoginProps> = ({
                                    handleChange,
                                }) => {
     const {email, password} = credentials
+    const {t} = useTranslation('login')
     return (
         <>
             <div className={cls.input}>
@@ -28,7 +30,7 @@ const Login: FC<LoginProps> = ({
                     value={email}
                     name='email'
                     type="text"
-                    placeholder='Email or Username'
+                    placeholder={t('Email or Username')}
                     disabled={isLoading}
                 />
             </div>
@@ -42,16 +44,16 @@ const Login: FC<LoginProps> = ({
                     value={password}
                     name='password'
                     type="password"
-                    placeholder='Password'
+                    placeholder={t('Password')}
                     disabled={isLoading}
                 />
             </div>
             <div className={cls.bottom}>
                 <div className={cls.text}>
-                    Don't have an account? <span onClick={() => setType('register')}>Sign Up!</span>
+                    {t('DontHaveAcc')}? <span onClick={() => setType('register')}>{t('Sign Up')}!</span>
                 </div>
                 <div className={cls.text}>
-                    <p onClick={() => setType('restore')}>Forgot password</p>
+                    <p onClick={() => setType('restore')}>{t('ForgotPass')}</p>
                 </div>
                 <button type='submit' disabled={isLoading}>
                     {
@@ -62,7 +64,7 @@ const Login: FC<LoginProps> = ({
                                 height={20}
                                 width={20}
                             />
-                            : 'Sign In'
+                            : t('Sign In')
                     }
                 </button>
             </div>
