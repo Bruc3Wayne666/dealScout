@@ -8,7 +8,8 @@ import PlansSection from "../../components/MainPage/PlansSection/PlansSection";
 const Main = () => {
     const plansRef = useRef<HTMLDivElement>(null)
 
-    const handleScroll = () => plansRef.current?.scrollIntoView()
+    // const handleScroll = () => plansRef.current?.scrollIntoView()
+    const handleScroll = () => window.scrollTo(0, 1360)
 
     return (
         <div className={cls.main}>

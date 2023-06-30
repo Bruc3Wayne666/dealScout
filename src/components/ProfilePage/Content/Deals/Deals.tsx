@@ -5,13 +5,14 @@ import {getDeals} from "../../../../store/reducers/deal/dealActions";
 import {Plan, Time} from "../../../../api/deal";
 import DealCard from "./DealCard/DealCard";
 import {ThemeContext, ThemeContextType} from "../../../../providers/ThemeProvider";
+import {deal} from "../../../../temp";
 
 const Deals = () => {
     const dispatch = useAppDispatch()
     const {isLoading, deals} = useAppSelector(state => state.dealSlice)
     const {currentOption} = useAppSelector(state => state.sidebarSlice)
     const {theme} = useContext(ThemeContext) as ThemeContextType
-     //make redux later
+    //make redux later
     const [view, setView] = useState('flex')
 
     useEffect(() => {
@@ -35,37 +36,11 @@ const Deals = () => {
             <div className={`${cls.items} ${cls[view]}`}>
                 {
                     isLoading
-                        ? <img src={require('../../../../assets/images/svg/spinner.svg').default} alt="Loading..."/>
-                        : deals.map(deal => {
+                        ? <img src={require('../../../../assets/images/svg/loading.svg').default} alt="Loading..."/>
+                        // : deals.map(deal => {
+                        : [1,1,1,1,1,1,1,1,1].map(() => {
+                            console.log(deal)
                             return <>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
-                                <DealCard item={deal} theme={theme}/>
                                 <DealCard item={deal} theme={theme}/>
                             </>
                         })

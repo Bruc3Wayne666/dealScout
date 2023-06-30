@@ -1,4 +1,5 @@
 import {instance} from "./index";
+import {IDeal} from "../models/Deal";
 
 
 export enum Time {
@@ -23,7 +24,7 @@ export interface IGetDeals {
 
 export class DealAPI {
     static async getDeals({user_session, time, plan}: IGetDeals){
-        const {data} = await instance.post('user_deals', {
+        const {data} = await instance.post<IDeal[]>('user_deals', {
             user_session,
             time,
             plan

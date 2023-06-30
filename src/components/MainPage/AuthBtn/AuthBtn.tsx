@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {FC} from 'react';
 import cls from './Auth.module.scss'
 import {Link} from "react-router-dom";
 
-export const AuthBtn = () => {
+
+interface AuthBtnProps {
+    isLogged: boolean
+    handleLogout: () => void
+}
+
+export const AuthBtn: FC<AuthBtnProps> = ({isLogged, handleLogout}) => {
     return (
-        <Link to={'/auth'} className={cls.authBtn}>
+        <Link
+            to={isLogged ? '' : '/auth'}
+            className={cls.authBtn}
+            onClick={() => {
+                if (isLogged) return handleLogout()
+            }}
+        >
+            {/*<div className={cls.authBtnSection}>*/}
+            {/*    <img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>*/}
+            {/*</div>*/}
             <div className={cls.authBtnSection}>
-                <img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>
-            </div>
-            <div className={cls.authBtnSection}>
-                <span>Sign In</span>
+                <span>{isLogged ? 'Log Out' : 'Sign In'}</span>
             </div>
         </Link>
     );

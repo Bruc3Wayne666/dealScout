@@ -25,11 +25,12 @@
     &.flex {
       display: flex;
       flex-direction: column;
+      //border: 2px solid red;
     }
 
     &.grid {
       display: grid;
-      grid-template-columns: repeat(4, auto);
+      grid-template-columns: repeat(2, auto);
       gap: 10px;
 
       @media screen and (max-width: 1024px){
