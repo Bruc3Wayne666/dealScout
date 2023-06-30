@@ -20,8 +20,72 @@
 
     .header {
       border-bottom: 2px solid #999999;
-    //
-    //  .mainInfo .info .item
+
+      .mainInfo .info .item{
+        &.category p {
+          color: #999999;
+        }
+
+        &.date span {
+          color: #999999;
+        }
+      }
+
+      .actions {
+        button {
+          border: 1px solid white;
+
+          &:hover {
+            border: 1px solid #999999;
+            background-color: #999999;
+          }
+        }
+      }
+    }
+
+    .info {
+      .main .item p {
+        color: #999999;
+      }
+    }
+  }
+
+  &.light {
+    background-color: #ddd;
+
+    a {
+      color: #222;
+    }
+
+    .header {
+      border-bottom: 2px solid $secondary-colour-light;
+
+      .mainInfo .info .item{
+        &.category p {
+          color: #222;
+        }
+
+        &.date span {
+          color: green;
+        }
+      }
+
+      .actions {
+        button {
+          border: 1px solid black;
+
+          &:hover {
+            border: 1px solid $secondary-colour-light;
+            background-color: $secondary-colour-light;
+          }
+        }
+      }
+    }
+
+    .info {
+      .main .item p {
+        color: #999999;
+      }
     }
   }
 
@@ -77,17 +141,12 @@
 
           &.category p {
             font-size: 13px;
-            color: #999999;
           }
 
           &.date {
             p {
               font-weight: 600;
               font-size: 13px;
-            }
-
-            span {
-              color: #999999;
             }
           }
 
@@ -113,7 +172,6 @@
         cursor: pointer;
         background-color: transparent;
         display: flex;
-        border: 1px solid #999999;
         border-radius: 4px;
         justify-content: center;
         align-items: center;
@@ -122,10 +180,6 @@
 
         img {
           width: 20px;
-        }
-
-        &:hover {
-          background-color: #999999;
         }
       }
     }
@@ -160,7 +214,6 @@
         p {
           margin: 0;
           font-size: 14px;
-          color: #999999;
         }
       }
 
@@ -196,6 +249,8 @@
   .bottom {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     button {
       color: white;
@@ -234,19 +289,4 @@
       }
     }
   }
-
-  .bottom {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-
-    .right {
-
-    }
-
-    .left {
-
-    }
-  }
-
 }
