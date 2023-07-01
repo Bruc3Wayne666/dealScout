@@ -13,7 +13,7 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
         // send smth to backend and get response (upd status etc)
     }
 
-    if (isPaid) alert('Successfully purchased!') // etc
+    // if (isPaid) alert('Successfully purchased!') // etc
 
     if (err) alert(err) //etc
 
@@ -46,9 +46,10 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
                 return actions.order.create({
                     purchase_units: [
                         {
-                            description: product.description,
+                            description: 'product of profuc',
+                            // description: product.description,
                             amount: {
-                                value: product.price
+                                value: '1'
                             }
                         }
                     ]

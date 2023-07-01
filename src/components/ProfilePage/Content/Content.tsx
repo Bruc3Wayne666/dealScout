@@ -3,6 +3,7 @@ import cls from './Content.module.scss'
 import {useAppSelector} from "../../../hooks/redux";
 import Deals from "./Deals/Deals";
 import {SideBarOptions} from "../SideBarMenu/SideBarMenu";
+import PaypalCheckoutButton from "../../PaypalCheckoutButton/PaypalCheckoutButton";
 
 const Content = ({theme}: { theme: string }) => {
     const {currentOption} = useAppSelector(state => state.sidebarSlice)
@@ -17,7 +18,8 @@ const Content = ({theme}: { theme: string }) => {
             {
                 currentOption === SideBarOptions.MY_DEALS
                     ? <Deals/>
-                    : <h2>Nothing yet... {currentOption}</h2>
+                    // : <h2>Nothing yet... {currentOption}</h2>
+                    : <PaypalCheckoutButton />
             }
 
             {/*<div className="paypal-button-container">*/}
