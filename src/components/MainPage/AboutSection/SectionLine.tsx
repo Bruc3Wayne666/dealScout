@@ -1,9 +1,13 @@
-import React, {FC} from 'react';
+import React, {FC, forwardRef} from 'react';
 import cls from './SectionLine.module.scss'
+import {motion} from "framer-motion";
 
-const SectionLine: FC<any> = ({type}: {type: string}) => {
+const SectionLine: FC<any> = forwardRef(({type}: {type: string}, ref: any) => {
     return (
-        <div className={cls.sectionLine}>
+        <div
+            ref={ref}
+            className={cls.sectionLine}
+        >
             <div className={cls.sectionLineHorizont}>
                 {
                     type === 'start'
@@ -13,6 +17,6 @@ const SectionLine: FC<any> = ({type}: {type: string}) => {
             </div>
         </div>
     );
-};
+})
 
-export default SectionLine;
+export default motion(SectionLine);

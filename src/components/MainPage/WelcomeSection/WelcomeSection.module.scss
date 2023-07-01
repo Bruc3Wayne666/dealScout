@@ -80,10 +80,11 @@
 }
 
 .sectionContentBtn button {
-  border-radius: 14px;
-  height: 48px;
-  width: 250px;
+  border-radius: 18px;
+  //height: 48px;
+  //width: 250px;
   border: none;
+  padding: 8px 16px;
   outline: none;
   cursor: pointer;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
