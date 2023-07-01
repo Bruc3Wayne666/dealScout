@@ -1,4 +1,5 @@
 @import-normalize;
+@import 'src/global/styles/_variables.scss';
 
 body {
   margin: 0;
@@ -6,6 +7,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  width: 100%;
+  background-color: $primary-colour-dark;
   scroll-behavior: smooth;
   //background:
   //        conic-gradient(at 50% calc(100%/6),rgba(204, 85, 0, 0.36) 60deg,#0000 0),

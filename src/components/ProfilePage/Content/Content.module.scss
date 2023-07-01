@@ -1,9 +1,11 @@
 .content {
     display: flex;
-    align-items: center;
+    //align-items: center;
     justify-content: center;
     flex: 1;
     transition: .3s;
+    //border: 3px solid red;
+
 
     .light {
         color: black;

@@ -217,7 +217,7 @@
         }
       }
 
-      @media screen and (max-width: 572px) {
+      @media screen and (max-width: 774px) {
         grid-template-columns: repeat(3, auto);
       }
     }
@@ -229,6 +229,7 @@
       justify-content: center;
       flex-direction: column;
       //border: 1px solid white;
+      //flex: 1;
 
       img {
         width: 80%;
