@@ -23,24 +23,27 @@ const Settings = () => {
     return (
         <div className={cls.settings}>
             <div className={cls.options}>
+                {/*<div className={cls.rotate}>*/}
                 <h2>{t('profile')}</h2>
                 <Profile theme={theme}/>
+                {/*</div>*/}
 
                 <h2>{t('settings')}</h2>
                 <LangOption cb={handleLanguage} theme={theme} lang={i18n.language}/>
-                <MailingOption cb={() => {}} theme={theme}/>
+                <MailingOption cb={() => {
+                }} theme={theme}/>
 
                 <h2>{t('support')}</h2>
-                <SupportOption theme={theme} />
+                <SupportOption theme={theme}/>
             </div>
 
             <button
                 onClick={() => {
-                localStorage.removeItem('isLogin')
-                localStorage.removeItem('user_session')
-                dispatch(logout())
-                navigate('/auth')
-            }}>{t('logout')}</button>
+                    localStorage.removeItem('isLogin')
+                    localStorage.removeItem('user_session')
+                    dispatch(logout())
+                    navigate('/auth')
+                }}>{t('logout')}</button>
         </div>
     );
 };

@@ -3,8 +3,6 @@ import cls from './SideBarMenu.module.scss'
 import SideBarMenuOption from "./SideBarMenuOption";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {setCurrent} from "../../../store/reducers/sidebar/sidebarSlice";
-import {useNavigate} from "react-router";
-import {useTranslation} from "react-i18next";
 
 
 export enum SideBarOptions {

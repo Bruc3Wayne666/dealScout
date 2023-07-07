@@ -23,8 +23,17 @@
     h2 {
       margin: 24px 0 12px;
     }
-    //border: 1px solid white;
-    //flex: 1;
+
+    //.rotate {
+    //  display: flex;
+    //
+    //  h2 {
+    //    margin: 0;
+    //    font-size: 64px;
+    //    transform: rotate(-90deg);
+    //  }
+    //}
+
     display: flex;
     flex-direction: column;
   }

@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, FC, useState} from 'react';
 import cls from './Profile.module.scss'
 import {useTranslation} from "react-i18next";
 
@@ -9,6 +9,8 @@ interface ProfileProps {
 const Profile: FC<ProfileProps> = ({theme}) => {
     const [login, setLogin] = useState('')
     const [img, setImg] = useState('')
+    const [userName, setUsername] = useState('username')
+    const [isEdit, setIsEdit] = useState(false)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore
@@ -37,15 +39,25 @@ const Profile: FC<ProfileProps> = ({theme}) => {
 
                 <div className={cls.login}>
                     <h4>{t('change_login')}</h4>
-                    <input
-                        className={cls[theme]}
-                        placeholder={t('type_login')}
-                        type="text"
-                        value={login}
-                        onChange={e => setLogin(e.currentTarget.value)}
-                    />
+                    <div
+                        onClick={() => setIsEdit(prev => !prev)}
+                        className={`${cls.name} ${cls[theme]}`}
+                    >
+                        <h3>{userName}</h3>
+                        <img src={require(`../../../../../assets/images/svg/${theme}/edit.svg`)} alt="Edit"/>
+                    </div>
                     {
-                        login &&
+                        isEdit &&
+                        <input
+                            className={cls[theme]}
+                            placeholder={t('type_login')}
+                            type="text"
+                            value={login}
+                            onChange={e => setLogin(e.currentTarget.value)}
+                        />
+                    }
+                    {
+                        (isEdit && login) &&
                         <button>{t('confirm')}</button>
                     }
                 </div>
