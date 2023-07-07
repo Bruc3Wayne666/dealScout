@@ -6,7 +6,7 @@ interface ISidebarState {
 }
 
 const initialState: ISidebarState = {
-    currentOption: 'dashboard',
+    currentOption: 'Dashboard',
 }
 
 export const sidebarSlice = createSlice({

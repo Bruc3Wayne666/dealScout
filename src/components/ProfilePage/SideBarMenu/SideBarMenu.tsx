@@ -3,7 +3,6 @@ import cls from './SideBarMenu.module.scss'
 import SideBarMenuOption from "./SideBarMenuOption";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {setCurrent} from "../../../store/reducers/sidebar/sidebarSlice";
-import {logout} from "../../../store/reducers/user/userSlice";
 import {useNavigate} from "react-router";
 import {useTranslation} from "react-i18next";
 
@@ -25,9 +24,7 @@ const options = [
 
 const SideBarMenu = ({theme}: {theme: string}) => {
     const dispatch = useAppDispatch()
-    const navigate = useNavigate()
     const {currentOption} = useAppSelector(state => state.sidebarSlice)
-    const {t, i18n} = useTranslation('profile')
 
     const handleSetCurrentOption = (val: string) => {
         dispatch(setCurrent(val))
@@ -46,13 +43,6 @@ const SideBarMenu = ({theme}: {theme: string}) => {
                     />
                 ))
             }
-
-            <button onClick={() => {
-                localStorage.removeItem('isLogin')
-                localStorage.removeItem('user_session')
-                dispatch(logout())
-                navigate('/auth')
-            }}>LOG OUT</button>
         </div>
     );
 };

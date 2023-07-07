@@ -1,9 +1,17 @@
 {
     "check": "Check",
-    "Lng": "En",
+    "Lng": "Es",
     "Dashboard": "Dashboard",
     "Activity History": "Activity History",
     "Settings": "Settings",
-    "My Deals": "Mis Ofertas"
-
+    "My Deals": "Mis Ofertas",
+    "settings": "Ajustes",
+    "mailing": "Habilitar envío de correos",
+    "support_option": "Soporte de contacto",
+    "support": "Soporte",
+    "logout": "Cerrar sesión",
+    "profile": "Perfil",
+    "change_image": "Cambiar imagen",
+    "change_login": "Cambiar inicio de sesión",
+    "type_login": "Escriba su nuevo inicio de sesión aquí"
 }

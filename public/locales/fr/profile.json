@@ -4,5 +4,14 @@
     "Dashboard": "Tableau de bord",
     "Activity History": "Historique des activités",
     "Settings": "Paramètres",
-    "My Deals": "Mes Offres"
+    "My Deals": "Mes Offres",
+    "settings": "Paramètres",
+    "mailing": "Activer l'envoi",
+    "support_option": "Contactez le support",
+    "support": "Support",
+    "logout": "Se déconnecter",
+    "profile": "Profil",
+    "change_image": "Changer l'image",
+    "change_login": "Changer de connexion",
+    "type_login": "Tapez votre nouveau login ici"
 }

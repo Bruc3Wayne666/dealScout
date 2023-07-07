@@ -4,5 +4,14 @@
     "Dashboard": "Armaturenbrett",
     "Activity History": "Aktivitätsverlauf",
     "Settings": "Einstellungen",
-    "My Deals": "Meine Angebote"
+    "My Deals": "Meine Angebote",
+    "settings": "Einstellungen",
+    "mailing": "Mailing aktivieren",
+    "support_option": "Kontaktieren Sie Support",
+    "support": "Support",
+    "logout": "Ausloggen",
+    "profile": "Profil",
+    "change_image": "Bild ändern",
+    "change_login": "Login ändern",
+    "type_login": "Geben Sie hier Ihr neues Login ein"
 }

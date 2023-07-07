@@ -1,0 +1,63 @@
+@import 'src/global/styles/variables';
+
+.option {
+  //border: 1px solid yellow;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  appearance: none;
+  color: white;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .toggle {
+    //display: flex;
+    //align-items: center;
+    //height: 100%;
+
+    &.unchecked {
+      justify-content: flex-end;
+      //padding-right: 6px;
+    }
+
+    &.checked {
+      justify-content: flex-start;
+      //padding-left: 6px;
+    }
+  }
+
+  &.select {
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 12px;
+  }
+
+  &.light {
+    background-color: $secondary-colour-light;
+    background-image: url('../../../../../assets/images/svg/light/arrow-down.svg');
+
+    &.support {
+      background-color: $primary-colour-light;
+    }
+
+    span a {
+      color: #222;
+    }
+  }
+
+  &.dark {
+    background-color: $secondary-colour-dark;
+    background-image: url('../../../../../assets/images/svg/dark/arrow_down.svg');
+
+    &.support {
+      background-color: $primary-colour-dark;
+    }
+
+    span a {
+      color: white;
+    }
+  }
+}

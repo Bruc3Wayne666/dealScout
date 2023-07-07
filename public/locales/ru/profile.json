@@ -4,5 +4,14 @@
     "Dashboard": "Приборная панель",
     "Activity History": "История активности",
     "Settings": "Настройки",
-    "My Deals": "Мои сделки"
+    "My Deals": "Мои сделки",
+    "settings": "Настройки",
+    "mailing": "Включить рассылку",
+    "support_option": "Связаться с поддержкой",
+    "support": "Поддержка",
+    "logout": "Выйти",
+    "profile": "Профиль",
+    "change_image": "Изменить изображение",
+    "change_login": "Изменить логин",
+    "type_login": "Введите новый логин здесь"
 }
