@@ -24,14 +24,20 @@ const Settings = () => {
         <div className={cls.settings}>
             <div className={cls.options}>
                 {/*<div className={cls.rotate}>*/}
-                <h2>{t('profile')}</h2>
+                <h1>{t('profile')}</h1>
                 <Profile theme={theme}/>
                 {/*</div>*/}
 
                 <h2>{t('settings')}</h2>
-                <LangOption cb={handleLanguage} theme={theme} lang={i18n.language}/>
-                <MailingOption cb={() => {
-                }} theme={theme}/>
+                <LangOption
+                    cb={handleLanguage}
+                    theme={theme}
+                    lang={i18n.language}
+                />
+                <MailingOption
+                    cb={() => {}}
+                    theme={theme}
+                />
 
                 <h2>{t('support')}</h2>
                 <SupportOption theme={theme}/>

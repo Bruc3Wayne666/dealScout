@@ -20,8 +20,6 @@ const MailingOption: FC<MailingOptionProps> = ({theme, cb}) => {
             <Switch
                 onChange={() => setChecked(prev => !prev)}
                 checked={checked}
-                // offColor={'#999'}
-                // onColor={'#c50'}
                 offColor={'#242529'}
                 onColor={'#242529'}
                 offHandleColor={'#F6F1D5'}
