@@ -48,17 +48,22 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                     </div>
                     {
                         isEdit &&
-                        <input
-                            className={cls[theme]}
-                            placeholder={t('type_login')}
-                            type="text"
-                            value={login}
-                            onChange={e => setLogin(e.currentTarget.value)}
-                        />
-                    }
-                    {
-                        (isEdit && login) &&
-                        <button>{t('confirm')}</button>
+                        <div className={cls.input}>
+                            <input
+                                className={cls[theme]}
+                                placeholder={t('type_login')}
+                                type="text"
+                                value={login}
+                                onChange={e => setLogin(e.currentTarget.value)}
+                            />
+                            <button
+                                onClick={() => console.log(12)}
+                                disabled={login === ''}
+                                className={`${login === '' && cls.disabled}`}
+                            >
+                                {t('confirm')}
+                            </button>
+                        </div>
                     }
                 </div>
             </div>

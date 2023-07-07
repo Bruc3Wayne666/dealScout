@@ -2,13 +2,24 @@
 
 .profile {
   padding-bottom: 22px;
+  padding-top: 22px;
 
   &.dark {
     border-bottom: 1px solid $secondary-colour-dark;
+    background-color: #242529;
+    opacity: 1;
+    background-image:  radial-gradient(#36383E 1.25px, transparent 1.25px), radial-gradient(#36383E 1.25px, #242529 1.25px);
+    background-size: 50px 50px;
+    background-position: 0 0,25px 25px;
   }
 
   &.light {
     border-bottom: 1px solid #999999;
+    background-color: #fff;
+    opacity: 1;
+    background-image:  radial-gradient(#c50 1.25px, transparent 1.25px), radial-gradient(#c50 1.25px, #fff 1.25px);
+    background-size: 50px 50px;
+    background-position: 0 0,25px 25px;
   }
 
   .change {
@@ -34,8 +45,8 @@
         align-items: center;
 
         img {
-          width: 120px;
-          height: 120px;
+          width: 140px;
+          height: 140px;
           margin-bottom: 12px;
           border-radius: 50%;
           object-fit: cover;
@@ -107,33 +118,44 @@
         }
 
         &.light {
-          background-color: #999999;
+          background-color: #ddd;
         }
       }
 
-      button {
-        border: none;
-        padding: 4px 12px;
-        color: white;
-        background-color: $secondary-colour-light;
-        height: 34px;
-      }
+      .input {
+        //border: 1px solid white;
+        display: flex;
+        height: 40px;
 
-      input[type='text'] {
-        margin-right: 10px;
-        outline: none;
-        background-color: transparent;
-        padding: 8px 12px;
-        border-radius: 12px;
-        border: 2px solid $secondary-colour-light;
-        width: 240px;
-
-        &.light {
-          color: #222;
-        }
-
-        &.dark {
+        button {
+          border: none;
+          padding: 4px 12px;
           color: white;
+          background-color: $secondary-colour-light;
+          border-radius: 0 12px 12px 0;
+          height: 100%;
+
+          &.disabled { background-color: #999999}
+        }
+
+        input[type='text'] {
+          outline: none;
+          background-color: transparent;
+          padding: 8px 12px;
+          border-radius: 12px 0 0 12px;
+          border: 2px solid $secondary-colour-light;
+          width: 240px;
+          //flex: 1;
+          height: 100%;
+          box-sizing: border-box;
+
+          &.light {
+            color: #222;
+          }
+
+          &.dark {
+            color: white;
+          }
         }
       }
     }
