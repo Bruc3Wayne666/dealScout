@@ -33,8 +33,14 @@
 
   &.pro {
     color: white;
-    background: linear-gradient(180deg, #121562 0%, #5D6694 100%);
     transition: 0.3s;
+    //background: linear-gradient(180deg, #121562 0%, #5D6694 100%);
+    background: linear-gradient(160deg, #121562, #5d6694, #c50);
+    background-size: 400% 400%;
+    -webkit-animation: ProGradient 8s ease infinite;
+    -moz-animation: ProGradient 8s ease infinite;
+    -o-animation: ProGradient 8s ease infinite;
+    animation: ProGradient 8s ease infinite;
 
     .info .top span {
       color: #999999;
@@ -42,6 +48,51 @@
 
     .description {
       color: white;
+    }
+
+    @-webkit-keyframes ProGradient {
+      0% {
+        background-position: 0 24%
+      }
+      50% {
+        background-position: 100% 77%
+      }
+      100% {
+        background-position: 0 24%
+      }
+    }
+    @-moz-keyframes ProGradient {
+      0% {
+        background-position: 0 24%
+      }
+      50% {
+        background-position: 100% 77%
+      }
+      100% {
+        background-position: 0 24%
+      }
+    }
+    @-o-keyframes ProGradient {
+      0% {
+        background-position: 0 24%
+      }
+      50% {
+        background-position: 100% 77%
+      }
+      100% {
+        background-position: 0 24%
+      }
+    }
+    @keyframes ProGradient {
+      0% {
+        background-position: 0 24%
+      }
+      50% {
+        background-position: 100% 77%
+      }
+      100% {
+        background-position: 0 24%
+      }
     }
   }
 
