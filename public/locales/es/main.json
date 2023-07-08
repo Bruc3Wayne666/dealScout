@@ -16,5 +16,9 @@
     "Start Plan": "Starter Plan",
     "Get": "Get",
     "Advanced Plan": "Advanced Plan",
-    "Pro Plan": "PRO Plan"
+    "Pro Plan": "PRO Plan",
+    "start": "Diseñado para vendedores primerizos o aquellos que quieren probar el servicio.^Por $ 24.99, obtiene acceso a 5 operaciones rentables al día para ayudarlo a comenzar a aumentar sus ganancias.",
+    "advanced": "Perfecto para vendedores que quieren acelerar su crecimiento.^Por $ 34.99 obtiene acceso a 7 ofertas rentables por día y una garantía de menos personas en su grupo, lo que le permite obtener un servicio más personalizado.",
+    "pro": "Este plan es para vendedores serios que buscan maximizar las ganancias.^Por $ 49.99, obtiene acceso a 10 ofertas exclusivas por día y una garantía de la menor cantidad de personas en su grupo, brindando la experiencia más personalizada.",
+    "info": "Más información"
 }

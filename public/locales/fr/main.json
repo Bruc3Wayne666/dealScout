@@ -17,4 +17,8 @@
     "Get": "Obtenir",
     "Advanced Plan": "Forfait avancé",
     "Pro Plan": "Forfait PRO",
+    "start": "Conçu pour les nouveaux vendeurs ou ceux qui veulent essayer le service.^Pour 24,99 $, vous avez accès à 5 transactions rentables par jour pour vous aider à commencer à augmenter vos bénéfices.",
+    "advanced": "Parfait pour les vendeurs qui souhaitent accélérer leur croissance.^Pour 34,99 $, vous avez accès à 7 offres rentables par jour et une garantie de moins de personnes dans votre groupe, vous permettant d'obtenir un service plus personnalisé.",
+    "pro": "Ce plan est destiné aux vendeurs sérieux qui cherchent à maximiser leurs profits.^Pour 49,99 $, vous avez accès à 10 offres exclusives par jour et à la garantie du moins de personnes dans votre groupe, offrant l'expérience la plus personnalisée.",
+    "info": "Plus d'information"
 }

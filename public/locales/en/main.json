@@ -16,5 +16,9 @@
     "Start Plan": "Starter Plan",
     "Get": "Get",
     "Advanced Plan": "Advanced Plan",
-    "Pro Plan": "PRO Plan"
+    "Pro Plan": "PRO Plan",
+    "start": "Designed for first-time sellers or those who want to try the service.^For $24.99, you get access to 5 profitable trades a day to help you start increasing your profits.",
+    "advanced": "Perfect for sellers who want to accelerate their growth.^For $34.99 you get access to 7 profitable deals per day and a guarantee of fewer people in your group, allowing you to get a more personalized service.",
+    "pro": "This plan is for serious sellers looking to maximize profits.^For $49.99, you get access to 10 exclusive deals per day and a guarantee of the least number of people in your group, providing the most personalized experience.",
+    "info": "More information"
 }

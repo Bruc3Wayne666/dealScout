@@ -8,7 +8,6 @@ import {motion} from "framer-motion";
 interface PlanProps {
     plan: string
     price: number
-    description?: string
 }
 
 const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
@@ -28,14 +27,11 @@ const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
                         <div className={`${cls.description}`}>
                        <span
                            onClick={() => setIsShowInfo(false)}
-                       >&times;</span>
-                            <h3>{capitalize(plan)} plan</h3>
-                            <ul>
-                                <li>999 users</li>
-                                <li>999 deals</li>
-                                <li>discounts</li>
-                                <li>top</li>
-                            </ul>
+                       >
+                           &times;
+                       </span>
+                            <h3>{t(`${capitalize(plan)} Plan`)}</h3>
+                            {t(plan).split('^').map(p => <p>{p}</p>)}
                         </div>
                     </>
                     : <>
@@ -44,15 +40,16 @@ const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
                             onClick={() => setIsShowInfo(true)}
                             className={`${cls.plan} ${cls[plan]}`}
                         >
-                            <img src={require(`../../../assets/images/svg/plan_${plan}.svg`)} alt={'Start'}/>
+                            <img src={require(`../../../assets/images/svg/plan_${plan}.svg`)} alt={'Plan'}/>
                         </div>
                         <div className={cls.info}>
                             <div className={cls.top}>
-                                <h3>{t(`${capitalize(plan)} Plan`)} </h3>
+                                <h3>{t(`${capitalize(plan)} Plan`)}</h3>
                                 <span>${price}</span>
+                                {/*<p>{description[0]}</p>*/}
                             </div>
                             <div className={cls.bottom}>
-                                <span onClick={() => setIsShowInfo(true)}>More information</span>
+                                <span onClick={() => setIsShowInfo(true)}>{t('info')}</span>
                                 <button>
                                     {t('Get')}
                                 </button>
