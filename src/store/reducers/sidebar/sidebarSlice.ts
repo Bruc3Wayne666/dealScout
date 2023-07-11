@@ -19,5 +19,5 @@ export const sidebarSlice = createSlice({
     }
 })
 
-export const {setCurrent} = sidebarSlice.actions
+export const sidebarActions = sidebarSlice.actions
 export default sidebarSlice.reducer

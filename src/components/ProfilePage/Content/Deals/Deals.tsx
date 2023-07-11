@@ -7,6 +7,7 @@ import DealCard from "./DealCard/DealCard";
 import {ThemeContext, ThemeContextType} from "../../../../providers/ThemeProvider";
 import {deal} from "../../../../temp";
 import {capitalize} from "../../../../shared/utils";
+import {useActions} from "../../../../hooks/useActions";
 
 
 interface Options {
@@ -32,7 +33,7 @@ const initialOptions = {
 }
 
 const Deals = () => {
-    const dispatch = useAppDispatch()
+    const {getDeals} = useActions()
     const {isLoading, deals} = useAppSelector(state => state.dealSlice)
     const {currentOption} = useAppSelector(state => state.sidebarSlice)
     const {theme} = useContext(ThemeContext) as ThemeContextType
@@ -42,13 +43,13 @@ const Deals = () => {
 
     useEffect(() => {
         if (currentOption === 'My Deals') {
-            dispatch(getDeals({
-                user_session: localStorage.getItem('user_session') || '',
+            getDeals({
+                session: localStorage.getItem('user_session') || '',
                 time: Time.TODAY,
-                plan: Plan.ALL
-            }))
+                plan_id: Plan.ALL
+            })
         }
-    }, [dispatch])
+    }, [])
 
 
     return (
@@ -68,13 +69,13 @@ const Deals = () => {
                         onClick={() => setOptions(prev => ({...prev, actual: 'today'}))}
                         className={`${cls.option} ${options.actual === 'today' ? cls.active : ''}`}
                     >
-                        <p>Today <span>5</span></p>
+                        <p>Today <span>{deals.length} (5)</span></p>
                     </div>
                     <div
                         onClick={() => setOptions(prev => ({...prev, actual: 'all'}))}
                         className={`${cls.option} ${options.actual === 'all' ? cls.active : ''}`}
                     >
-                        <p>All <span>999</span></p>
+                        <p>All <span>{deals.length}</span></p>
                     </div>
                 </div>
                 <div className={cls.search}>

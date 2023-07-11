@@ -1,0 +1,17 @@
+@import 'src/global/styles/variables';
+
+.toast {
+  font-size: 18px;
+  width: 24vw;
+  padding: 22px 12px;
+  border-radius: 22px;
+  color: white;
+
+  &.light {
+    background: $secondary-colour-light;
+  }
+
+  &.dark {
+    background: #222;
+  }
+}

@@ -1,15 +1,15 @@
 import React, {FC} from 'react';
 import cls from './DealCard.module.scss'
-import {IDeal} from "../../../../../models/Deal";
+import {DealShow} from "../../../../../models/Deal";
 
 interface DealCardProps {
-    item: IDeal
+    item: DealShow
     theme: string
 }
 
 const DealCard: FC<DealCardProps> = ({item, theme}) => {
     const {
-        photo,
+        image,
         amazon_price,
         amazon_link,
         fba_seller,
@@ -17,7 +17,7 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
         shop_price,
         bsr_percent,
         asin,
-        store_name,
+        shop_name,
         net_profit,
         est_monthly_sale,
         roi,
@@ -34,7 +34,7 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                     <div className={cls.image}>
                         <img
                             // src={`data:image/png;base64,${photo}`}
-                            src={photo}
+                            src={image}
                             alt='Deal image'
                         />
                     </div>
@@ -73,7 +73,7 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                 <div className={cls.main}>
                     <div className={cls.item}>
                         <h5>Store Name</h5>
-                        <p>{store_name}</p>
+                        <p>{shop_name}</p>
                     </div>
                     <div className={cls.item}>
                         <h5>Shop Price</h5>

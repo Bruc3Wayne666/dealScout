@@ -36,7 +36,9 @@
   }
 
   &.light {
-    background-color: $secondary-colour-light;
+    color: #222;
+    //background-color: $secondary-colour-light;
+    background-color: #dddddd;
     background-image: url('../../../../../assets/images/svg/light/arrow-down.svg');
 
     &.support {

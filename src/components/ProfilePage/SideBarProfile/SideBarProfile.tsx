@@ -10,7 +10,8 @@ const SideBarProfile = ({theme}: {theme: string}) => {
                 src={require(`../../../assets/images/svg/${theme}/profile.svg`)}
                 alt="Profile"
             />
-            <h5>{user_session.substr(1, 12)}</h5>
+            {/*<h5>{user_session?.substr(1, 12)}</h5>*/}
+            <h5>SAMPLE</h5>
         </div>
     );
 };

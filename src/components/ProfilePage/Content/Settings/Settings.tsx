@@ -5,16 +5,15 @@ import {useTranslation} from "react-i18next";
 import LangOption from "./Options/LangOption";
 import MailingOption from "./Options/MailingOption";
 import SupportOption from "./Options/SupportOption";
-import {logout} from "../../../../store/reducers/user/userSlice";
 import {useNavigate} from "react-router";
-import {useAppDispatch} from "../../../../hooks/redux";
 import Profile from "./Profile/Profile";
+import {useActions} from "../../../../hooks/useActions";
 
 const Settings = () => {
     const {theme} = useContext(ThemeContext) as ThemeContextType
     const {t, i18n} = useTranslation('profile')
     const navigate = useNavigate()
-    const dispatch = useAppDispatch()
+    const {logout, changeMailing} = useActions()
 
     const handleLanguage = (val: string) => {
         i18n.changeLanguage(val)
@@ -35,7 +34,7 @@ const Settings = () => {
                     lang={i18n.language}
                 />
                 <MailingOption
-                    cb={() => {}}
+                    cb={changeMailing}
                     theme={theme}
                 />
 
@@ -47,7 +46,7 @@ const Settings = () => {
                 onClick={() => {
                     localStorage.removeItem('isLogin')
                     localStorage.removeItem('user_session')
-                    dispatch(logout())
+                    logout()
                     navigate('/auth')
                 }}>{t('logout')}</button>
         </div>

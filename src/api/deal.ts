@@ -1,5 +1,5 @@
 import {instance} from "./index";
-import {IDeal} from "../models/Deal";
+import {DealShow, DealAdd} from "../models/Deal";
 
 
 export enum Time {
@@ -16,19 +16,25 @@ export enum Plan {
     PRO = 3
 }
 
-export interface IGetDeals {
-    user_session: string
+export interface GetDealsProps {
+    session: string
     time: Time,
-    plan: Plan
+    plan_id: Plan
+}
+
+export interface AddDealProps {
+    session: string
+    payload: DealAdd
 }
 
 export class DealAPI {
-    static async getDeals({user_session, time, plan}: IGetDeals){
-        const {data} = await instance.post<IDeal[]>('user_deals', {
-            user_session,
-            time,
-            plan
-        })
+    static async getDeals(payload: GetDealsProps){
+        const {data} = await instance.post<DealShow[]>('deal/look', payload)
+        return data
+    }
+
+    static async addDeal({session, payload}: AddDealProps){
+        const {data} = await instance.post(`deal/add/${session}`, payload)
         return data
     }
 }

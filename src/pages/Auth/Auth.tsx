@@ -4,26 +4,28 @@ import Form from "../../components/AuthPage/Form/Form";
 import {Link} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router";
 import {UserCredentials} from "../../models/User";
-import {login, register, restorePassword} from "../../store/reducers/user/userActions";
-import {useAppDispatch} from "../../hooks/redux";
 import {UserAPI} from "../../api/user";
+import {useActions} from "../../hooks/useActions";
+import {useAppSelector} from "../../hooks/redux";
 
 
 const initialState: UserCredentials = {
     username: '',
     email: '',
     password: '',
-    pin: ''
+    pin: '',
+    referral_link: ''
 }
 
 const Auth = () => {
-    const dispatch = useAppDispatch()
+    const {login, register, resetUserPassword, requestResetPasswordPin} = useActions()
+    const {isLoading} = useAppSelector(state => state.userSlice)
     const navigate = useNavigate()
     const location = useLocation()
     const [type, setType] = useState('register')
     const [credentials, setCredentials] = useState(initialState)
     const {email, username, password, pin} = credentials
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
 
     const fromPage = location.state?.from?.pathname || '/'
 
@@ -34,30 +36,15 @@ const Auth = () => {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setIsLoading(true)
         if (type === 'register') {
-            return dispatch(register({
-                ...credentials,
-                username: username || ''
-            })).then(() => {
-                setIsLoading(false)
-                navigate(fromPage)
-            })
+            return register({...credentials, username: username || ''})
         } else if (type === 'login') {
-            return dispatch(login({
-                email,
-                password
-            })).then(() => {
-                setIsLoading(false)
-                navigate(fromPage)
-            })
+            return login({email, password})
         } else if (type === 'pin') {
-            return dispatch(restorePassword({email, password, pin})).then(() => {
-                setIsLoading(false)
-                navigate(fromPage)
-            })
+            return resetUserPassword({email, password, pin})
         } else {
-            handleRequestPin()
+            requestResetPasswordPin({email})
+            return setType('pin')
         }
     }
 
@@ -68,13 +55,13 @@ const Auth = () => {
         })
     }
 
-    const handleRequestPin = () => {
-        UserAPI.requestPin({email})
-            .then(() => {
-                setIsLoading(false)
-                setType('pin')
-            })
-    }
+    // const handleRequestPin = () => {
+    //     UserAPI.requestPin({email})
+    //         .then(() => {
+    //             setIsLoading(false)
+    //             setType('pin')
+    //         })
+    // }
 
     return (
         <div className={cls.page}>

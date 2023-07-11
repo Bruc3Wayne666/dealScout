@@ -2,14 +2,14 @@ import React from 'react';
 import cls from './Header.module.scss'
 import {AuthBtn, ProfileBtn} from "../AuthBtn/AuthBtn";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
-import {logout} from "../../../store/reducers/user/userSlice";
+import {useActions} from "../../../hooks/useActions";
 
 const Header = () => {
-    const dispatch = useAppDispatch()
     const {user_session} = useAppSelector(state => state.userSlice)
+    const {logout} = useActions()
 
     const handleLogout = () => {
-        dispatch(logout())
+        logout()
         localStorage.removeItem('user_session')
     }
 

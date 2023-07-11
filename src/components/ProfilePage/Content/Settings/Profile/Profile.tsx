@@ -1,21 +1,40 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import cls from './Profile.module.scss'
 import {useTranslation} from "react-i18next";
+import {useActions} from "../../../../../hooks/useActions";
+import {useAppSelector} from "../../../../../hooks/redux";
 
 interface ProfileProps {
     theme: string
 }
 
 const Profile: FC<ProfileProps> = ({theme}) => {
+    const {changeUserLogin, changeUserPhoto} = useActions()
+    const {user_session} = useAppSelector(state => state.userSlice)
+
     const [login, setLogin] = useState('')
     const [img, setImg] = useState('')
-    const [userName, setUsername] = useState('username')
+    const [userName, setUsername] = useState('<get later>')
     const [isEdit, setIsEdit] = useState(false)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore
         const file = e.currentTarget.files[0]
-        setImg(URL.createObjectURL(file))
+        // setImg(URL.createObjectURL(file))
+        // changeUserPhoto({image: img, session: user_session})
+        changeUserPhoto({
+            image: file,
+            session: user_session
+        })
+        setImg(URL.createObjectURL(file)) // change later
+    }
+
+    const handleSetLogin = () => {
+        changeUserLogin({
+            user_session,
+            new_login: login
+        })
+        setUsername(login) // change later
     }
 
     const {t} = useTranslation('profile')
@@ -57,7 +76,7 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                                 onChange={e => setLogin(e.currentTarget.value)}
                             />
                             <button
-                                onClick={() => console.log(12)}
+                                onClick={handleSetLogin}
                                 disabled={login === ''}
                                 className={`${login === '' && cls.disabled}`}
                             >

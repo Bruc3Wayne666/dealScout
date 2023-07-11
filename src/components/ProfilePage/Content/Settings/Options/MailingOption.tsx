@@ -6,19 +6,22 @@ import {useAppSelector} from "../../../../../hooks/redux";
 
 interface MailingOptionProps {
     theme: string
-    cb: (val: boolean) => void
+    cb: ({session}: {session: string}) => void
 }
 
 const MailingOption: FC<MailingOptionProps> = ({theme, cb}) => {
     const {t} = useTranslation('profile')
-    // const { user } = useAppSelector(state => state.userSlice)
+    const { user_session } = useAppSelector(state => state.userSlice)
     const [checked, setChecked] = useState(false)
 
     return (
         <div className={`${cls.option} ${cls[theme]} `}>
             {t('mailing')}
             <Switch
-                onChange={() => setChecked(prev => !prev)}
+                onChange={() => {
+                    cb({session: user_session})
+                    setChecked(prev => !prev)
+                }}
                 checked={checked}
                 offColor={'#242529'}
                 onColor={'#242529'}

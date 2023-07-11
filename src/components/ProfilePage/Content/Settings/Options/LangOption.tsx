@@ -25,7 +25,6 @@ const initLang = {
 const LangOption: FC<LangOptionProps> = ({theme, cb, lang}) => {
     return (
         <select
-
             onChange={e => cb(e.currentTarget.value)}
             className={`${cls.option} ${cls[theme]} ${cls.select}`}
         >

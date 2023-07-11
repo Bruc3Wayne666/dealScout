@@ -1,23 +1,28 @@
-export interface IDeal {
-    amazon_link: string
-    amazon_price: string
-    asin: string
-    brs_rank: string
-    bsr_percent: string
-    currency: string
+interface IDeal {
     day: number
-    est_monthly_sale: string
+    shop_price: number
+    amazon_price: number
+    shop_name: string
+    shop_link: string
+    amazon_link: string
+    plan_id: number
+    group_number: number
+    roi: string
+    net_profit: string
+    bsr_percent: string
     fba_seller: string
     fbm_seller: string
-    group_number: number
-    id: number
-    net_profit: string
-    photo: string
-    plan_number: number
-    restriction_check: string
-    roi: string
-    shop_link: string
-    shop_price: number
-    store_name: string
+    est_monthly_sale: string
+    asin: string
+    brs_rank: string
     upc_ean: string
+    restriction_check: string
+    image: string
 }
+
+export interface DealShow extends IDeal {
+    currency: string
+    id: number
+}
+
+export interface DealAdd extends IDeal {}

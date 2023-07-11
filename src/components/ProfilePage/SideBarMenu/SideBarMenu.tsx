@@ -1,8 +1,8 @@
 import React from 'react';
 import cls from './SideBarMenu.module.scss'
 import SideBarMenuOption from "./SideBarMenuOption";
-import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
-import {setCurrent} from "../../../store/reducers/sidebar/sidebarSlice";
+import { useAppSelector} from "../../../hooks/redux";
+import {useActions} from "../../../hooks/useActions";
 
 
 export enum SideBarOptions {
@@ -21,11 +21,11 @@ const options = [
 ]
 
 const SideBarMenu = ({theme}: {theme: string}) => {
-    const dispatch = useAppDispatch()
+    const {setCurrent} = useActions()
     const {currentOption} = useAppSelector(state => state.sidebarSlice)
 
     const handleSetCurrentOption = (val: string) => {
-        dispatch(setCurrent(val))
+        setCurrent(val)
     }
 
     return (

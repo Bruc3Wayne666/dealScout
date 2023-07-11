@@ -1,12 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {IDeal} from "../../../models/Deal";
+import {DealShow} from "../../../models/Deal";
 import {getDeals} from "./dealActions";
 
 
 interface IDealsState {
     isLoading: boolean
     error: boolean
-    deals: IDeal[]
+    deals: DealShow[]
     login: string
 }
 
