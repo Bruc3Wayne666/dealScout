@@ -5,6 +5,7 @@ import {
     changeUserPhoto, getUserInfo
 } from "./userActions";
 import {IUser} from "../../../models/User";
+import {GetUserPayload} from "../../../api/user";
 
 
 interface IUserState extends IUser {
@@ -32,7 +33,7 @@ export const userSlice = createSlice({
         [getUserInfo.pending.type]: (state) => {
             state.isLoading = true
         },
-        [getUserInfo.fulfilled.type]: (state, {payload}: PayloadAction<IUser>) => {
+        [getUserInfo.fulfilled.type]: (state, {payload}: PayloadAction<GetUserPayload>) => {
             state.isLoading = false
             state.login = payload.login
             state.my_code = payload.my_code

@@ -8,6 +8,7 @@ export const getUserInfo = createAsyncThunk(
         try {
             return await UserAPI.getUser({...args})
         } catch (err) {
+            localStorage.removeItem('user_session')
             return rejectWithValue(err)
         }
     }
