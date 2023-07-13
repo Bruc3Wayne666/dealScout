@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC, useEffect, useState} from 'react';
 import cls from './Profile.module.scss'
 import {useTranslation} from "react-i18next";
 import {useActions} from "../../../../../hooks/useActions";
@@ -13,8 +13,14 @@ const Profile: FC<ProfileProps> = ({theme}) => {
     const {user_session} = useAppSelector(state => state.authSlice)
     const {photo, login} = useAppSelector(state => state.userSlice)
     const [newLogin, setNewLogin] = useState('')
-    const [img, setImg] = useState(`data:image/png;base64,${photo}` || require(`../../../../../assets/images/svg/${theme}/profile.svg`))
+    // const [img, setImg] = useState(require(`../../../../../assets/images/svg/${theme}/profile.svg`))
+    const [img, setImg] = useState('')
     const [isEdit, setIsEdit] = useState(false)
+
+    useEffect(() => {
+        if (photo) return setImg(`data:image/png;base64,${photo}`)
+        setImg(require(`../../../../../assets/images/svg/${theme}/profile.svg`))
+    }, [])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore

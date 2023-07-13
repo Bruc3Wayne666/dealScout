@@ -11,7 +11,6 @@ import {
     ResetPasswordPayload
 } from "../../../api/auth";
 import {getUserInfo} from "../user/userActions";
-import {GetUserPayload} from "../../../api/user";
 
 
 interface IAuthState extends IAuth {
