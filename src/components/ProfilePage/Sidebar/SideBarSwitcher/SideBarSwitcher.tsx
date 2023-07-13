@@ -1,7 +1,7 @@
 import React, {FC, useContext} from 'react';
 import cls from './SideBarSwitcher.module.scss'
 import Switch from "react-switch";
-import {ThemeContext, ThemeContextType} from "../../../providers/ThemeProvider";
+import {ThemeContext, ThemeContextType} from "../../../../providers/ThemeProvider";
 
 const SideBarSwitcher: FC<any> = ({theme}: { theme: string }) => {
     const {handleSetTheme} = useContext(ThemeContext) as ThemeContextType
@@ -19,7 +19,7 @@ const SideBarSwitcher: FC<any> = ({theme}: { theme: string }) => {
                 uncheckedIcon={
                     <div className={`${cls.toggle} ${cls.unchecked}`}>
                         <img
-                            src={require('../../../assets/images/svg/moon.svg').default}
+                            src={require('../../../../assets/images/svg/moon.svg').default}
                             height={22}
                             alt={'Dark'}
                         />
@@ -28,7 +28,7 @@ const SideBarSwitcher: FC<any> = ({theme}: { theme: string }) => {
                 checkedIcon={
                     <div className={`${cls.toggle} ${cls.checked}`}>
                         <img
-                            src={require('../../../assets/images/svg/sun.svg').default}
+                            src={require('../../../../assets/images/svg/sun.svg').default}
                             height={22}
                             alt={'Light'}
                         />

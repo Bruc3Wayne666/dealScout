@@ -4,30 +4,27 @@ import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Auth from "./pages/Auth/Auth";
 import AuthRequire from "./hoc/AuthRequire";
-import PaypalCheckoutButton from "./components/PaypalCheckoutButton/PaypalCheckoutButton";
 import {useActions} from "./hooks/useActions";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {useAppSelector} from "./hooks/redux";
 import cls from './App.module.scss'
 import {ThemeContext, ThemeContextType} from "./providers/ThemeProvider";
 
 function App() {
-    const {setUser} = useActions()
-    const {message} = useAppSelector(state => state.userSlice)
+    const {setSession} = useActions()
     const {theme} = useContext(ThemeContext) as ThemeContextType
 
     useEffect(() => {
         if (localStorage.getItem('isLogin')) {
-            setUser(localStorage.getItem('user_session') || '')
+            setSession(localStorage.getItem('user_session') || '')
         }
     }, [])
 
     useEffect(() => {
-        if (message) toast(message, {
+        toast('Welcome', {
             className: `${cls.toast} ${cls[theme]}`
         })
-    }, [message])
+    }, [])
 
     return (
         <div className="App">

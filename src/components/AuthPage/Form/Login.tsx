@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC} from "react";
-import {UserCredentials} from "../../../models/User";
+import {AuthCredentials} from "../../../models/Auth";
 import cls from "./Form.module.scss";
 import {useTranslation} from "react-i18next";
 
@@ -7,7 +7,7 @@ export interface LoginProps {
     isLoading: boolean
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void
     setType: (v: string) => void
-    credentials: UserCredentials
+    credentials: AuthCredentials
 }
 
 const Login: FC<LoginProps> = ({

@@ -1,9 +1,9 @@
 import React from 'react';
 import cls from './Sidebar.module.scss'
-import SideBarHeader from "../SideBarHeader/SideBarHeader";
-import SideBarProfile from "../SideBarProfile/SideBarProfile";
-import SideBarMenu from "../SideBarMenu/SideBarMenu";
-import SideBarSwitcher from "../SideBarSwitcher/SideBarSwitcher";
+import SideBarHeader from "./SideBarHeader/SideBarHeader";
+import SideBarProfile from "./SideBarProfile/SideBarProfile";
+import SideBarMenu from "./SideBarMenu/SideBarMenu";
+import SideBarSwitcher from "./SideBarSwitcher/SideBarSwitcher";
 
 const Sidebar = ({theme}: {theme: string}) => {
     return (

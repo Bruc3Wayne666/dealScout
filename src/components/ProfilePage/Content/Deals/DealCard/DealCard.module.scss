@@ -109,7 +109,7 @@
         align-items: center;
 
         img {
-          width: 80px;
+          //width: 80px;
           height: 80px;
           border-radius: 16px;
         }
@@ -276,6 +276,10 @@
     //
     .right {
       display: flex;
+
+      a {
+        text-decoration: none;
+      }
 
       button {
         &:first-child {

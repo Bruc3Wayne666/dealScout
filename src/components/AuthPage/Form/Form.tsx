@@ -1,7 +1,6 @@
 import React, {ChangeEvent, FC, FormEvent, useState} from 'react';
 import cls from './Form.module.scss'
-import {login, register} from "../../../store/reducers/user/userActions";
-import {UserCredentials} from "../../../models/User";
+import {AuthCredentials} from "../../../models/Auth";
 import Register from "./Register";
 import Login from "./Login";
 import Request from "./Request";
@@ -14,7 +13,7 @@ interface FormProps {
     handleSetType: (v: string) => void
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void
-    credentials: UserCredentials
+    credentials: AuthCredentials
 }
 
 const Form: FC<FormProps> = ({
@@ -25,7 +24,7 @@ const Form: FC<FormProps> = ({
                                  handleSubmit,
                                  credentials
                              }) => {
-    const {email, username, password, pin} = credentials
+    const {email, password, pin} = credentials
     return (
         <form onSubmit={handleSubmit} className={`${cls.form} ${cls[type]}`}>
             <div className={cls.content}>

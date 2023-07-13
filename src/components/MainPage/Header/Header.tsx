@@ -1,11 +1,11 @@
 import React from 'react';
 import cls from './Header.module.scss'
 import {AuthBtn, ProfileBtn} from "../AuthBtn/AuthBtn";
-import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
+import {useAppSelector} from "../../../hooks/redux";
 import {useActions} from "../../../hooks/useActions";
 
 const Header = () => {
-    const {user_session} = useAppSelector(state => state.userSlice)
+    const {user_session} = useAppSelector(state => state.authSlice)
     const {logout} = useActions()
 
     const handleLogout = () => {

@@ -10,7 +10,7 @@ export enum Time {
 }
 
 export enum Plan {
-    ALL = -1,
+    ALL = 0,
     STARTER = 1,
     ADVANCED = 2,
     PRO = 3

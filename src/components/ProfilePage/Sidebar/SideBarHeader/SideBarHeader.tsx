@@ -7,7 +7,7 @@ const SideBarHeader = ({theme}: {theme: string}) => {
         <header className={`${cls.header} ${cls[theme]}`}>
             <Link to={'/'}>
                 <img
-                    src={require('../../../assets/images/logo/logo_light.png')}
+                    src={require('../../../../assets/images/logo/logo_light.png')}
                     alt="DealScout"
                 />
             </Link>

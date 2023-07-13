@@ -15,7 +15,7 @@ const SideBarMenuOption: FC<SidebarMenuProps> = ({
                                                      handlePress,
                                                      theme
                                                  }) => {
-    const {t, i18n} = useTranslation('profile')
+    const {t} = useTranslation('profile')
 
     return (
         <div
@@ -25,11 +25,11 @@ const SideBarMenuOption: FC<SidebarMenuProps> = ({
             {
                 isActive
                     ? <img
-                        src={require(`../../../assets/images/svg/dark/${title.toLowerCase()}.svg`)}
+                        src={require(`../../../../assets/images/svg/dark/${title.toLowerCase()}.svg`)}
                         alt={title}
                     />
                     : <img
-                        src={require(`../../../assets/images/svg/${theme}/${title.toLowerCase()}.svg`)}
+                        src={require(`../../../../assets/images/svg/${theme}/${title.toLowerCase()}.svg`)}
                         alt={title}
                     />
             }

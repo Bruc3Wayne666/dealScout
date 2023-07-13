@@ -1,8 +1,8 @@
 import React from 'react';
 import cls from './SideBarMenu.module.scss'
 import SideBarMenuOption from "./SideBarMenuOption";
-import { useAppSelector} from "../../../hooks/redux";
-import {useActions} from "../../../hooks/useActions";
+import { useAppSelector} from "../../../../hooks/redux";
+import {useActions} from "../../../../hooks/useActions";
 
 
 export enum SideBarOptions {

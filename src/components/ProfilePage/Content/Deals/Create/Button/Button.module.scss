@@ -1,0 +1,41 @@
+@import "../../../../../../global/styles/variables";
+
+.btn {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  cursor: pointer;
+  //padding: 12px 22px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  transition: .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secondary-colour-light;
+  color: white;
+
+  img {
+    width: 22px;
+    height: 22px;
+  }
+
+  span.text {
+    display: none;
+    margin-left: 12px;
+    font-weight: 600;
+  }
+
+  &:hover {
+    //background-color: #000;
+    width: auto;
+    padding: 0 18px;
+
+    span.text {
+      display: inline-block;
+    }
+  }
+}

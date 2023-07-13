@@ -9,7 +9,7 @@ interface DealCardProps {
 
 const DealCard: FC<DealCardProps> = ({item, theme}) => {
     const {
-        image,
+        photo,
         amazon_price,
         amazon_link,
         fba_seller,
@@ -33,23 +33,22 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                 <div className={cls.mainInfo}>
                     <div className={cls.image}>
                         <img
-                            // src={`data:image/png;base64,${photo}`}
-                            src={image}
+                            src={`${process.env.REACT_APP_BASE_URL}/deal/photos/${photo}`}
                             alt='Deal image'
                         />
                     </div>
                     <div className={cls.info}>
                         <div className={`${cls.item} ${cls.itemName}`}>
-                            <p>iPhone 13</p>
+                            <p>{shop_name}</p>
                         </div>
                         <div className={`${cls.item} ${cls.category}`}>
-                            <p>Electronics</p>
+                            <p> Category ??? </p>
                         </div>
                         <div className={`${cls.item} ${cls.date}`}>
-                            <p>Created on: <span>22/12/2023</span></p>
+                            <p>Created on: <span> date ??? </span></p>
                         </div>
                         <div className={`${cls.item} ${cls.status}`}>
-                            <span>PRO</span>
+                            <span> plan ??? </span>
                         </div>
                     </div>
                 </div>
@@ -60,12 +59,12 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                     <button>
                         <img src={require(`../../../../../assets/images/svg/${theme}/heart.svg`)} alt="..."/>
                     </button>
-                    <button>
-                        <img src={require(`../../../../../assets/images/svg/${theme}/like.svg`)} alt="..."/>
-                    </button>
-                    <button>
-                        <img src={require(`../../../../../assets/images/svg/${theme}/dislike.svg`)} alt="..."/>
-                    </button>
+                    {/*<button>*/}
+                    {/*    <img src={require(`../../../../../assets/images/svg/${theme}/like.svg`)} alt="..."/>*/}
+                    {/*</button>*/}
+                    {/*<button>*/}
+                    {/*    <img src={require(`../../../../../assets/images/svg/${theme}/dislike.svg`)} alt="..."/>*/}
+                    {/*</button>*/}
                 </div>
             </div>
 
@@ -136,13 +135,15 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                 </div>
                 <div className={cls.right}>
                     <button>Store</button>
-                    <button>
-                        <img
-                            src={require('../../../../../assets/images/svg/amazon_logo.svg').default}
-                            alt="Amazon"
-                        />
-                        Amazon
-                    </button>
+                    <a target='_blank' href={amazon_link}>
+                        <button>
+                            <img
+                                src={require('../../../../../assets/images/svg/amazon_logo.svg').default}
+                                alt="Amazon"
+                            />
+                            Amazon
+                        </button>
+                    </a>
                 </div>
             </div>
 

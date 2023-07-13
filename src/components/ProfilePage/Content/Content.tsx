@@ -2,8 +2,7 @@ import React from 'react';
 import cls from './Content.module.scss'
 import {useAppSelector} from "../../../hooks/redux";
 import Deals from "./Deals/Deals";
-import {SideBarOptions} from "../SideBarMenu/SideBarMenu";
-import PaypalCheckoutButton from "../../PaypalCheckoutButton/PaypalCheckoutButton";
+import {SideBarOptions} from "../Sidebar/SideBarMenu/SideBarMenu";
 import Settings from "./Settings/Settings";
 
 const Content = ({theme}: { theme: string }) => {

@@ -11,18 +11,15 @@ interface MailingOptionProps {
 
 const MailingOption: FC<MailingOptionProps> = ({theme, cb}) => {
     const {t} = useTranslation('profile')
-    const { user_session } = useAppSelector(state => state.userSlice)
-    const [checked, setChecked] = useState(false)
+    const { user_session } = useAppSelector(state => state.authSlice)
+    const { mailing } = useAppSelector(state => state.userSlice)
 
     return (
         <div className={`${cls.option} ${cls[theme]} `}>
             {t('mailing')}
             <Switch
-                onChange={() => {
-                    cb({session: user_session})
-                    setChecked(prev => !prev)
-                }}
-                checked={checked}
+                onChange={() => cb({session: user_session})}
+                checked={mailing}
                 offColor={'#242529'}
                 onColor={'#242529'}
                 offHandleColor={'#F6F1D5'}

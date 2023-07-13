@@ -1,13 +1,7 @@
 export interface IUser {
-    error: boolean
-    message: string
-    user_session: string
-}
-
-export interface UserCredentials {
-    email: string
-    password: string
-    username?: string
-    pin: string
-    referral_link: string
+    login: string,
+    my_code: string,
+    referral_code: string,
+    mailing: boolean,
+    photo: string
 }

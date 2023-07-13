@@ -17,7 +17,7 @@ interface IDeal {
     brs_rank: string
     upc_ean: string
     restriction_check: string
-    image: string
+    photo: string
 }
 
 export interface DealShow extends IDeal {

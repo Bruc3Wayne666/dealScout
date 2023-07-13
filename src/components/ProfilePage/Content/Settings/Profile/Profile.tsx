@@ -10,11 +10,10 @@ interface ProfileProps {
 
 const Profile: FC<ProfileProps> = ({theme}) => {
     const {changeUserLogin, changeUserPhoto} = useActions()
-    const {user_session} = useAppSelector(state => state.userSlice)
-
-    const [login, setLogin] = useState('')
-    const [img, setImg] = useState('')
-    const [userName, setUsername] = useState('<get later>')
+    const {user_session} = useAppSelector(state => state.authSlice)
+    const {photo, login} = useAppSelector(state => state.userSlice)
+    const [newLogin, setNewLogin] = useState('')
+    const [img, setImg] = useState(`data:image/png;base64,${photo}` || require(`../../../../../assets/images/svg/${theme}/profile.svg`))
     const [isEdit, setIsEdit] = useState(false)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,9 +31,8 @@ const Profile: FC<ProfileProps> = ({theme}) => {
     const handleSetLogin = () => {
         changeUserLogin({
             user_session,
-            new_login: login
+            new_login: newLogin
         })
-        setUsername(login) // change later
     }
 
     const {t} = useTranslation('profile')
@@ -62,7 +60,7 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                         onClick={() => setIsEdit(prev => !prev)}
                         className={`${cls.name} ${cls[theme]}`}
                     >
-                        <h3>{userName}</h3>
+                        <h3>{login}</h3>
                         <img src={require(`../../../../../assets/images/svg/${theme}/edit.svg`)} alt="Edit"/>
                     </div>
                     {
@@ -72,8 +70,8 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                                 className={cls[theme]}
                                 placeholder={t('type_login')}
                                 type="text"
-                                value={login}
-                                onChange={e => setLogin(e.currentTarget.value)}
+                                value={newLogin}
+                                onChange={e => setNewLogin(e.currentTarget.value)}
                             />
                             <button
                                 onClick={handleSetLogin}

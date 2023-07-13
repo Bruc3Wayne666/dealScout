@@ -3,23 +3,23 @@ import cls from './Auth.module.scss'
 import Form from "../../components/AuthPage/Form/Form";
 import {Link} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router";
-import {UserCredentials} from "../../models/User";
-import {UserAPI} from "../../api/user";
+import {AuthCredentials} from "../../models/Auth";
+import {AuthAPI} from "../../api/auth";
 import {useActions} from "../../hooks/useActions";
 import {useAppSelector} from "../../hooks/redux";
 
 
-const initialState: UserCredentials = {
+const initialState: AuthCredentials = {
     username: '',
     email: '',
     password: '',
     pin: '',
-    referral_link: ''
+    referral_code: ''
 }
 
 const Auth = () => {
     const {login, register, resetUserPassword, requestResetPasswordPin} = useActions()
-    const {isLoading} = useAppSelector(state => state.userSlice)
+    const {isLoading} = useAppSelector(state => state.authSlice)
     const navigate = useNavigate()
     const location = useLocation()
     const [type, setType] = useState('register')
