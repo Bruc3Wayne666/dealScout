@@ -1,3 +1,5 @@
+@import "src/global/styles/variables";
+
 .page {
   height: 100vh;
   display: flex;
@@ -7,12 +9,19 @@
   background-size: auto;
   align-items: center;
   padding-top: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
 
   h1 {
+    color: #222;
     font-size: 80px;
     font-weight: 900;
-    color: white;
     margin: 0;
+  }
+
+  p {
+    color: #222;
   }
 
   &.start {
@@ -24,7 +33,20 @@
   }
 
   &.pro {
+    color: white;
+    background-color: $secondary-colour-dark;
     background-image: url(../../assets/images/svg/bg/plan_pro.svg);
+
+    h1 {
+      color: white;
+      font-size: 80px;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    p {
+      color: white;
+    }
   }
 
   .purchase {
@@ -39,7 +61,6 @@
 
     span {
       font-weight: 600;
-      color: white;
       font-size: 34px;
       margin-right: 10%;
     }
