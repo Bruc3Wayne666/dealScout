@@ -1,0 +1,28 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: auto;
+  align-items: center;
+
+  h1 {
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+    margin: 0;
+  }
+
+  &.start {
+    background-image: url(../../assets/images/svg/bg/plan_start.svg);
+  }
+
+  &.advanced {
+    background-image: url(../../assets/images/svg/bg/plan_advanced.svg);
+  }
+
+  &.pro {
+    background-image: url(../../assets/images/svg/bg/plan_pro.svg);
+  }
+}

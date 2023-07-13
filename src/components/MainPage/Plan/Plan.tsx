@@ -3,6 +3,7 @@ import cls from './Plan.module.scss'
 import {capitalize} from "../../../shared/utils";
 import {useTranslation} from "react-i18next";
 import {motion} from "framer-motion";
+import {useNavigate} from "react-router";
 
 
 interface PlanProps {
@@ -13,6 +14,7 @@ interface PlanProps {
 const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
     const [isShowInfo, setIsShowInfo] = useState(false)
     const {t} = useTranslation('main')
+    const navigate = useNavigate()
 
     return (
         // <div className={cls.card} onMouseEnter={() => setIsShowInfo(true)} onMouseLeave={() => setIsShowInfo(false)}>
@@ -50,7 +52,9 @@ const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
                             </div>
                             <div className={cls.bottom}>
                                 <span onClick={() => setIsShowInfo(true)}>{t('info')}</span>
-                                <button>
+                                <button
+                                    onClick={() => navigate(`plan/${plan}`)}
+                                >
                                     {t('Get')}
                                 </button>
                             </div>

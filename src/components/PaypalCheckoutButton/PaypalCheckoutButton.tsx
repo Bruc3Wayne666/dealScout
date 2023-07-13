@@ -46,7 +46,7 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
                 return actions.order.create({
                     purchase_units: [
                         {
-                            description: 'product of profuc',
+                            description: product,
                             // description: product.description,
                             amount: {
                                 value: '1'

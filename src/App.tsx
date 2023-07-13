@@ -9,6 +9,8 @@ import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import cls from './App.module.scss'
 import {ThemeContext, ThemeContextType} from "./providers/ThemeProvider";
+import PaypalCheckoutButton from "./components/PaypalCheckoutButton/PaypalCheckoutButton";
+import Plan from "./pages/Plan/Plan";
 
 function App() {
     const {setSession} = useActions()
@@ -34,6 +36,11 @@ function App() {
                 <Route path={'/profile'} element={
                     <AuthRequire>
                         <Profile/>
+                    </AuthRequire>
+                }/>
+                <Route path={'/plan/:id'} element={
+                    <AuthRequire>
+                        <Plan/>
                     </AuthRequire>
                 }/>
                 {/*<Route path={'/test'} element={<PaypalCheckoutButton/>}/>*/}

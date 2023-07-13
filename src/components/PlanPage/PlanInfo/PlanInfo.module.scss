@@ -1,0 +1,72 @@
+.info {
+  //border: 1px solid white;
+  width: 70%;
+  backdrop-filter: blur(8px);
+  border-radius: 32px;
+  //overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 22px 14px;
+  box-sizing: border-box;
+  font-size: 26px;
+  color: white;
+  background: rgba(0, 0, 0, .15);
+
+  .price {
+    transform: rotate(-33deg);
+    font-size: 34px;
+    position: absolute;
+    right: -30px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    padding: 12px 32px;
+    background: linear-gradient(99deg, #a0ff00, #76b60b, #4e4cd9, #e32d23);
+    background-size: 800% 800%;
+
+    h2 {
+      margin: 0;
+    }
+
+    -webkit-animation: PriceBg 15s ease infinite;
+    -moz-animation: PriceBg 15s ease infinite;
+    animation: PriceBg 15s ease infinite;
+  }
+
+  @-webkit-keyframes PriceBg {
+    0% {
+      background-position: 75% 0
+    }
+    50% {
+      background-position: 26% 100%
+    }
+    100% {
+      background-position: 75% 0
+    }
+  }
+  @-moz-keyframes PriceBg {
+    0% {
+      background-position: 75% 0
+    }
+    50% {
+      background-position: 26% 100%
+    }
+    100% {
+      background-position: 75% 0
+    }
+  }
+  @keyframes PriceBg {
+    0% {
+      background-position: 75% 0
+    }
+    50% {
+      background-position: 26% 100%
+    }
+    100% {
+      background-position: 75% 0
+    }
+  }
+}
