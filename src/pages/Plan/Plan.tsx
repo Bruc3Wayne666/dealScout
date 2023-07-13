@@ -10,7 +10,10 @@ const Plan = () => {
     return (
         <div className={`${cls.page} ${id ? cls[id] : ''}`}>
             <PlanInfo plan={id}/>
-            <PaypalCheckoutButton product={id}/>
+            <div className={cls.purchase}>
+                <span>Buy Now:</span>
+                <PaypalCheckoutButton product={id}/>
+            </div>
         </div>
     );
 };

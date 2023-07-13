@@ -14,11 +14,11 @@
   background: rgba(0, 0, 0, .15);
 
   .price {
-    transform: rotate(-33deg);
+    //transform: rotate(-33deg);
     font-size: 34px;
     position: absolute;
     right: -30px;
-    bottom: 0;
+    bottom: -30px;
     display: flex;
     justify-content: center;
     align-items: center;

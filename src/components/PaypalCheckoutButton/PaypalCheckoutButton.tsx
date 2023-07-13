@@ -19,11 +19,11 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
 
     return <PayPalButtons
         style={{
-            color: 'blue',
+            color: 'gold',
             layout: 'vertical',
             height: 40,
             shape: 'pill',
-            label: 'buynow'
+            label: 'subscribe'
         }}
 
         onClick={
