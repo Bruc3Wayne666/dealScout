@@ -26,7 +26,10 @@ const Form: FC<FormProps> = ({
                              }) => {
     const {email, password, pin} = credentials
     return (
-        <form onSubmit={handleSubmit} className={`${cls.form} ${cls[type]}`}>
+        <form
+            onSubmit={handleSubmit}
+            className={`${cls.form} ${cls[type]}`}
+        >
             <div className={cls.content}>
                 {
                     type === 'register' &&

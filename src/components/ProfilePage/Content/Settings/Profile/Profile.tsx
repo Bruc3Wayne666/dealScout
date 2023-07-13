@@ -49,7 +49,7 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                     {/*<h4>{t('change_image')}</h4>*/}
                     <div className={cls.input}>
                         <img
-                            src={img || require(`../../../../../assets/images/svg/${theme}/profile.svg`)}
+                            src={`data:image/png;base64,${photo}` || require(`../../../../../assets/images/svg/${theme}/profile.svg`)}
                             alt="Profile Image"
                         />
                         <input
