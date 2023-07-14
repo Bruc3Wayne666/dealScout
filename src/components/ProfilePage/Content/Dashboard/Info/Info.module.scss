@@ -1,11 +1,11 @@
 .info {
-  border: 2px solid red;
+  //border: 2px solid red;
   flex: 1;
   padding: 32px;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  gap: 10px;
+  gap: 30px;
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, auto);

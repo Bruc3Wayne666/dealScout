@@ -1,4 +1,65 @@
+@import "src/global/styles/variables";
+
 .header {
-  border: 2px solid yellow;
-  height: 88px;
+  height: 80px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
+  justify-content: space-between;
+
+  h1 {
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .buttons {
+    display: flex;
+
+    button {
+      height: 48px;
+      border-radius: 16px;
+      margin-left: 16px;
+      outline: none;
+      cursor: pointer;
+      background-color: transparent;
+      border: 2px solid $secondary-colour-dark;
+      width: 48px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      padding-left: 12px;
+      padding-right: 12px;
+      background-position: center center;
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+
+      &:first-child{
+        background-color: $secondary-colour-light;
+        border: none;
+        width: auto;
+      }
+    }
+
+    &.dark {
+      button {
+        &:last-child {
+          background-image: url(../../../../../assets/images/svg/dark/notification.svg);
+        }
+      }
+    }
+
+
+    &.light {
+      button {
+        &:last-child {
+          background-image: url(../../../../../assets/images/svg/light/notification.svg);
+        }
+      }
+    }
+  }
+  //flex: 1;
 }
