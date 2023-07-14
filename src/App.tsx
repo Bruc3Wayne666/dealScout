@@ -22,11 +22,11 @@ function App() {
         }
     }, [])
 
-    useEffect(() => {
-        toast('Welcome', {
-            className: `${cls.toast} ${cls[theme]}`
-        })
-    }, [])
+    // useEffect(() => {
+    //     toast('Welcome', {
+    //         className: `${cls.toast} ${cls[theme]}`
+    //     })
+    // }, [])
 
     return (
         <div className="App">
