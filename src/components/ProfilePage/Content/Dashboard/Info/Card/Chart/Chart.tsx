@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import Chart from 'react-apexcharts';
+import cls from './Chart.module.scss';
 
 
 const options = {
     type: 'donut',
+    legend: {
+        show: false
+    },
     stroke: {
         show: false,
     },
@@ -38,13 +42,17 @@ const ChartContent = () => {
     const [series, setSeries] = useState([44, 55, 41, 17, 15])
     const [labels, setLabels] = useState(['A', 'B', 'C', 'D', 'E'])
 
-    return <Chart
-        options={options}
-        series={series}
-        labels={labels}
-        type={'donut'}
-        width={'300'}
-    />
+    return (
+        <div className={cls.chart}>
+            <Chart
+                options={options}
+                series={series}
+                labels={labels}
+                type={'donut'}
+                width={'300'}
+            />
+        </div>
+    )
 };
 
 export default ChartContent;
