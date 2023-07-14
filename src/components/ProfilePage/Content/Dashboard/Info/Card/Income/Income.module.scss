@@ -1,0 +1,124 @@
+.income {
+  background-color: #dcdcdc;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+
+  .top {
+    flex: 2;
+    //border: 1px solid black;
+    //padding: 32px;
+    color: black;
+    padding-left: 32px;
+    padding-right: 22px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+    }
+
+    button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      background-color: #24252a;
+      background-image: url(../../../../../../../assets/images/svg/arrow.svg);
+      background-size: 22px 22px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      cursor: pointer;
+    }
+  }
+
+  .middle {
+    flex: 3;
+    //border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .day {
+      border: 2px solid #b2b2b2;
+      width: 60px;
+      height: 80px;
+      border-radius: 16px;
+      margin-left: 22px;
+      margin-right: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      box-sizing: border-box;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      cursor: pointer;
+
+      p {
+        margin: 0;
+        color: #b2b2b2;
+      }
+
+      span {
+        color: black;
+        font-weight: 600;
+      }
+
+      &.active {
+        border: none;
+        background-color: #fff378;
+
+        p {
+          color: #222;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    flex: 3;
+    display: flex;
+
+    .left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 32px;
+      border-right: 2px solid #b2b2b2;
+      height: 70%;
+      box-sizing: border-box;
+
+      span {
+        font-weight: 600;
+        font-size: 58px;
+        color: black;
+      }
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-left: 24px;
+      box-sizing: border-box;
+      padding-top: 12px;
+
+      span {
+        font-weight: 600;
+        color: black;
+      }
+
+      p {
+        font-size: 16px;
+        color: #222;
+      }
+    }
+  }
+}
