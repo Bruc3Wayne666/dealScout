@@ -6,9 +6,24 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   gap: 30px;
+  //overflow: hidden;
 
   @media screen and (max-width: 1024px) {
+    overflow-y: scroll;
     grid-template-columns: repeat(2, auto);
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #666;
+      border-radius: 4px;
+    }
   }
 
   @media screen and (max-width: 768px) {
