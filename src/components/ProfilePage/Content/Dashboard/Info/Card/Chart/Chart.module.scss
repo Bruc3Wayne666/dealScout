@@ -1,4 +1,55 @@
 .chart {
-  border: 1px solid white;
+  //border: 1px solid white;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: linear-gradient(68.8deg, rgba(0, 0, 0, 0.95) 1.8%, rgb(0, 55, 79) 31.8%, rgb(9, 93, 134) 56.2%, rgb(15, 155, 217) 89%);
 
+  .top {
+    //border: 1px solid yellow;
+    width: 100%;
+    padding: 22px;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .donut {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    //border: 1px solid cyan;
+    padding-right: 24px;
+    padding-left: 24px;
+
+    .cats {
+      li {
+        list-style: none;
+
+        ul {
+          color: #222;
+          width: 140px;
+          margin: 0;
+          font-size: 16px;
+          font-weight: 600;
+          border-bottom: 2px solid #999999;
+
+          &:last-child {
+            border: none;
+          }
+
+          //&::before {
+          //  background-color: #14ff00;
+          //}
+        }
+      }
+    }
+  }
+
+  .bottom {
+
+  }
 }

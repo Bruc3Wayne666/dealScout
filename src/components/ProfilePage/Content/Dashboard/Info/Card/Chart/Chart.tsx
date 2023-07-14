@@ -44,13 +44,31 @@ const ChartContent = () => {
 
     return (
         <div className={cls.chart}>
-            <Chart
-                options={options}
-                series={series}
-                labels={labels}
-                type={'donut'}
-                width={'300'}
-            />
+            <div className={cls.top}>
+                <h3>Done Deals</h3>
+            </div>
+            <div className={cls.donut}>
+                <Chart
+                    options={options}
+                    series={series}
+                    labels={labels}
+                    type={'donut'}
+                    width={'240'}
+                />
+                <div className={cls.cats}>
+                    ТУТ ДУМАЮ КАК НОРМ СДЕЛАТЬ
+                    <li>
+                        <ul>TV 99%</ul>
+                        <ul>HOME 99%</ul>
+                        <ul>GAMES 99%</ul>
+                        <ul>PHONES 99%</ul>
+                        <ul>PHOTO 99%</ul>
+                    </li>
+                </div>
+            </div>
+            <div className={cls.bottom}>
+                ЧТО ЕЩЁ СЮДА ВЫВОДИТЬ?
+            </div>
         </div>
     )
 };
