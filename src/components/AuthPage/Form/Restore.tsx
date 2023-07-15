@@ -30,12 +30,12 @@ const Restore: FC<RestoreProps> = ({
                     name='pin'
                     type='text'
                     placeholder={t('Enter PIN here')}
-                    disabled={isLoading}
+                    // disabled={isLoading}
                 />
             </div>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/at.svg').default}
+                    src={require('../../../assets/images/svg/lock.svg').default}
                     alt="lock"
                 />
                 <input
@@ -44,20 +44,21 @@ const Restore: FC<RestoreProps> = ({
                     name='password'
                     type='password'
                     placeholder={t('YourNewPass')}
-                    disabled={isLoading}
+                    // disabled={isLoading}
                 />
             </div>
             <div className={cls.bottom}>
                 <button type='submit' disabled={isLoading}>
                     {
-                        isLoading
-                            ? <img
-                                src={require('../../../assets/images/svg/spinner.svg').default}
-                                alt="Loading..."
-                                height={20}
-                                width={20}
-                            />
-                            : t('Continue')
+                        // isLoading
+                        //     ? <img
+                        //         src={require('../../../assets/images/svg/spinner.svg').default}
+                        //         alt="Loading..."
+                        //         height={20}
+                        //         width={20}
+                        //     />
+                        //     :
+                        t('Continue')
                     }
                 </button>
             </div>

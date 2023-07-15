@@ -4,6 +4,7 @@ import Card from "./Card/Card";
 import ChartContent from "./Card/Chart/Chart";
 import Report from "./Card/Report/Report";
 import Income from "./Card/Income/Income";
+import Deals from "./Card/Deals/Deals";
 
 const Info = () => {
     return (
@@ -23,7 +24,9 @@ const Info = () => {
             <Card>
                 <Income/>
             </Card>
-            <Card/>
+            <Card>
+                <Deals/>
+            </Card>
             <Card/>
             <Card/>
         </div>
