@@ -4,6 +4,7 @@ import WelcomeSection from "../../components/MainPage/WelcomeSection/WelcomeSect
 import AboutSection from "../../components/MainPage/AboutSection/AboutSection";
 import cls from './Main.module.scss'
 import PlansSection from "../../components/MainPage/PlansSection/PlansSection";
+import Modal from "../../components/MainPage/Modal/Modal";
 
 const Main = () => {
     const plansRef = useRef<HTMLDivElement>(null)
@@ -17,6 +18,7 @@ const Main = () => {
             <WelcomeSection handleScroll={handleScroll}/>
             <AboutSection/>
             <PlansSection ref={plansRef}/>
+            <Modal/>
         </div>
     );
 };

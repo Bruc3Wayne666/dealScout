@@ -6,12 +6,12 @@ import {useActions} from "../../../../../../hooks/useActions";
 
 const Modal = () => {
     const {show} = useAppSelector(state => state.modalSlice)
-    const {setShow} = useActions()
+    const {setClose} = useActions()
     return (
         <div className={`${cls.modal} ${show ? cls.show : ''}`}>
             <div className={cls.content}>
                 <span
-                    onClick={() => setShow()}
+                    onClick={() => setClose()}
                     className={cls.close}
                 >
                     &times;

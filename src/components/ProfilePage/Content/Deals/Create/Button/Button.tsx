@@ -11,7 +11,7 @@ const Button: FC<CreateBtnProps> = ({theme}) => {
 
     return (
         <button
-            onClick={() => setShow()}
+            // onClick={() => setShow()}
             className={`${cls.btn} ${cls[theme]}`}
         >
             <img

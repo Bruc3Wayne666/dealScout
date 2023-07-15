@@ -20,8 +20,8 @@ const Profile = () => {
         <div className={`${cls.page} ${cls[theme]}`}>
             <Sidebar theme={theme}/>
             <Content theme={theme}/>
-            <Button theme={theme}/>
-            <Modal />
+            {/*<Button theme={theme}/>*/}
+            {/*<Modal />*/}
         </div>
     );
 };
