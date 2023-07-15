@@ -39,6 +39,10 @@
     display: flex;
     flex-direction: column;
 
+    h3 {
+        color: white;
+    }
+
     .input {
         height: 60px;
         background-color: #242529;
