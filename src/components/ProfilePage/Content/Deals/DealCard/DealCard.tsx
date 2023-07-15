@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import cls from './DealCard.module.scss'
 import {DealShow} from "../../../../../models/Deal";
+import {capitalize} from "../../../../../shared/utils";
 
 interface DealCardProps {
     item: DealShow
@@ -23,6 +24,8 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
         roi,
         fbm_seller,
         upc_ean,
+        day_beautiful,
+        category,
         restriction_check
     } = item
 
@@ -42,10 +45,10 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                             <p>{shop_name}</p>
                         </div>
                         <div className={`${cls.item} ${cls.category}`}>
-                            <p> Category ??? </p>
+                            <p>{capitalize(category)}</p>
                         </div>
                         <div className={`${cls.item} ${cls.date}`}>
-                            <p>Created on: <span> date ??? </span></p>
+                            <p>Created on: <span>{day_beautiful}</span></p>
                         </div>
                         <div className={`${cls.item} ${cls.status}`}>
                             <span> plan ??? </span>

@@ -37,29 +37,38 @@
       background-size: 24px 24px;
       background-repeat: no-repeat;
 
-      &:first-child{
+      &:first-child {
         background-color: $secondary-colour-light;
         border: none;
         width: auto;
       }
     }
 
+    .loading {
+      background-image: url(../../../../../assets/images/svg/spinner.svg);
+    }
+
     &.dark {
-      button {
-        &:last-child {
-          background-image: url(../../../../../assets/images/svg/dark/notification.svg);
-        }
+      .off {
+        background-image: url(../../../../../assets/images/svg/dark/notification.svg);
+      }
+
+      .on {
+        background-image: url(../../../../../assets/images/svg/dark/notification_off.svg);
       }
     }
 
 
     &.light {
-      button {
-        &:last-child {
-          background-image: url(../../../../../assets/images/svg/light/notification.svg);
-        }
+      .off {
+        background-image: url(../../../../../assets/images/svg/light/notification.svg);
+      }
+
+      .on {
+        background-image: url(../../../../../assets/images/svg/light/notification_off.svg);
       }
     }
   }
+
   //flex: 1;
 }

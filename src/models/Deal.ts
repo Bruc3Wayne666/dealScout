@@ -23,6 +23,9 @@ interface IDeal {
 export interface DealShow extends IDeal {
     currency: string
     id: number
+    day: number
+    day_beautiful: string
+    category: string
 }
 
 export interface DealAdd extends IDeal {}
