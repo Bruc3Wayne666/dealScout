@@ -6,13 +6,13 @@
   padding: 32px;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: repeat(3, 31%);
+  grid-template-columns: repeat(3, 32%);
   gap: 30px;
   //overflow: hidden;
 
   @media screen and (max-width: 1192px) {
     overflow-y: scroll;
-    grid-template-columns: repeat(2, 48%);
+    grid-template-columns: repeat(2, 49%);
 
     &::-webkit-scrollbar {
       width: 8px;
