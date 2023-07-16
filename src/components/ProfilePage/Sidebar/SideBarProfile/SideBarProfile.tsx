@@ -8,7 +8,7 @@ const SideBarProfile = ({theme}: {theme: string}) => {
         <div className={`${cls.profile} ${cls[theme]}`}>
             <img
                 src={isLoading
-                    ? require('../../../../assets/images/svg/spinner.svg').default
+                    ? require('../../../../assets/images/svg/loading.svg').default
                     : `data:image/png;base64,${photo}`
                     || require(`../../../../assets/images/svg/${theme}/profile.svg`)}
                 alt="Profile"

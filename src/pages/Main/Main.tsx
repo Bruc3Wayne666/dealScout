@@ -10,14 +10,17 @@ const Main = () => {
     const plansRef = useRef<HTMLDivElement>(null)
 
     // const handleScroll = () => plansRef.current?.scrollIntoView()
-    const handleScroll = () => window.scrollTo(0, 1360)
+    // const handleScroll = () => window.scrollTo(0, 1360)
+    const handleScroll = () => {
+        plansRef.current?.scrollIntoView({behavior: 'smooth'})
+    }
 
     return (
         <div className={cls.main}>
             <Header/>
             <WelcomeSection handleScroll={handleScroll}/>
             <AboutSection/>
-            <PlansSection ref={plansRef}/>
+            <PlansSection sectionRef={plansRef}/>
             <Modal/>
         </div>
     );

@@ -49,7 +49,7 @@ const options = {
 
 
 const ChartContent = () => {
-    const [series, setSeries] = useState([4444, 55, 41, 17, 15])
+    const [series, setSeries] = useState([4444, 555, 410, 1437, 105])
     const [labels, setLabels] = useState(['A', 'B', 'C', 'D', 'E'])
 
     return (
@@ -63,7 +63,7 @@ const ChartContent = () => {
                     series={series}
                     labels={labels}
                     type={'donut'}
-                    width={'240'}
+                    width={'100%'}
                 />
                 <div className={cls.cats}>
                     <div className={cls.list}>

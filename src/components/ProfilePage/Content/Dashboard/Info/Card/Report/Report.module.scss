@@ -11,12 +11,18 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  color: #ddd;
 
   &.dark {
     background-image: url(../../../../../../../assets/images/svg/bg/dark/pattern.svg);
   }
 
   &.light {
+    background-image: url(../../../../../../../assets/images/svg/bg/light/pattern.svg);
+
+    h3 {
+      color: #000;
+    }
   }
 
   .top {
@@ -41,15 +47,9 @@
     padding-right: 34px;
     padding-bottom: 34px;
 
-    &.dark {
-      button {
-        font-size: 16px;
-        color: #999999;
-      }
-    }
-
-    &.light {
-
+    button {
+      font-size: 16px;
+      color: #999999;
     }
 
     .icon {
@@ -60,15 +60,7 @@
       background-repeat: no-repeat;
       background-size: 32px 32px;
       background-position: center center;
-
-
-      &.dark {
-        background-image: url(../../../../../../../assets/images/svg/bg/dark/download.svg);
-      }
-
-      &.light {
-        background-image: url(../../../../../../../assets/images/svg/bg/light/download.svg);
-      }
+      background-image: url(../../../../../../../assets/images/svg/bg/dark/download.svg);
     }
 
     button {

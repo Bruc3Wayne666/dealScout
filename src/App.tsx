@@ -38,11 +38,11 @@ function App() {
                         <Profile/>
                     </AuthRequire>
                 }/>
-                <Route path={'/plan/:id'} element={
-                    <AuthRequire>
-                        <Plan/>
-                    </AuthRequire>
-                }/>
+                {/*<Route path={'/plan/:id'} element={*/}
+                {/*    <AuthRequire>*/}
+                {/*        <Plan/>*/}
+                {/*    </AuthRequire>*/}
+                {/*}/>*/}
                 {/*<Route path={'/test'} element={<PaypalCheckoutButton/>}/>*/}
             </Routes>
             <ToastContainer/>

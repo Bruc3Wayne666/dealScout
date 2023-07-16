@@ -1,13 +1,14 @@
 @import "src/global/styles/variables";
 
 .header {
-  height: 80px;
+  height: 90px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   padding-left: 32px;
   padding-right: 32px;
   justify-content: space-between;
+  //border: 1px solid white;
 
   h1 {
     font-weight: 400;
@@ -45,7 +46,7 @@
     }
 
     .loading {
-      background-image: url(../../../../../assets/images/svg/spinner.svg);
+      background-image: url(../../../../../assets/images/svg/loading.svg);
     }
 
     &.dark {

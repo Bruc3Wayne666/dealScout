@@ -9,14 +9,14 @@ import {plans} from "../../../global/temp/plans";
 
 interface PlansSectionProps {
     // ref: LegacyRef<HTMLDivElement>
-    ref: LegacyRef<HTMLDivElement>
+    sectionRef: LegacyRef<HTMLDivElement>
 }
 
-const PlansSection: FC<PlansSectionProps> = ({ref}) => {
+const PlansSection: FC<PlansSectionProps> = ({sectionRef}) => {
     const {t} = useTranslation('main')
 
     return (
-        <section ref={ref} className={cls.section}>
+        <section ref={sectionRef} className={cls.section}>
             <div className={cls.sectionHeader}>
                 <motion.h2
                     custom={1}

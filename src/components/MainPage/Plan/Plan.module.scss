@@ -1,8 +1,10 @@
 .card {
-  //width: 24%;
-  width: 260px;
-  height: 400px;
-  border-radius: 14px;
+  width: 24%;
+  //width: 260px;
+  //height: 400px;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: white;
   transition: .3s;
@@ -10,6 +12,8 @@
   display: flex;
   flex-direction: column;
   z-index: 9;
+  margin-bottom: 6px;
+  margin-right: 2%;
 
   .description {
     color: #222;
@@ -17,17 +21,19 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    font-size: 18px;
 
     span {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 24px;
+      top: 14px;
+      right: 14px;
+      font-size: 44px;
       cursor: pointer;
     }
 
     h3 {
       margin: 0;
+      font-size: 24px;
     }
   }
 
@@ -97,8 +103,8 @@
   }
 
   .plan {
-    height: 180px;
-    border-radius: 14px;
+    height: 50%;
+    border-radius: 24px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     justify-content: center;
@@ -116,31 +122,16 @@
     &.pro {
       background-color: black;
     }
-
-    .advanced {
-      height: 48%;
-      border-radius: 14px;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .pro {
-      height: 48%;
-      border-radius: 14px;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 
   .info {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    //border: 2px solid yellow;
+    //border: 2px solid black;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
     flex: 1;
 
     .top {
@@ -148,17 +139,17 @@
       flex-direction: column;
       text-align: start;
       padding-top: 18px;
-      padding-left: 14px;
+      //padding-left: 14px;
       //border: 1px solid black;
 
       h3 {
         margin-top: 0;
         margin-bottom: 6px;
-        font-size: 26px;
+        font-size: 36px;
       }
 
       span {
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 600;
         color: #333;
       }
@@ -169,30 +160,31 @@
       //border: 1px solid black;
       display: flex;
       justify-content: space-between;
-      padding-right: 14px;
-      padding-bottom: 14px;
-      padding-left: 14px;
+      //padding-right: 20px;
+      //padding-bottom: 20px;
+      //padding-left: 20px;
+      height: 16%;
       align-items: center;
       //position: relative;
 
       span {
-        font-size: 12px;
+        font-size: 16px;
         cursor: pointer;
         text-decoration: underline dotted;
-        text-underline-offset: 2px;
+        text-underline-offset: 3px;
         //position: absolute;
       }
 
       button {
         background-color: #CC5500;
         color: white;
-        font-size: 12px;
-        width: 70px;
+        font-size: 16px;
+        width: 30%;
         text-align: center;
-        border-radius: 12px;
+        border-radius: 16px;
         border: none;
         outline: none;
-        padding: 4px;
+        padding: 8px;
         cursor: pointer;
         transition: .3s;
         //z-index: 999;
@@ -204,11 +196,12 @@
     scale: 1.06;
 
     .info .bottom button {
-      width: 100px;
-      padding: 8px 3px;
-      border-radius: 16px;
-      font-weight: 600;
-      font-size: 14px;
+      //width: 34%;
+      //padding: 12px;
+      scale: 1.1;
+      //border-radius: 20px;
+      //font-weight: 600;
+      //font-size: 14px;
     }
 
     //&.pro {
@@ -229,12 +222,13 @@
 
   @media screen and (max-width: 962px) {
     flex-direction: row;
-    height: auto;
-    width: 100%;
+    height: 32%;
+    width: 90%;
     margin-bottom: 12px;
 
     .plan {
-      width: 180px;
+      width: 25%;
+      height: 100%;
     }
 
     .description {

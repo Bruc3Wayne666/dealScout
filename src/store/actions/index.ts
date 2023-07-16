@@ -5,6 +5,7 @@ import {userActions} from '../reducers/user/userSlice'
 import {authActions} from '../reducers/auth/authSlice'
 import {sidebarActions} from '../reducers/sidebar/sidebarSlice'
 import {modalActions} from '../reducers/modal/modalSlice'
+import {filterActions} from '../reducers/filter/filterSlice'
 
 export default {
     ...authActions,
@@ -13,5 +14,6 @@ export default {
     ...DealThunks,
     ...sidebarActions,
     ...userActions,
-    ...modalActions
+    ...modalActions,
+    ...filterActions
 }

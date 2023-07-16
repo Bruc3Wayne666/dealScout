@@ -4,13 +4,15 @@ import authSlice from "./reducers/auth/authSlice";
 import dealSlice from "./reducers/deal/dealSlice";
 import userSlice from "./reducers/user/userSlice";
 import modalSlice from "./reducers/modal/modalSlice";
+import filterSlice from "./reducers/filter/filterSlice";
 
 const rootReducer = combineReducers({
     sidebarSlice,
     authSlice,
     userSlice,
     dealSlice,
-    modalSlice
+    modalSlice,
+    filterSlice
 })
 
 export const setupStore = () => {

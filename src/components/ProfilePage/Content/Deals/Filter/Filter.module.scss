@@ -1,0 +1,148 @@
+@import "src/global/styles/variables";
+
+.options {
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  //height: 10%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  align-items: center;
+
+  &.dark {
+    background-color: $secondary-colour-dark;
+
+    .view {
+      button {
+        background-color: #999999;
+      }
+    }
+
+    .actual .option.active {
+      &.active {
+        border-bottom: 2px solid white;
+      }
+    }
+
+    .search input {
+      background-color: $primary-colour-dark;
+      color: #999999;
+    }
+
+    .sort select {
+      color: #999999;
+    }
+  }
+
+  &.light {
+    background-color: #ddd;
+
+    .view {
+      button {
+        background-color: white;
+      }
+    }
+
+    .actual .option.active {
+      &.active {
+        border-bottom: 2px solid #222;
+      }
+    }
+
+    .search input {
+      background-color: white;
+      color: #222;
+    }
+
+    .sort select {
+      color: #222;
+    }
+  }
+
+  .view {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+
+    button {
+      border: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      cursor: pointer;
+
+      img {
+        height: 30px;
+      }
+    }
+  }
+
+  .actual {
+    cursor: pointer;
+    display: flex;
+    flex: 3;
+    //border: 1px solid white;
+
+
+    .option {
+      box-sizing: border-box;
+      padding: 4px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+      p {
+        font-size: 16px;
+        font-weight: 600;
+
+        span {
+          color: white;
+          background-color: $secondary-colour-light;
+          padding: 2px 6px;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+
+  .search {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    //border: 1px solid white;
+
+    input {
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      box-sizing: border-box;
+    }
+  }
+
+  .sort {
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //border: 1px solid white;
+
+    select {
+      width: 100%;
+      background-color: $secondary-colour-dark;
+      border-radius: 4px;
+      border: 1px solid #999999;
+      outline: none;
+      cursor: pointer;
+      height: 40px;
+      margin-right: 4px;
+      padding-left: 8px;
+    }
+  }
+}
