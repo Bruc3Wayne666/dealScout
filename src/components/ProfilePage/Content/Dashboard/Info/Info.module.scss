@@ -4,7 +4,7 @@
   padding: 32px;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: repeat(3, 400px);
+  grid-template-columns: repeat(3, auto);
   gap: 30px;
   //overflow: hidden;
 
