@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {Route, Routes} from "react-router";
+import {Navigate, Route, Routes} from "react-router";
 import Main from "./pages/Main/Main";
 import Profile from "./pages/Profile/Profile";
 import Auth from "./pages/Auth/Auth";
@@ -7,10 +7,7 @@ import AuthRequire from "./hoc/AuthRequire";
 import {useActions} from "./hooks/useActions";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import cls from './App.module.scss'
 import {ThemeContext, ThemeContextType} from "./providers/ThemeProvider";
-import PaypalCheckoutButton from "./components/PaypalCheckoutButton/PaypalCheckoutButton";
-import Plan from "./pages/Plan/Plan";
 
 function App() {
     const {setSession} = useActions()
@@ -38,6 +35,7 @@ function App() {
                         <Profile/>
                     </AuthRequire>
                 }/>
+                <Route path={'*'} element={<Navigate to={'/'}/>}/>
                 {/*<Route path={'/plan/:id'} element={*/}
                 {/*    <AuthRequire>*/}
                 {/*        <Plan/>*/}

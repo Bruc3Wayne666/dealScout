@@ -1,7 +1,7 @@
-import React, {ChangeEvent, FormEvent, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import cls from './Auth.module.scss'
 import Form from "../../components/AuthPage/Form/Form";
-import {Link} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router";
 import {AuthCredentials} from "../../models/Auth";
 import {AuthAPI} from "../../api/auth";
@@ -20,14 +20,16 @@ const initialState: AuthCredentials = {
 const Auth = () => {
     const {login, register, resetUserPassword, requestResetPasswordPin} = useActions()
     const {isLoading} = useAppSelector(state => state.authSlice)
-    const navigate = useNavigate()
-    const location = useLocation()
+    const [params] = useSearchParams()
     const [type, setType] = useState('register')
     const [credentials, setCredentials] = useState(initialState)
     const {email, username, password, pin} = credentials
-    // const [isLoading, setIsLoading] = useState(false)
 
-    const fromPage = location.state?.from?.pathname || '/'
+    useEffect(() => {
+        if (params.get('ref')) {
+            return setCredentials({...credentials, referral_code: params.get('ref') as string})
+        }
+    }, [])
 
     const handleSetType = (val: string) => {
         setCredentials(initialState)

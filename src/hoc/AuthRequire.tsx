@@ -1,6 +1,5 @@
 import React, {FC, useEffect} from 'react';
 import {useLocation, Navigate} from "react-router";
-import {useAppSelector} from "../hooks/redux";
 
 const AuthRequire: FC<any> = ({children}) => {
     const location = useLocation()

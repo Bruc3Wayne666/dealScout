@@ -8,12 +8,15 @@ import SupportOption from "./Options/SupportOption";
 import {useNavigate} from "react-router";
 import Profile from "./Profile/Profile";
 import {useActions} from "../../../../hooks/useActions";
+import Referral from "./Options/Referral";
+import {useAppSelector} from "../../../../hooks/redux";
 
 const Settings = () => {
     const {theme} = useContext(ThemeContext) as ThemeContextType
     const {t, i18n} = useTranslation('profile')
     const navigate = useNavigate()
     const {logout, changeMailing} = useActions()
+    const {referral_code} = useAppSelector(state => state.userSlice)
 
     const handleLanguage = (val: string) => {
         i18n.changeLanguage(val)
@@ -35,6 +38,12 @@ const Settings = () => {
                 />
                 <MailingOption
                     cb={changeMailing}
+                    theme={theme}
+                />
+
+                <h2>Referral Link</h2>
+                <Referral
+                    code={referral_code}
                     theme={theme}
                 />
 
