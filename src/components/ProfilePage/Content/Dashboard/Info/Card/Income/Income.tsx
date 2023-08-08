@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import cls from './Income.module.scss';
+import {useActions} from "../../../../../../../hooks/useActions";
+import {useAppSelector} from "../../../../../../../hooks/redux";
 
 const Income = () => {
+    const {getProfitDay} = useActions()
+    const {isLoading, profit} = useAppSelector(state => state.dashboardSlice)
+    const [active, setActive] = useState('today')
+
+    useEffect(() => {
+        getProfitDay(localStorage.getItem('user_session') || '')
+    }, [])
+
     return (
         <div className={cls.income}>
             <div className={cls.top}>
@@ -11,27 +21,74 @@ const Income = () => {
                 <button/>
             </div>
             <div className={cls.middle}>
-                <div className={cls.day}>
-                    <p>Thu</p>
-                    <span>14</span>
+                <div
+                    onClick={() => setActive('yesterday')}
+                    className={`${cls.day} ${active === 'yesterday' ? cls.active : ''}`}
+                >
+                    {
+                        isLoading
+                            ? <span>...</span>
+                            : <>
+                                <p>{profit.yesterday?.date.split(',')[1].slice(0, 4)}</p>
+                                <span>{profit.yesterday?.date.split(',')[0].slice(0, 2)}</span>
+                            </>
+                    }
                 </div>
-                <div className={`${cls.day} ${cls.active}`}>
-                    <p>Fri</p>
-                    <span>15</span>
+                <div
+                    onClick={() => setActive('today')}
+                    className={`${cls.day} ${active === 'today' ? cls.active : ''}`}
+                >
+                    {
+                        isLoading
+                            ? <span>...</span>
+                            : <>
+                                <p>{profit.today?.date.split(',')[1].slice(0, 4)}</p>
+                                <span>{profit.today?.date.split(',')[0].slice(0, 2)}</span>
+                            </>
+                    }
                 </div>
-                <div className={cls.day}>
-                    <p>Sat</p>
-                    <span>16</span>
+                <div
+                    onClick={() => setActive('tommorow')}
+                    className={`${cls.day} ${active === 'tommorow' ? cls.active : ''}`}
+                >
+                    {
+                        isLoading
+                            ? <span>...</span>
+                            : <>
+                                <p>{profit.tommorow?.date.split(',')[1].slice(0, 4)}</p>
+                                <span>{profit.tommorow?.date.split(',')[0].slice(0, 2)}</span>
+                            </>
+                    }
                 </div>
             </div>
             <div className={cls.bottom}>
                 <div className={cls.left}>
-                    <span>23%</span>
+                    <span>
+                        $
+                        {
+                            isLoading
+                                ? '---'
+                                : active === 'yesterday'
+                                    ? profit.yesterday?.profit
+                                    : active === 'today'
+                                        ? profit.today?.profit
+                                        : '---'
+                        }
+                    </span>
                 </div>
-                <div className={cls.right}>
-                    <span>-10%</span>
-                    <p>Since last day</p>
-                </div>
+                {
+                    active === 'today' &&
+                    <div className={cls.right}>
+                        <span>
+                            {
+                                profit.today?.profit < profit.yesterday?.profit
+                                    ? `-${(((profit.yesterday?.profit - profit.today?.profit) * 100) / profit.today?.profit).toFixed(2)}`
+                                    : `${(((profit.today?.profit - profit.yesterday?.profit) * 100) / profit.yesterday?.profit).toFixed(2)}` + '%'
+                            }
+                        </span>
+                        <p>Since last day</p>
+                    </div>
+                }
             </div>
         </div>
     );

@@ -5,12 +5,13 @@ import Deals from "./Deals/Deals";
 import {SideBarOptions} from "../Sidebar/SideBarMenu/SideBarMenu";
 import Settings from "./Settings/Settings";
 import Dashboard from "./Dashboard/Dashboard";
+import Favorites from "./Deals/Favorites";
 
 
 const content: Record<SideBarOptions, ReactNode> = {
     'Dashboard': <Dashboard/>,
     'My Deals': <Deals/>,
-    'Favorite Deals': <h1>FAV</h1>,
+    'Favorite Deals': <Favorites/>,
     'Settings': <Settings/>,
     'Activity History': <h1>HISTORY</h1>,
 }

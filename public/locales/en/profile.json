@@ -5,6 +5,7 @@
     "Activity History": "Activity History",
     "Settings": "Settings",
     "My Deals": "My Deals",
+    "Favorite Deals": "Favorite Deals",
     "settings": "Settings",
     "mailing": "Enable mailing",
     "support_option": "Contact support",
@@ -13,5 +14,6 @@
     "profile": "Profile",
     "change_image": "Change image",
     "change_login": "Change login",
-    "type_login": "Type your new login here"
+    "type_login": "Type your new login here",
+    "favorite_deals": "Favorite Deals"
 }

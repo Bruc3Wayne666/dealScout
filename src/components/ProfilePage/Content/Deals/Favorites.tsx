@@ -1,26 +1,24 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import cls from './Deals.module.scss';
 import {useAppSelector} from "../../../../hooks/redux";
 import {ThemeContext, ThemeContextType} from "../../../../providers/ThemeProvider";
 import {useActions} from "../../../../hooks/useActions";
 import Filter from "./Filter/Filter";
 import DealCard from "./DealCard/DealCard";
+import {useTranslation} from "react-i18next";
 
 
 const Deals = () => {
-    const {getDeals, addFavorite, removeFavorite} = useActions()
+    const {getFavoriteDeals, addFavorite, removeFavorite} = useActions()
     const {isLoading, deals} = useAppSelector(state => state.dealSlice)
-    const {actual, view, sort, search} = useAppSelector(state => state.filterSlice)
+    const {view} = useAppSelector(state => state.filterSlice)
     const {theme} = useContext(ThemeContext) as ThemeContextType
+    const {t} = useTranslation('profile')
 
 
     useEffect(() => {
-        getDeals({
-            session: localStorage.getItem('user_session') || '',
-            time: sort.time,
-            plan_id: sort.plan
-        })
-    }, [actual, search, sort.plan, sort.time])
+        getFavoriteDeals(localStorage.getItem('user_session') || '')
+    }, [])
 
 
     const handleAddFavorite = (deal_id: number, isFavorite: boolean) => {
@@ -38,7 +36,7 @@ const Deals = () => {
     return (
         <div className={cls.deals}>
 
-            <Filter/>
+            <h1>{t('favorite_deals')}</h1>
 
             <div className={`${cls.items} ${cls[view]}`}>
                 {

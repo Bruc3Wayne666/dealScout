@@ -25,9 +25,9 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        // removeUser: (state) => {
-        //     state = initialState
-        // }
+        setPhoto: (state, {payload}: PayloadAction<string>) => {
+            state.photo = payload
+        }
     },
     extraReducers: {
         [getUserInfo.pending.type]: (state) => {
@@ -58,7 +58,8 @@ export const userSlice = createSlice({
         [changeUserPhoto.pending.type]: (state) => {
             state.isLoading = true
         },
-        [changeUserPhoto.fulfilled.type]: (state, {payload}: PayloadAction<string>) => {
+        [changeUserPhoto.fulfilled.type]: (state, {payload}: PayloadAction<any>) => {
+            state.photo = URL.createObjectURL(payload)
             state.isLoading = false
         }
     }

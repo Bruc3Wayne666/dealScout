@@ -5,6 +5,7 @@
     "Activity History": "Historique des activités",
     "Settings": "Paramètres",
     "My Deals": "Mes Offres",
+    "Favorite Deals": "Offres Préférées",
     "settings": "Paramètres",
     "mailing": "Activer l'envoi",
     "support_option": "Contactez le support",
@@ -13,5 +14,6 @@
     "profile": "Profil",
     "change_image": "Changer l'image",
     "change_login": "Changer de connexion",
-    "type_login": "Tapez votre nouveau login ici"
+    "type_login": "Tapez votre nouveau login ici",
+    "favorite_deals": "Offres Préférées"
 }

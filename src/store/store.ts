@@ -5,6 +5,7 @@ import dealSlice from "./reducers/deal/dealSlice";
 import userSlice from "./reducers/user/userSlice";
 import modalSlice from "./reducers/modal/modalSlice";
 import filterSlice from "./reducers/filter/filterSlice";
+import dashboardSlice from "./reducers/dashboard/dashboardSlice";
 
 const rootReducer = combineReducers({
     sidebarSlice,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     userSlice,
     dealSlice,
     modalSlice,
-    filterSlice
+    filterSlice,
+    dashboardSlice
 })
 
 export const setupStore = () => {

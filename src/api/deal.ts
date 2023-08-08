@@ -63,4 +63,11 @@ export class DealAPI {
         await instance.post('favorite_deals/delete_favorite_deal', payload)
         return payload.deal_id
     }
+
+    static async getFavoriteDealsList(payload: string){
+        const {data} = await instance.post('favorite_deals/favorite_deal_list', {
+            session: payload
+        })
+        return data
+    }
 }

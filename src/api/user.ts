@@ -51,7 +51,7 @@ export class UserAPI {
     static async changePhoto({session, image}: IChangePhotoProps) {
         const payload = new FormData()
         payload.append('image', image)
-        const {data} = await instance.post<ChangePhotoPayload>(
+        await instance.post<ChangePhotoPayload>(
             `user/change_photo/${session}`, payload,
             {
                 headers: {
@@ -59,7 +59,7 @@ export class UserAPI {
                 }
             }
         )
-        return data
+        return image
     }
 
     static async changeMailing({session}: IChangeMailingProps) {

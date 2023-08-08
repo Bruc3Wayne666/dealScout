@@ -11,27 +11,24 @@ interface ProfileProps {
 const Profile: FC<ProfileProps> = ({theme}) => {
     const {changeUserLogin, changeUserPhoto} = useActions()
     const {user_session} = useAppSelector(state => state.authSlice)
-    const {photo, login} = useAppSelector(state => state.userSlice)
+    const {photo, login, isLoading} = useAppSelector(state => state.userSlice)
     const [newLogin, setNewLogin] = useState('')
-    // const [img, setImg] = useState(require(`../../../../../assets/images/svg/${theme}/profile.svg`))
     const [img, setImg] = useState('')
     const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
-        if (photo) return setImg(`data:image/png;base64,${photo}`)
+        if (photo !== 'no photo' && !photo.includes('http')) return setImg(`data:image/png;base64,${photo}`)
+        else if (photo !== 'no photo') return setImg(photo)
         setImg(require(`../../../../../assets/images/svg/${theme}/profile.svg`))
-    }, [])
+    }, [photo])
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         // @ts-ignore
         const file = e.currentTarget.files[0]
-        // setImg(URL.createObjectURL(file))
-        // changeUserPhoto({image: img, session: user_session})
         changeUserPhoto({
             image: file,
             session: user_session
         })
-        setImg(URL.createObjectURL(file)) // change later
     }
 
     const handleSetLogin = () => {
@@ -52,10 +49,10 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                     <div className={cls.input}>
                         <img
                             src={
-                            photo !== 'no photo'
-                                ? `data:image/png;base64,${photo}`
-                                : require(`../../../../../assets/images/svg/${theme}/profile.svg`)
-                        }
+                                isLoading
+                                    ? require('../../../../../assets/images/svg/loading.svg').default
+                                    : img
+                            }
                             alt="Profile Image"
                         />
                         <input

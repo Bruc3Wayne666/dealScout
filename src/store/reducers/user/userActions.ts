@@ -32,8 +32,7 @@ export const changeUserPhoto = createAsyncThunk(
     'user/changePhoto',
     async (args: IChangePhotoProps, {rejectWithValue}) => {
         try {
-            const {info} = await UserAPI.changePhoto({...args})
-            return info
+            return await UserAPI.changePhoto({...args})
         } catch (err) {
             return rejectWithValue(err)
         }
