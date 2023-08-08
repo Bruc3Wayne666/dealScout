@@ -39,6 +39,8 @@ const Profile: FC<ProfileProps> = ({theme}) => {
             user_session,
             new_login: newLogin
         })
+        setIsEdit(false)
+        setNewLogin('')
     }
 
     const {t} = useTranslation('profile')
@@ -49,7 +51,11 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                     {/*<h4>{t('change_image')}</h4>*/}
                     <div className={cls.input}>
                         <img
-                            src={`data:image/png;base64,${photo}` || require(`../../../../../assets/images/svg/${theme}/profile.svg`)}
+                            src={
+                            photo !== 'no photo'
+                                ? `data:image/png;base64,${photo}`
+                                : require(`../../../../../assets/images/svg/${theme}/profile.svg`)
+                        }
                             alt="Profile Image"
                         />
                         <input
@@ -81,8 +87,8 @@ const Profile: FC<ProfileProps> = ({theme}) => {
                             />
                             <button
                                 onClick={handleSetLogin}
-                                disabled={login === ''}
-                                className={`${login === '' && cls.disabled}`}
+                                disabled={newLogin === ''}
+                                className={`${newLogin === '' && cls.disabled}`}
                             >
                                 {t('confirm')}
                             </button>

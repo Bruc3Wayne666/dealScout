@@ -46,6 +46,7 @@ export const userSlice = createSlice({
         },
         [changeUserLogin.fulfilled.type]: (state, {payload}: PayloadAction<string>) => {
             state.isLoading = false
+            state.login = payload
         },
         [changeMailing.pending.type]: (state) => {
             state.isLoading = true

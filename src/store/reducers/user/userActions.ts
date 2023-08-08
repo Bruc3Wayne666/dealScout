@@ -44,8 +44,7 @@ export const changeUserLogin = createAsyncThunk(
     'user/changeLogin',
     async (args: IChangeLoginProps, {rejectWithValue}) => {
         try {
-            const {message} = await UserAPI.changeLogin({...args})
-            return message
+            return await UserAPI.changeLogin({...args})
         } catch (err) {
             return rejectWithValue(err)
         }

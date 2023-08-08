@@ -6,10 +6,12 @@ import {capitalize} from "../../../../../shared/utils";
 interface DealCardProps {
     item: DealShow
     theme: string
+    handleAdd: (deal_id: number, isFavorite: boolean) => void
 }
 
-const DealCard: FC<DealCardProps> = ({item, theme}) => {
+const DealCard: FC<DealCardProps> = ({item, theme, handleAdd}) => {
     const {
+        id,
         photo,
         amazon_price,
         amazon_link,
@@ -26,12 +28,13 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
         upc_ean,
         day_beautiful,
         category,
-        restriction_check
+        restriction_check,
+        favorite
     } = item
+
 
     return (
         <div className={`${cls.card} ${cls[theme]}`}>
-
             <div className={cls.header}>
                 <div className={cls.mainInfo}>
                     <div className={cls.image}>
@@ -59,18 +62,13 @@ const DealCard: FC<DealCardProps> = ({item, theme}) => {
                     <button>
                         <img src={require(`../../../../../assets/images/svg/${theme}/cart.svg`)} alt="..."/>
                     </button>
-                    <button>
-                        <img src={require(`../../../../../assets/images/svg/${theme}/heart.svg`)} alt="..."/>
+                    <button
+                        onClick={() => handleAdd(id, favorite)}
+                    >
+                        <img src={require(`../../../../../assets/images/svg/${theme}/heart${favorite ? '_filled' : ''}.svg`)} alt="..."/>
                     </button>
-                    {/*<button>*/}
-                    {/*    <img src={require(`../../../../../assets/images/svg/${theme}/like.svg`)} alt="..."/>*/}
-                    {/*</button>*/}
-                    {/*<button>*/}
-                    {/*    <img src={require(`../../../../../assets/images/svg/${theme}/dislike.svg`)} alt="..."/>*/}
-                    {/*</button>*/}
                 </div>
             </div>
-
             <div className={cls.info}>
                 <div className={cls.main}>
                     <div className={cls.item}>

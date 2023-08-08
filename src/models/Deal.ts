@@ -26,6 +26,7 @@ export interface DealShow extends IDeal {
     day: number
     day_beautiful: string
     category: string
+    favorite: boolean
 }
 
 export interface DealAdd extends IDeal {}

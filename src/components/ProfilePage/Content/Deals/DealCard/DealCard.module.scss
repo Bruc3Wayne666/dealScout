@@ -21,7 +21,7 @@
     .header {
       border-bottom: 2px solid #999999;
 
-      .mainInfo .info .item{
+      .mainInfo .info .item {
         &.category p {
           color: #999999;
         }
@@ -60,7 +60,7 @@
     .header {
       border-bottom: 2px solid $secondary-colour-light;
 
-      .mainInfo .info .item{
+      .mainInfo .info .item {
         &.category p {
           color: #222;
         }
@@ -168,18 +168,26 @@
       justify-content: space-between;
 
       button {
+        width: 44px;
+        height: 44px;
         margin-right: 4px;
         cursor: pointer;
         background-color: transparent;
         display: flex;
-        border-radius: 4px;
+        border-radius: 8px;
         justify-content: center;
         align-items: center;
-        padding: 4px;
+        padding: 8px;
         transition: .2s;
 
         img {
           width: 20px;
+        }
+
+        &:last-child {
+          img {
+            width: 34px;
+          }
         }
       }
     }

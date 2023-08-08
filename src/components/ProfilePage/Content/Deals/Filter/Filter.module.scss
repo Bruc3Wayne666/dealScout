@@ -32,7 +32,12 @@
     }
 
     .sort select {
+      background-color: transparent;
       color: #999999;
+
+      option {
+        background-color: $secondary-colour-dark;
+      }
     }
   }
 
@@ -57,6 +62,7 @@
     }
 
     .sort select {
+      background-color: transparent;
       color: #222;
     }
   }
@@ -131,11 +137,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    //border: 1px solid white;
 
     select {
       width: 100%;
-      background-color: $secondary-colour-dark;
       border-radius: 4px;
       border: 1px solid #999999;
       outline: none;

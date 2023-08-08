@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FormEvent, useCallback, useContext, useState} from 'react';
+import React, {ChangeEvent, FormEvent, useCallback, useContext, useEffect, useState} from 'react';
 import cls from "./Filter.module.scss";
 import {ThemeContext, ThemeContextType} from "../../../../../providers/ThemeProvider";
 import {useAppSelector} from "../../../../../hooks/redux";
@@ -9,11 +9,15 @@ import {debounce} from "lodash";
 
 
 const Filter = () => {
-    const {deals} = useAppSelector(state => state.dealSlice)
+    const {deals, amounts} = useAppSelector(state => state.dealSlice)
     const {view, actual, search, sort} = useAppSelector(state => state.filterSlice)
     const {theme} = useContext(ThemeContext) as ThemeContextType
-    const {setView, setActual, setSearch, setTime, setPlan} = useActions()
+    const {setView, setActual, setSearch, setTime, setPlan, getAmount} = useActions()
     const [searchShow, setSearchShow] = useState('')
+
+    useEffect(() => {
+        getAmount({session: localStorage.getItem('user_session') || '', plan_id: sort.plan})
+    }, [])
 
     const func = useCallback(debounce(async (val: string) => {
         setSearch(val)
@@ -41,13 +45,13 @@ const Filter = () => {
                     onClick={() => setActual()}
                     className={`${cls.option} ${actual === 'today' ? cls.active : ''}`}
                 >
-                    <p>Today <span>{deals.length}</span></p>
+                    <p>Today <span>{amounts.today}</span></p>
                 </div>
                 <div
                     onClick={() => setActual()}
                     className={`${cls.option} ${actual === 'all' ? cls.active : ''}`}
                 >
-                    <p>All <span>{deals.length}</span></p>
+                    <p>All <span>{amounts.all}</span></p>
                 </div>
             </div>
             <div className={cls.search}>

@@ -2,7 +2,8 @@ import {instance} from "./index";
 import {IUser} from "../models/User";
 
 
-export interface GetUserPayload extends IUser {}
+export interface GetUserPayload extends IUser {
+}
 
 export interface ChangeLoginPayload {
     message: string
@@ -43,8 +44,8 @@ export class UserAPI {
     }
 
     static async changeLogin(payload: IChangeLoginProps) {
-        const {data} = await instance.post<ChangeLoginPayload>('user/change_login', payload)
-        return data
+        await instance.post<ChangeLoginPayload>('user/change_login', payload)
+        return payload.new_login
     }
 
     static async changePhoto({session, image}: IChangePhotoProps) {

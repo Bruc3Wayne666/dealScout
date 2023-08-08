@@ -5,16 +5,15 @@ import Deals from "./Deals/Deals";
 import {SideBarOptions} from "../Sidebar/SideBarMenu/SideBarMenu";
 import Settings from "./Settings/Settings";
 import Dashboard from "./Dashboard/Dashboard";
-import {Route} from "react-router";
 
-// type Content = Record<SideBarOptions, ReactNode>
 
-// const content: Content = {
-//     'Dashboard': <Dashboard/>,
-//     'My Deals': <Deals/>,
-//     'Settings': <Settings/>,
-//     'Activity History': <></>
-// }
+const content: Record<SideBarOptions, ReactNode> = {
+    'Dashboard': <Dashboard/>,
+    'My Deals': <Deals/>,
+    'Favorite Deals': <h1>FAV</h1>,
+    'Settings': <Settings/>,
+    'Activity History': <h1>HISTORY</h1>,
+}
 
 const Content = ({theme}: { theme: string }) => {
     const {currentOption} = useAppSelector(state => state.sidebarSlice)
@@ -22,10 +21,8 @@ const Content = ({theme}: { theme: string }) => {
     return (
         <div className={`${cls.content} ${cls[theme]}`}>
             {
-                currentOption === SideBarOptions.DASHBOARD ? <Dashboard/>
-                    : currentOption === SideBarOptions.MY_DEALS ? <Deals/>
-                        : currentOption === SideBarOptions.SETTINGS ? <Settings/>
-                            : <h1>HISTORY</h1>
+                //TODO: LOOKS STRANGE, CHANGE IF POSSIBLE
+                content[currentOption as keyof typeof content]
             }
         </div>
     );
