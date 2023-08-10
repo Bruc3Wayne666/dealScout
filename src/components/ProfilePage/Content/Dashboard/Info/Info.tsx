@@ -5,6 +5,8 @@ import ChartContent from "./Card/Chart/Chart";
 import Report from "./Card/Report/Report";
 import Income from "./Card/Income/Income";
 import Deals from "./Card/Deals/Deals";
+import Plans from "./Card/Plans/Plans";
+import Link from "./Card/Link/Link";
 
 const Info = () => {
     return (
@@ -27,8 +29,12 @@ const Info = () => {
             <Card>
                 <Deals/>
             </Card>
-            <Card/>
-            <Card/>
+            <Card>
+                <Plans />
+            </Card>
+            <Card>
+                <Link />
+            </Card>
         </div>
     );
 };

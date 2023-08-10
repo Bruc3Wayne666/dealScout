@@ -1,0 +1,114 @@
+@import "src/global/styles/variables";
+
+
+.plans {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+                  20deg,
+                  hsl(55deg 100% 50%) 0%,
+                  hsl(54deg 95% 58%) 1%,
+                  hsl(53deg 88% 61%) 1%,
+                  hsl(51deg 82% 62%) 2%,
+                  hsl(50deg 74% 63%) 3%,
+                  hsl(48deg 67% 64%) 5%,
+                  hsl(46deg 59% 65%) 6%,
+                  hsl(43deg 51% 65%) 8%,
+                  hsl(39deg 42% 66%) 11%,
+                  hsl(33deg 34% 66%) 14%,
+                  hsl(22deg 25% 66%) 18%,
+                  hsl(0deg 17% 66%) 24%,
+                  hsl(326deg 11% 64%) 32%,
+                  hsl(268deg 12% 65%) 42%,
+                  hsl(240deg 19% 67%) 53%,
+                  hsl(227deg 30% 67%) 62%,
+                  hsl(221deg 42% 67%) 70%,
+                  hsl(217deg 53% 66%) 77%,
+                  hsl(214deg 64% 65%) 82%,
+                  hsl(212deg 75% 64%) 88%,
+                  hsl(210deg 84% 62%) 92%,
+                  hsl(207deg 93% 59%) 96%,
+                  hsl(202deg 100% 50%) 100%
+  );
+
+  .header {
+    flex: 1;
+    align-items: center;
+    padding-top: 32px;
+    padding-left: 32px;
+
+    h2 {
+      color: #222;
+      margin: 0;
+    }
+  }
+
+  .info {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+
+    .plan {
+      //border: 1px solid white;
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      flex: 1;
+      font-size: 24px;
+      //flex-wrap: wrap;
+      justify-content: space-between;
+      color: #222;
+
+      span {
+        font-weight: 600;
+
+        &:first-child {
+          margin-left: 20px;
+          margin-right: 20px;
+          padding: 6px 18px;
+          border-radius: 12px;
+          //border: 1px solid darkblue;
+        }
+
+        &:last-child {
+          color: #222;
+          text-decoration: underline dotted;
+          margin-left: 20px;
+          padding: 6px 18px;
+          border-radius: 12px;
+          //background-color: green;
+        }
+      }
+
+      &.starter {
+        span:first-child {
+          background-color: #679AE7;
+          color: #222;
+        }
+      }
+
+      &.advanced {
+        span:first-child {
+          background-color: #E4D00A;
+          color: black;
+        }
+      }
+
+      &.pro {
+        span:first-child {
+          background-color: black;
+          color: white;
+        }
+      }
+
+      @media screen and (max-width: 1078px) {
+        font-size: 18px;
+      }
+    }
+  }
+}
