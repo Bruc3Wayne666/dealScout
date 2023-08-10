@@ -4,6 +4,7 @@ interface IDeal {
     amazon_price: number
     shop_name: string
     shop_link: string
+    product_name: string
     amazon_link: string
     plan_id: number
     group_number: number

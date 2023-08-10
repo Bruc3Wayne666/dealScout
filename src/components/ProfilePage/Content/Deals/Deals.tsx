@@ -5,22 +5,29 @@ import {ThemeContext, ThemeContextType} from "../../../../providers/ThemeProvide
 import {useActions} from "../../../../hooks/useActions";
 import Filter from "./Filter/Filter";
 import DealCard from "./DealCard/DealCard";
+import {useTranslation} from "react-i18next";
 
 
 const Deals = () => {
     const {getDeals, addFavorite, removeFavorite} = useActions()
     const {isLoading, deals} = useAppSelector(state => state.dealSlice)
-    const {actual, view, sort, search} = useAppSelector(state => state.filterSlice)
+    const {actual, view, sort} = useAppSelector(state => state.filterSlice)
     const {theme} = useContext(ThemeContext) as ThemeContextType
+    const {t} = useTranslation('profile')
+    const translate = {
+        created_on: t('created_on'),
+        view_graph: t('view_graph'),
+        store: t('store')
+    }
 
 
     useEffect(() => {
         getDeals({
             session: localStorage.getItem('user_session') || '',
-            time: sort.time,
+            time: actual,
             plan_id: sort.plan
         })
-    }, [actual, search, sort.plan, sort.time])
+    }, [actual, sort.plan])
 
 
     const handleAddFavorite = (deal_id: number, isFavorite: boolean) => {
@@ -48,6 +55,7 @@ const Deals = () => {
                         </div>
                         : deals.length !== 0
                             ? deals.map(deal => <DealCard
+                                translate={translate}
                                 handleAdd={handleAddFavorite}
                                 item={deal}
                                 theme={theme}

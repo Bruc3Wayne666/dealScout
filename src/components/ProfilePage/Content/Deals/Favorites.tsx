@@ -14,6 +14,11 @@ const Deals = () => {
     const {view} = useAppSelector(state => state.filterSlice)
     const {theme} = useContext(ThemeContext) as ThemeContextType
     const {t} = useTranslation('profile')
+    const translate = {
+        created_on: t('created_on'),
+        view_graph: t('view_graph'),
+        store: t('store')
+    }
 
 
     useEffect(() => {
@@ -46,6 +51,7 @@ const Deals = () => {
                         </div>
                         : deals.length !== 0
                             ? deals.map(deal => <DealCard
+                                translate={translate}
                                 handleAdd={handleAddFavorite}
                                 item={deal}
                                 theme={theme}

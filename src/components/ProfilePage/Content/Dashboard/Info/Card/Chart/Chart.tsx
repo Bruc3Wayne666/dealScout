@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Chart from 'react-apexcharts';
 import cls from './Chart.module.scss';
+import {useTranslation} from "react-i18next";
 
 
 const options = {
@@ -31,7 +32,7 @@ const options = {
                         fontSize: '26px',
                         fontWeight: 600,
                         formatter: (val: string) => {
-                            if (Number(val) >= 1000) return `${Number(val) / 1000}K`
+                            if (Number(val) >= 1000) return `${(Number(val) / 1000).toFixed(2)}K`
                             return val
                         }
                     },
@@ -51,11 +52,12 @@ const options = {
 const ChartContent = () => {
     const [series, setSeries] = useState([4444, 555, 410, 1437, 105])
     const [labels, setLabels] = useState(['A', 'B', 'C', 'D', 'E'])
+    const {t} = useTranslation('profile')
 
     return (
         <div className={cls.chart}>
             <div className={cls.top}>
-                <h3>Done Deals</h3>
+                <h3>{t('done_deals')}</h3>
             </div>
             <div className={cls.donut}>
                 <Chart

@@ -41,7 +41,7 @@ const Settings = () => {
                     theme={theme}
                 />
 
-                <h2>Referral Link</h2>
+                <h2>{t('ref_link')}</h2>
                 <Referral
                     code={referral_code}
                     theme={theme}

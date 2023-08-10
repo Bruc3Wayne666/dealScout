@@ -2,11 +2,13 @@ import React, {useEffect, useState} from 'react';
 import cls from './Income.module.scss';
 import {useActions} from "../../../../../../../hooks/useActions";
 import {useAppSelector} from "../../../../../../../hooks/redux";
+import {useTranslation} from "react-i18next";
 
 const Income = () => {
     const {getProfitDay} = useActions()
     const {isLoading, profit} = useAppSelector(state => state.dashboardSlice)
     const [active, setActive] = useState('today')
+    const {t} = useTranslation('profile')
 
     useEffect(() => {
         getProfitDay(localStorage.getItem('user_session') || '')
@@ -16,7 +18,7 @@ const Income = () => {
         <div className={cls.income}>
             <div className={cls.top}>
                 <h3>
-                    Average Income
+                    {t('average_income')}
                 </h3>
                 <button/>
             </div>
@@ -64,7 +66,6 @@ const Income = () => {
             <div className={cls.bottom}>
                 <div className={cls.left}>
                     <span>
-                        $
                         {
                             isLoading
                                 ? '---'
@@ -73,7 +74,7 @@ const Income = () => {
                                     : active === 'today'
                                         ? profit.today?.profit
                                         : '---'
-                        }
+                        }%
                     </span>
                 </div>
                 {
@@ -82,11 +83,11 @@ const Income = () => {
                         <span>
                             {
                                 profit.today?.profit < profit.yesterday?.profit
-                                    ? `-${(((profit.yesterday?.profit - profit.today?.profit) * 100) / profit.today?.profit).toFixed(2)}`
-                                    : `${(((profit.today?.profit - profit.yesterday?.profit) * 100) / profit.yesterday?.profit).toFixed(2)}` + '%'
-                            }
+                                    ? `-${profit.yesterday?.profit - profit.today?.profit}`
+                                    : `+${profit.today?.profit - profit.yesterday?.profit}`
+                            }%
                         </span>
-                        <p>Since last day</p>
+                        <p>{t('since_last_day')}</p>
                     </div>
                 }
             </div>

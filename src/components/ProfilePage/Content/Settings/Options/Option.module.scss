@@ -79,9 +79,14 @@
     background-repeat: no-repeat;
     background-position: center right 12px;
     padding-left: 12px;
-    width: 120px;
+    //width: 120px;
     transition: none;
     border-radius: 12px;
+
+    span {
+      color: #999999;
+      margin-right: 20px;
+    }
 
     &:hover {
       color: #999999;

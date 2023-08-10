@@ -5,6 +5,8 @@ import {addFavorite, getAmount, getDeals, getFavoriteDeals, removeFavorite} from
 
 interface AmountsPayload {
     today: number
+    week: number
+    month: number
     all: number
 }
 
@@ -20,10 +22,7 @@ interface IDealsState {
     isLoading: boolean
     error: boolean
     deals: DealShow[]
-    amounts: {
-        today: number
-        all: number
-    }
+    amounts: AmountsPayload
 }
 
 const initialState: IDealsState = {
@@ -32,6 +31,8 @@ const initialState: IDealsState = {
     deals: [],
     amounts: {
         today: 0,
+        week: 0,
+        month: 0,
         all: 0
     }
 }
@@ -51,6 +52,8 @@ export const dealSlice = createSlice({
         },
         [getAmount.fulfilled.type]: (state, {payload}: PayloadAction<AmountsPayload>) => {
             state.amounts.today = payload.today
+            state.amounts.week = payload.week
+            state.amounts.month = payload.month
             state.amounts.all = payload.all
         },
         [addFavorite.fulfilled.type]: (state, {payload}: PayloadAction<number>) => {

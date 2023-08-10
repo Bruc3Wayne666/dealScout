@@ -5,9 +5,8 @@ import {Plan, Time} from "../../../api/deal";
 interface IFilterState {
     view: string
     actual: Time
-    search: string
+    // search: string
     sort: {
-        time: Time
         plan: number
     }
 }
@@ -15,9 +14,8 @@ interface IFilterState {
 const initialState: IFilterState = {
     view: 'flex',
     actual: Time.TODAY,
-    search: '',
+    // search: '',
     sort: {
-        time: Time.ALL,
         plan: 0
     }
 }
@@ -29,15 +27,12 @@ export const filterSlice = createSlice({
             setView: (state) => {
                 state.view = state.view === 'grid' ? 'flex' : 'grid'
             },
-            setActual: (state) => {
-                state.actual = state.actual === Time.ALL ? Time.TODAY : Time.ALL
+            setActual: (state, {payload}: PayloadAction<Time>) => {
+                state.actual = payload
             },
-            setSearch: (state, {payload}: PayloadAction<string>) => {
-                state.search = payload
-            },
-            setTime: (state, {payload}: PayloadAction<Time>) => {
-                state.sort.time = payload
-            },
+            // setSearch: (state, {payload}: PayloadAction<string>) => {
+            //     state.search = payload
+            // },
             setPlan: (state, {payload}: PayloadAction<string>) => {
                 state.sort.plan = Number(payload)
             }

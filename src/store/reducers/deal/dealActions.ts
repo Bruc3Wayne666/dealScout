@@ -28,8 +28,10 @@ export const getAmount = createAsyncThunk(
     async (args: Omit<GetAmountProps, 'time'>, {rejectWithValue}) => {
         try {
             const {len: today} = await DealAPI.getDealsAmount({...args, time: Time.TODAY})
+            const {len: week} = await DealAPI.getDealsAmount({...args, time: Time.WEEK})
+            const {len: month} = await DealAPI.getDealsAmount({...args, time: Time.MONTH})
             const {len: all} = await DealAPI.getDealsAmount({...args, time: Time.ALL})
-            return {today, all}
+            return {today, week, month, all}
         } catch (err) {
             return rejectWithValue(err)
         }

@@ -3,13 +3,26 @@ import cls from './DealCard.module.scss'
 import {DealShow} from "../../../../../models/Deal";
 import {capitalize} from "../../../../../shared/utils";
 
+
+const PlanTitles = [
+    '...',
+    'Starter',
+    'Advanced',
+    'Pro'
+]
+
 interface DealCardProps {
     item: DealShow
     theme: string
     handleAdd: (deal_id: number, isFavorite: boolean) => void
+    translate: {
+        view_graph: string
+        store: string
+        created_on: string
+    }
 }
 
-const DealCard: FC<DealCardProps> = ({item, theme, handleAdd}) => {
+const DealCard: FC<DealCardProps> = ({item, theme, handleAdd, translate}) => {
     const {
         id,
         photo,
@@ -21,6 +34,7 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd}) => {
         bsr_percent,
         asin,
         shop_name,
+        product_name,
         net_profit,
         est_monthly_sale,
         roi,
@@ -29,9 +43,12 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd}) => {
         day_beautiful,
         category,
         restriction_check,
+        shop_link,
+        plan_id,
         favorite
     } = item
 
+    const {created_on, store, view_graph}= translate
 
     return (
         <div className={`${cls.card} ${cls[theme]}`}>
@@ -45,27 +62,24 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd}) => {
                     </div>
                     <div className={cls.info}>
                         <div className={`${cls.item} ${cls.itemName}`}>
-                            <p>{shop_name}</p>
+                            <p>{product_name}</p>
                         </div>
                         <div className={`${cls.item} ${cls.category}`}>
                             <p>{capitalize(category)}</p>
                         </div>
                         <div className={`${cls.item} ${cls.date}`}>
-                            <p>Created on: <span>{day_beautiful}</span></p>
+                            <p>{created_on}: <span>{day_beautiful}</span></p>
                         </div>
                         <div className={`${cls.item} ${cls.status}`}>
-                            <span> plan ??? </span>
+                            <span>{PlanTitles[plan_id]}</span>
                         </div>
                     </div>
                 </div>
                 <div className={cls.actions}>
-                    <button>
-                        <img src={require(`../../../../../assets/images/svg/${theme}/cart.svg`)} alt="..."/>
-                    </button>
                     <button
                         onClick={() => handleAdd(id, favorite)}
                     >
-                        <img src={require(`../../../../../assets/images/svg/${theme}/heart${favorite ? '_filled' : ''}.svg`)} alt="..."/>
+                        <img src={require(`../../../../../assets/images/svg/${theme}/star${favorite ? '_filled' : ''}.svg`)} alt="..."/>
                     </button>
                 </div>
             </div>
@@ -132,10 +146,12 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd}) => {
 
             <div className={cls.bottom}>
                 <div className={cls.left}>
-                    <button>View Graph</button>
+                    <button>{view_graph}</button>
                 </div>
                 <div className={cls.right}>
-                    <button>Store</button>
+                    <a target='_blank' href={shop_link}>
+                        <button>{store}</button>
+                    </a>
                     <a target='_blank' href={amazon_link}>
                         <button>
                             <img

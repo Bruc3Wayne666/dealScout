@@ -1,0 +1,136 @@
+@import "src/global/styles/variables";
+
+
+.plans {
+  border: 1px solid white;
+  position: absolute;
+  right: 100px;
+  top: 40px;
+  width: 240px;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 12px;
+  padding: 12px;
+  z-index: 99;
+  flex-direction: column;
+  height: 200px;
+
+
+  &.light {
+    color: black;
+    background-color: $primary-colour-light;
+    border: 2px solid #ddd;
+    -webkit-box-shadow: 0 6px 22px 0 rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0 6px 22px 0 rgba(34, 60, 80, 0.2);
+    box-shadow: 0 6px 22px 0 rgba(34, 60, 80, 0.2);
+
+    .info {
+      color: #333;
+    }
+  }
+
+  &.dark {
+    color: white;
+    background-color: $secondary-colour-dark;
+    border: 2px solid #36383E;
+    -webkit-box-shadow: 0px 6px 22px 0px rgba(226, 233, 238, 0.2);
+    -moz-box-shadow: 0px 6px 22px 0px rgba(226, 233, 238, 0.2);
+    box-shadow: 0px 6px 22px 0px rgba(226, 233, 238, 0.2);
+
+    .info {
+      color: #ccc;
+    }
+  }
+
+  .header {
+    //border-bottom: 2px solid #999999;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 4px;
+    margin-bottom: 8px;
+    align-items: center;
+
+    h4 {
+      margin: 0;
+    }
+
+    span {
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: 600;
+      color: #222;
+    }
+  }
+
+  .info {
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-right: 8px;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
+    flex: 1;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #666;
+      border-radius: 4px;
+    }
+
+    .plan {
+      //font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+
+      span {
+        font-weight: 600;
+
+        &:last-child {
+          color: green;
+        }
+      }
+
+      &.starter {
+        span:first-child {
+          padding: 2px 4px;
+          border-radius: 6px;
+          background-color: #679AE7;
+          color: #222;
+        }
+      }
+
+      &.advanced {
+        span:first-child {
+          padding: 2px 4px;
+          border-radius: 6px;
+          background-color: #E4D00A;
+          color: black;
+        }
+      }
+
+      &.pro {
+        span:first-child {
+          padding: 2px 4px;
+          border-radius: 6px;
+          background-color: black;
+          color: white;
+        }
+      }
+
+    }
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
