@@ -23,8 +23,9 @@ const Header = () => {
     return (
         <div className={cls.header}>
             <h1>{t('statistics')}</h1>
+
             <div className={`${cls.buttons} ${cls[theme]}`}>
-                {/*<button>{isLoadingPlans ? '...' : Plans[plans[0]?.plan_id]}</button>*/}
+                <a target='_blank' href='https://t.me/DealScoutAmazon' />
                 <button onClick={() => setShowPlans(true)}>{t('active_plans')}</button>
                 <button
                     onClick={() => changeMailing({session: localStorage.getItem('user_session') as string})}

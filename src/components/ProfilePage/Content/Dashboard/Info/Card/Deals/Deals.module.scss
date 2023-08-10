@@ -6,6 +6,14 @@
   flex-direction: column;
   color: #fff;
 
+  &.light {
+    background-image: linear-gradient(to left top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #9d95df, #a08fdc, #a489d8, #be6cbc, #d04b93, #d42a60, #c71928);
+  }
+
+  &.dark {
+    background-image: linear-gradient(to left top, #5f16a3, #a4006f, #b5003d, #aa4116, #916600, #876d00, #7c7300, #6f7900, #7e6a00, #8b5900, #974400, #9f2900);
+  }
+
   .top {
     flex: 1;
     display: flex;
