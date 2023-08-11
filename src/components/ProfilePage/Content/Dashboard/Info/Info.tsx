@@ -30,10 +30,10 @@ const Info = () => {
                 <Deals/>
             </Card>
             <Card>
-                <Plans />
+                <Link />
             </Card>
             <Card>
-                <Link />
+                <Plans />
             </Card>
         </div>
     );

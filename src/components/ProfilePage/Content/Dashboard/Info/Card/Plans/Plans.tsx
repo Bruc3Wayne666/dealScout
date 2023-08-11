@@ -29,7 +29,7 @@ const Plans = () => {
             <div className={cls.info}>
                 {
                     plans.length !== 0
-                        ? plans.concat(plans).concat(plans).concat(plans).concat(plans).map(plan => (
+                        ? plans.map(plan => (
                             <div className={`${cls.plan} ${cls[PlanTitles[plan.plan_id].toLowerCase()]}`}>
                                 <span>
                                 {PlanTitles[plan.plan_id]}

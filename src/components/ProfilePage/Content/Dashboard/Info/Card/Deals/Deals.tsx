@@ -12,7 +12,7 @@ const Deals = () => {
     return (
         <div className={`${cls.deals} ${cls[theme]}`}>
             <div className={cls.top}>
-                <h3>{t('today_deals')}</h3>
+                <h2>{t('today_deals')}</h2>
             </div>
             <div className={cls.bottom}>
                 <button onClick={() => setCurrent('My Deals')}>{t('watch')}</button>

@@ -12,7 +12,7 @@ const Report = () => {
     return (
         <div className={`${cls.report} ${cls[theme]}`}>
             <div className={cls.top}>
-                <h3>{t('all_deals')}</h3>
+                <h2>{t('all_deals')}</h2>
                 {/*<span>/ report</span>*/}
             </div>
             <div className={`${cls.bottom} ${cls[theme]}`}>

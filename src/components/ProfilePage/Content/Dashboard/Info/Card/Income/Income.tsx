@@ -83,8 +83,8 @@ const Income = () => {
                         <span>
                             {
                                 profit.today?.profit < profit.yesterday?.profit
-                                    ? `-${profit.yesterday?.profit - profit.today?.profit}`
-                                    : `+${profit.today?.profit - profit.yesterday?.profit}`
+                                    ? `-${(profit.yesterday?.profit - profit.today?.profit).toFixed(2)}`
+                                    : `+${(profit.today?.profit - profit.yesterday?.profit).toFixed(2)}`
                             }%
                         </span>
                         <p>{t('since_last_day')}</p>
