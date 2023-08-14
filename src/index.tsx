@@ -9,6 +9,7 @@ import {ThemeProvider} from "./providers/ThemeProvider";
 import {PayPalScriptProvider} from '@paypal/react-paypal-js';
 import './shared/config/i18n/i18n'
 import Loading from "./pages/Loading/Loading";
+import {SkeletonTheme} from "react-loading-skeleton";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -24,9 +25,11 @@ root.render(
         }}>
             <ThemeProvider>
                 <Provider store={store}>
-                    <BrowserRouter>
-                        <App/>
-                    </BrowserRouter>
+                    <SkeletonTheme baseColor='#666' highlightColor='#999'>
+                        <BrowserRouter>
+                            <App/>
+                        </BrowserRouter>
+                    </SkeletonTheme>
                 </Provider>
             </ThemeProvider>
         </PayPalScriptProvider>

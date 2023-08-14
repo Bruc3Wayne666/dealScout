@@ -48,7 +48,7 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd, translate}) => {
         favorite
     } = item
 
-    const {created_on, store, view_graph}= translate
+    const {created_on, store, view_graph} = translate
 
     return (
         <div className={`${cls.card} ${cls[theme]}`}>
@@ -79,7 +79,9 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd, translate}) => {
                     <button
                         onClick={() => handleAdd(id, favorite)}
                     >
-                        <img src={require(`../../../../../assets/images/svg/${theme}/star${favorite ? '_filled' : ''}.svg`)} alt="..."/>
+                        <img
+                            src={require(`../../../../../assets/images/svg/${theme}/star${favorite ? '_filled' : ''}.svg`)}
+                            alt="..."/>
                     </button>
                 </div>
             </div>

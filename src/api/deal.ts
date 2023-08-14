@@ -70,4 +70,11 @@ export class DealAPI {
         })
         return data
     }
+
+    static async getDealsHistory(payload: string){
+        const {data} = await instance.post('history/all_history', {
+            session: payload
+        })
+        return data
+    }
 }

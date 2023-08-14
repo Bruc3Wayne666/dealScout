@@ -7,7 +7,6 @@ import {
 } from "./authActions";
 import {IAuth} from "../../../models/Auth";
 import {
-    RequestPinPayload,
     ResetPasswordPayload
 } from "../../../api/auth";
 import {getUserInfo} from "../user/userActions";

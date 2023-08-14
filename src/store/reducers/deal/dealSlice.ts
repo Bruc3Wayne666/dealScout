@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {DealShow} from "../../../models/Deal";
-import {addFavorite, getAmount, getDeals, getFavoriteDeals, removeFavorite} from "./dealActions";
+import {addFavorite, getAmount, getDeals, getFavoriteDeals, getHistory, removeFavorite} from "./dealActions";
 
 
 interface AmountsPayload {
@@ -18,10 +18,26 @@ interface IFavoriteDealsPayload {
     result: DealShow[]
 }
 
+
+interface IDealsHistoryPayload {
+    plans: {
+        plan_id: number,
+        buy_time: string,
+        end_time: string,
+        price: string
+    }[]
+}
+
 interface IDealsState {
     isLoading: boolean
     error: boolean
     deals: DealShow[]
+    history: {
+        plan_id: number,
+        buy_time: string,
+        end_time: string,
+        price: string
+    }[]
     amounts: AmountsPayload
 }
 
@@ -29,6 +45,7 @@ const initialState: IDealsState = {
     isLoading: false,
     error: false,
     deals: [],
+    history: [],
     amounts: {
         today: 0,
         week: 0,
@@ -71,6 +88,14 @@ export const dealSlice = createSlice({
         [getFavoriteDeals.fulfilled.type]: (state, {payload}: PayloadAction<IFavoriteDealsPayload>) => {
             state.deals = payload.result
             state.isLoading = false
+        },
+        [getHistory.pending.type]: (state) => {
+            state.error = false
+            state.isLoading = true
+        },
+        [getHistory.fulfilled.type]: (state, {payload}: PayloadAction<IDealsHistoryPayload>) => {
+            state.isLoading = false
+            state.history = payload.plans
         }
     }
 })

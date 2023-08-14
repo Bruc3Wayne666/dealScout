@@ -1,0 +1,117 @@
+@import "src/global/styles/variables";
+
+.deal {
+  border-radius: 24px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  font-size: 18px;
+  height: 100px;
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    b {
+      margin-right: 20px;
+    }
+
+    h4 {
+      margin: 0;
+      padding: 8px 12px;
+      border-radius: 12px;
+    }
+
+    .starter {
+      background-color: #679AE7;
+      color: #222;
+    }
+
+    .advanced {
+      background-color: #E4D00A;
+      color: black;
+    }
+
+    .pro {
+      background-color: black;
+      color: white;
+    }
+  }
+
+  .dates {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    p {
+      span {
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+
+  &.light {
+    background-color: #ddd;
+
+    title b {
+      color: black;
+    }
+
+    .dates {
+      p {
+        color: #222;
+
+        span {
+          color: black;
+        }
+      }
+    }
+
+    .price span {
+      color: red;
+    }
+  }
+
+  &.dark {
+    background-color: $secondary-colour-dark;
+
+    title b {
+      color: white;
+    }
+
+    .dates {
+      p {
+        color: #888;
+
+        span {
+          color: white;
+        }
+      }
+    }
+
+    .price span {
+      color: gold;
+    }
+  }
+}

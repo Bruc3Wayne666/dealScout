@@ -1,11 +1,12 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import cls from './Deals.module.scss';
 import {useAppSelector} from "../../../../hooks/redux";
 import {ThemeContext, ThemeContextType} from "../../../../providers/ThemeProvider";
 import {useActions} from "../../../../hooks/useActions";
-import Filter from "./Filter/Filter";
 import DealCard from "./DealCard/DealCard";
 import {useTranslation} from "react-i18next";
+import CardSkeleton from "./Skeleton";
+import Empty from "../Empty";
 
 
 const Deals = () => {
@@ -43,20 +44,24 @@ const Deals = () => {
 
             <h1>{t('favorite_deals')}</h1>
 
+            {
+                !isLoading && deals.length === 0 && <Empty/>
+            }
+
             <div className={`${cls.items} ${cls[view]}`}>
                 {
                     isLoading
-                        ? <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <img src={require('../../../../assets/images/svg/loading.svg').default} alt="Loading..."/>
-                        </div>
-                        : deals.length !== 0
-                            ? deals.map(deal => <DealCard
-                                translate={translate}
-                                handleAdd={handleAddFavorite}
-                                item={deal}
-                                theme={theme}
-                            />)
-                            : <h2>There are no any deals yet</h2>
+                        ? Array(4).fill(0).map((_, index) => <CardSkeleton
+                            theme={theme}
+                            key={index}
+                        />)
+                        : deals.map((deal, index) => <DealCard
+                            translate={translate}
+                            handleAdd={handleAddFavorite}
+                            item={deal}
+                            theme={theme}
+                            key={index}
+                        />)
                 }
             </div>
         </div>

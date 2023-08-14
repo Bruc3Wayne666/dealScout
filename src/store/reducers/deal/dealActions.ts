@@ -49,6 +49,17 @@ export const getFavoriteDeals = createAsyncThunk(
     }
 )
 
+export const getHistory = createAsyncThunk(
+    'deal/getDealsHistory',
+    async (session: string, {rejectWithValue}) => {
+        try {
+            return await DealAPI.getDealsHistory(session)
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
 export const addFavorite = createAsyncThunk(
     'deal/addFavorite',
     async (args: AddFavoriteProps, {rejectWithValue}) => {

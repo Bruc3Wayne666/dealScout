@@ -22,6 +22,11 @@ export class DashboardAPI {
         return data
     }
 
+    static async getMyActivePlans(session: string) {
+        const {data} = await instance.post('dashboard/my_active_plans', {session})
+        return data
+    }
+
     static async getProfitDay(session: string) {
         const {data} = await instance.post('dashboard/profit_day', {session})
         return data

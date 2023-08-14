@@ -23,6 +23,17 @@ export const getPlans = createAsyncThunk(
     }
 )
 
+export const getActivePlans = createAsyncThunk(
+    'auth/getActivePlans',
+    async (args: string, {rejectWithValue}) => {
+        try {
+            return await DashboardAPI.getMyActivePlans(args)
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
 export const getProfitDay = createAsyncThunk(
     'auth/getProfitDay',
     async (args: string, {rejectWithValue}) => {
