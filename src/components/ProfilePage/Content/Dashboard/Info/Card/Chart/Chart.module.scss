@@ -5,8 +5,6 @@
   width: 100%;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: #FFF379;
-  color: #222;
   //background: linear-gradient(68.8deg, rgba(0, 0, 0, 0.95) 1.8%, rgb(0, 55, 79) 31.8%, rgb(9, 93, 134) 56.2%, rgb(15, 155, 217) 89%);
 
   .top {
@@ -76,7 +74,38 @@
     }
   }
 
-  .bottom {
+  @media screen and (min-width: 1193px) {
+    .top h3 {
+      font-size: 34px;
+    }
 
+    .donut {
+      flex-direction: column;
+      //border: 2px solid red;
+      padding: 0 20px;
+
+      .cats {
+        flex: unset;
+        height: 40%;
+        //border: 2px solid blue;
+        width: 100%;
+        padding: 20px;
+
+        .list .category {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  &.light {
+    background-color: #FFF379;
+    color: #222;
+  }
+
+  &.dark {
+    //background-color: #0E2954;
+    //background-color: #0E2954;
+    color: white;
   }
 }

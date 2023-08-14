@@ -25,13 +25,13 @@
 
     /*border: 2px sold white;*/
 
-    .login {
-        height: 32%;
-    }
-
-    .register {
-        height: 43%;
-    }
+    //.login {
+    //    height: 32%;
+    //}
+    //
+    //.register {
+    //    height: 43%;
+    //}
 }
 
 
@@ -117,7 +117,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 140px;
+            //width: 140px;
+            padding: 4px 18px;
             border-radius: 20px;
             height: 32px;
             cursor: pointer;

@@ -18,4 +18,61 @@
   &:hover {
     transform: scale(1.01);
   }
+
+  &.chart {
+    grid-area: chart;
+  }
+
+  &.income {
+    grid-area: income;
+  }
+
+  &.report {
+    grid-area: report;
+  }
+
+  &.link {
+    grid-area: link;
+  }
+
+  &.plans {
+    grid-area: plans;
+  }
+
+  &.deals {
+    grid-area: deals;
+  }
+
+  @media screen and (max-width: 1192px){
+    &.income,
+    &.deals,
+    &.link,
+    &.report,
+    &.chart,
+    &.plans {
+      grid-area: unset;
+    }
+  }
 }
+
+
+//&:has(.deals) {
+//  grid-area: deals;
+//}
+//
+//&:has(.plans) {
+//  grid-area: plans;
+//}
+//
+//&:has(.link) {
+//  grid-area: link;
+//}
+//
+//&:has(.income) {
+//  grid-area: income;
+//}
+//
+//&:has(.report) {
+//  grid-area: report;
+//}
+

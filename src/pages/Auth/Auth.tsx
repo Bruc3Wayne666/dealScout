@@ -2,11 +2,11 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import cls from './Auth.module.scss'
 import Form from "../../components/AuthPage/Form/Form";
 import {Link, useSearchParams} from "react-router-dom";
-import {useLocation, useNavigate} from "react-router";
 import {AuthCredentials} from "../../models/Auth";
-import {AuthAPI} from "../../api/auth";
 import {useActions} from "../../hooks/useActions";
 import {useAppSelector} from "../../hooks/redux";
+import FormSwitcher from "../../components/AuthPage/FormSwitcher";
+import {AuthType} from "../../store/reducers/auth/authSlice";
 
 
 const initialState: AuthCredentials = {
@@ -18,10 +18,9 @@ const initialState: AuthCredentials = {
 }
 
 const Auth = () => {
-    const {login, register, resetUserPassword, requestResetPasswordPin} = useActions()
-    const {isLoading} = useAppSelector(state => state.authSlice)
+    const {login, register, setAuthType, resetUserPassword, requestResetPasswordPin} = useActions()
+    const {authType, isLoading} = useAppSelector(state => state.authSlice)
     const [params] = useSearchParams()
-    const [type, setType] = useState('register')
     const [credentials, setCredentials] = useState(initialState)
     const {email, username, password, pin} = credentials
 
@@ -33,20 +32,20 @@ const Auth = () => {
 
     const handleSetType = (val: string) => {
         setCredentials(initialState)
-        setType(val)
+        setAuthType(val as AuthType)
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (type === 'register') {
+        if (authType === AuthType.REGISTER) {
             return register({...credentials, username: username || ''})
-        } else if (type === 'login') {
+        } else if (authType === AuthType.LOGIN) {
             return login({email, password})
-        } else if (type === 'pin') {
+        } else if (authType === AuthType.PIN) {
             return resetUserPassword({email, password, pin})
         } else {
             requestResetPasswordPin({email})
-            return setType('pin')
+            return setAuthType(AuthType.PIN)
         }
     }
 
@@ -57,25 +56,24 @@ const Auth = () => {
         })
     }
 
-    // const handleRequestPin = () => {
-    //     UserAPI.requestPin({email})
-    //         .then(() => {
-    //             setIsLoading(false)
-    //             setType('pin')
-    //         })
-    // }
-
     return (
         <div className={cls.page}>
             <Link to={'/'}>
-
                 <img
                     src={require('../../assets/images/logo/logo_light.png')}
                     alt="DealScout"
                 />
             </Link>
+
+            {/*<button onClick={() => handleSetType(type === 'login' ? 'register' : 'login')}>Change</button>*/}
+
+            {/*<FormSwitcher*/}
+            {/*    handleSetType={handleSetType}*/}
+            {/*    type={authType}*/}
+            {/*/>*/}
+
             <Form
-                type={type}
+                type={authType}
                 isLoading={isLoading}
                 handleSetType={handleSetType}
                 handleChange={handleChange}

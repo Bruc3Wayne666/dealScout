@@ -2,10 +2,10 @@ import React, {FC} from 'react';
 import cls from './Card.module.scss';
 
 
-const Card: FC<any> = ({children}) => {
+const Card: FC<any> = ({children, content}) => {
     return (
         <div
-            className={cls.card}
+            className={`${cls.card} ${cls[content]}`}
         >
             {children}
         </div>

@@ -25,6 +25,7 @@ const Form: FC<FormProps> = ({
                                  credentials
                              }) => {
     const {email, password, pin} = credentials
+
     return (
         <form
             onSubmit={handleSubmit}

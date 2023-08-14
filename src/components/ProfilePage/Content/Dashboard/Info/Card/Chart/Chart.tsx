@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Chart from 'react-apexcharts';
 import cls from './Chart.module.scss';
 import {useTranslation} from "react-i18next";
+import {ThemeContext, ThemeContextType} from "../../../../../../../providers/ThemeProvider";
 
 
 const options = {
@@ -13,7 +14,7 @@ const options = {
         show: false,
     },
     chart: {
-        foreColor: '#222',
+        foreColor: '#666',
     },
     labels: ['Home', 'Games', 'Phones', 'TV', 'Photo'],
     plotOptions: {
@@ -50,12 +51,13 @@ const options = {
 
 
 const ChartContent = () => {
+    const {theme} = useContext(ThemeContext) as ThemeContextType
     const [series, setSeries] = useState([4444, 555, 410, 1437, 105])
     const [labels, setLabels] = useState(['A', 'B', 'C', 'D', 'E'])
     const {t} = useTranslation('profile')
 
     return (
-        <div className={cls.chart}>
+        <div className={`${cls.chart} ${cls[theme]}`}>
             <div className={cls.top}>
                 <h3>{t('done_deals')}</h3>
             </div>
@@ -65,7 +67,7 @@ const ChartContent = () => {
                     series={series}
                     labels={labels}
                     type={'donut'}
-                    width={'100%'}
+                    width={'130%'}
                 />
                 <div className={cls.cats}>
                     <div className={cls.list}>
@@ -105,34 +107,8 @@ const ChartContent = () => {
                             <p>22%</p>
                         </div>
                     </div>
-                    {/*<li>*/}
-                    {/*    <ul>*/}
-                    {/*        <span>TV</span>*/}
-                    {/*        <span>99%</span>*/}
-                    {/*    </ul>*/}
-                    {/*    <ul>*/}
-                    {/*        <span>TV</span>*/}
-                    {/*        <span>99%</span>*/}
-                    {/*    </ul>*/}
-                    {/*    <ul>*/}
-                    {/*        <span>TV</span>*/}
-                    {/*        <span>99%</span>*/}
-                    {/*    </ul>*/}
-                    {/*    <ul>*/}
-                    {/*        <span>TV</span>*/}
-                    {/*        <span>99%</span>*/}
-                    {/*    </ul>*/}
-                    {/*    <ul>*/}
-                    {/*        <span>TV</span>*/}
-                    {/*        <span>99%</span>*/}
-                    {/*    </ul>*/}
-                    {/*</li>*/}
-
                 </div>
             </div>
-            {/*<div className={cls.bottom}>*/}
-            {/*    ЧТО ЕЩЁ СЮДА ВЫВОДИТЬ?*/}
-            {/*</div>*/}
         </div>
     )
 };

@@ -13,15 +13,24 @@ import {
 import {getUserInfo} from "../user/userActions";
 
 
+export enum AuthType {
+    REGISTER = 'register',
+    LOGIN = 'login',
+    PIN = 'pin',
+    RESTORE = 'restore'
+}
+
 interface IAuthState extends IAuth {
     isLoading: boolean
+    authType: AuthType
 }
 
 const initialState: IAuthState = {
     isLoading: false,
     error: false,
     message: '',
-    user_session: ''
+    user_session: '',
+    authType: AuthType.REGISTER
 }
 
 export const authSlice = createSlice({
@@ -30,11 +39,16 @@ export const authSlice = createSlice({
     reducers: {
         setSession: (state, {payload}: PayloadAction<string>) => {
             state.user_session = payload
+            state.authType = AuthType.REGISTER
         },
         logout: (state) => {
             state.error = false
             state.user_session = ''
             state.message = ''
+            state.authType = AuthType.REGISTER
+        },
+        setAuthType: (state, {payload}: PayloadAction<AuthType>) => {
+            state.authType = payload
         }
     },
     extraReducers: {
@@ -86,11 +100,11 @@ export const authSlice = createSlice({
             state.isLoading = true
             state.error = false
         },
-        [requestResetPasswordPin.fulfilled.type]: (state, {payload}: PayloadAction<RequestPinPayload>) => {
+        [requestResetPasswordPin.fulfilled.type]: (state) => {
             state.isLoading = false
             state.error = false
         },
-        [requestResetPasswordPin.rejected.type]: (state, {payload}: PayloadAction<RequestPinPayload>) => {
+        [requestResetPasswordPin.rejected.type]: (state) => {
             state.isLoading = false
             state.error = false
         },

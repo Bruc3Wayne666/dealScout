@@ -8,33 +8,25 @@ import Deals from "./Card/Deals/Deals";
 import Plans from "./Card/Plans/Plans";
 import Link from "./Card/Link/Link";
 
+const content = {
+    'chart': <ChartContent/>,
+    'report': <Report/>,
+    'income': <Income/>,
+    'deals': <Deals/>,
+    'link': <Link/>,
+    'plans': <Plans/>
+}
+
 const Info = () => {
     return (
         <div className={cls.info}>
-            <Card
-                // custom={1}
-                // initial={'hidden'}
-                // whileInView={'visible'}
-                // variants={dashAnimation}
-                // viewport={{once: true}}
-            >
-                <ChartContent/>
-            </Card>
-            <Card>
-                <Report/>
-            </Card>
-            <Card>
-                <Income/>
-            </Card>
-            <Card>
-                <Deals/>
-            </Card>
-            <Card>
-                <Link />
-            </Card>
-            <Card>
-                <Plans />
-            </Card>
+            {
+                Object.keys(content).map(item => (
+                    <Card content={item}>
+                        {content[item as keyof typeof content]}
+                    </Card>
+                ))
+            }
         </div>
     );
 };

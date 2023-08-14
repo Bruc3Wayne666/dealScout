@@ -7,11 +7,9 @@ import AuthRequire from "./hoc/AuthRequire";
 import {useActions} from "./hooks/useActions";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {ThemeContext, ThemeContextType} from "./providers/ThemeProvider";
 
 function App() {
     const {setSession} = useActions()
-    const {theme} = useContext(ThemeContext) as ThemeContextType
 
     useEffect(() => {
         if (localStorage.getItem('isLogin')) {
@@ -29,6 +27,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path={'/'} element={<Main/>}/>
+                {/*<Route path={'/auth'} element={<Temp/>}/>*/}
                 <Route path={'/auth'} element={<Auth/>}/>
                 <Route path={'/profile'} element={
                     <AuthRequire>

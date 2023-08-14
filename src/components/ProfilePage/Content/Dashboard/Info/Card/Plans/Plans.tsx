@@ -1,9 +1,8 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import cls from "./Plans.module.scss";
 import {useTranslation} from "react-i18next";
-import {Plan} from "../../../../../../../models/Plan";
 import {useAppSelector} from "../../../../../../../hooks/redux";
-import {useActions} from "../../../../../../../hooks/useActions";
+import {ThemeContext, ThemeContextType} from "../../../../../../../providers/ThemeProvider";
 
 
 const PlanTitles = [
@@ -14,11 +13,12 @@ const PlanTitles = [
 ]
 
 const Plans = () => {
+    const {theme} = useContext(ThemeContext) as ThemeContextType
     const {t} = useTranslation('profile')
     const {isLoading, plans} = useAppSelector(state => state.dashboardSlice)
 
     return (
-        <div className={cls.plans}>
+        <div className={`${cls.plans} ${cls[theme]}`}>
 
             <div className={cls.header}>
                 <h2>
@@ -32,12 +32,12 @@ const Plans = () => {
                         ? plans.map(plan => (
                             <div className={`${cls.plan} ${cls[PlanTitles[plan.plan_id].toLowerCase()]}`}>
                                 <span>
-                                {PlanTitles[plan.plan_id]}
-                            </span>
+                                    {PlanTitles[plan.plan_id]}
+                                </span>
                                 until
                                 <span>
-                                {plan.end_time}
-                            </span>
+                                    {plan.end_time}
+                                </span>
                             </div>
                         ))
                         : <p>No plans</p>
