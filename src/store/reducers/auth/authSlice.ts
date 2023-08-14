@@ -48,6 +48,10 @@ export const authSlice = createSlice({
             state.error = false
             state.user_session = payload
         },
+        [register.rejected.type]: (state) => {
+            state.isLoading = false
+            state.error = false
+        },
         [login.pending.type]: (state) => {
             state.message = ''
             state.isLoading = true
@@ -57,6 +61,10 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.error = false
             state.user_session = payload
+        },
+        [login.rejected.type]: (state) => {
+            state.isLoading = false
+            state.error = false
         },
         [resetUserPassword.pending.type]: (state) => {
             state.message = ''
@@ -69,6 +77,11 @@ export const authSlice = createSlice({
             state.user_session = payload.user_session
             state.message = payload.info
         },
+        [resetUserPassword.rejected.type]: (state) => {
+            state.isLoading = false
+            state.error = false
+            state.message = ''
+        },
         [requestResetPasswordPin.pending.type]: (state) => {
             state.isLoading = true
             state.error = false
@@ -77,7 +90,10 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.error = false
         },
-
+        [requestResetPasswordPin.rejected.type]: (state, {payload}: PayloadAction<RequestPinPayload>) => {
+            state.isLoading = false
+            state.error = false
+        },
         [getUserInfo.rejected.type]: (state) => {
             state.error = false
             state.user_session = ''
