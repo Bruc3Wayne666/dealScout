@@ -16,7 +16,7 @@ const Settings = () => {
     const {t, i18n} = useTranslation('profile')
     const navigate = useNavigate()
     const {logout, changeMailing} = useActions()
-    const {referral_code} = useAppSelector(state => state.userSlice)
+    const {my_code} = useAppSelector(state => state.userSlice)
 
     const handleLanguage = (val: string) => {
         i18n.changeLanguage(val)
@@ -43,7 +43,7 @@ const Settings = () => {
 
                 <h2>{t('ref_link')}</h2>
                 <Referral
-                    code={referral_code}
+                    code={my_code}
                     theme={theme}
                 />
 
