@@ -53,10 +53,8 @@ const Settings = () => {
 
             <button
                 onClick={() => {
-                    localStorage.removeItem('isLogin')
-                    localStorage.removeItem('user_session')
                     logout()
-                    navigate('/auth')
+                    navigate('/')
                 }}>{t('logout')}</button>
         </div>
     );

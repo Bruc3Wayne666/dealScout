@@ -9,7 +9,7 @@ import {IAuth} from "../../../models/Auth";
 import {
     ResetPasswordPayload
 } from "../../../api/auth";
-import {getUserInfo} from "../user/userActions";
+import {checkSession, getUserInfo} from "../user/userActions";
 
 
 export enum AuthType {
@@ -29,7 +29,7 @@ const initialState: IAuthState = {
     error: false,
     message: '',
     user_session: '',
-    authType: AuthType.REGISTER
+    authType: AuthType.LOGIN
 }
 
 export const authSlice = createSlice({
@@ -38,13 +38,15 @@ export const authSlice = createSlice({
     reducers: {
         setSession: (state, {payload}: PayloadAction<string>) => {
             state.user_session = payload
-            state.authType = AuthType.REGISTER
+            state.authType = AuthType.LOGIN
         },
         logout: (state) => {
             state.error = false
             state.user_session = ''
             state.message = ''
-            state.authType = AuthType.REGISTER
+            state.authType = AuthType.LOGIN
+            localStorage.removeItem('user_session')
+            localStorage.removeItem('isLogin')
         },
         setAuthType: (state, {payload}: PayloadAction<AuthType>) => {
             state.authType = payload
@@ -113,6 +115,14 @@ export const authSlice = createSlice({
             state.user_session = ''
             state.message = ''
         },
+        [checkSession.rejected.type]: (state) => {
+            state.error = false
+            state.user_session = ''
+            state.message = ''
+            state.authType = AuthType.REGISTER
+            localStorage.removeItem('user_session')
+            localStorage.removeItem('isLogin')
+        }
     }
 })
 

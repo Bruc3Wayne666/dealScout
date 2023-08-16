@@ -19,9 +19,6 @@ export const AuthBtn: FC<AuthBtnProps> = ({isLogged, handleLogout}) => {
                 if (isLogged) return handleLogout()
             }}
         >
-            {/*<div className={cls.authBtnSection}>*/}
-            {/*    <img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>*/}
-            {/*</div>*/}
             <div className={cls.authBtnSection}>
                 <span>{isLogged ? t('logout') : t('Sign In')}</span>
             </div>
@@ -35,7 +32,6 @@ export const ProfileBtn = () => {
     return (
         <Link to={'/profile'} className={cls.authBtn}>
             <div className={cls.authBtnSection}>
-                {/*<img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>*/}
             </div>
             <div className={cls.authBtnSection}>
                 <span>{t('Profile')}</span>

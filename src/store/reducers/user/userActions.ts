@@ -2,6 +2,18 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {IChangeLoginProps, IChangeMailingProps, IChangePhotoProps, IGetUserProps, UserAPI} from "../../../api/user";
 
 
+export const checkSession = createAsyncThunk(
+    'user/checkSession',
+    async (args: string, {rejectWithValue}) => {
+        try {
+            const {message} = await UserAPI.checkUserSession(args)
+            return message
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
 export const getUserInfo = createAsyncThunk(
     'user/getUserInfo',
     async (args: IGetUserProps, {rejectWithValue}) => {

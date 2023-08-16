@@ -36,8 +36,17 @@ export interface IChangeMailingProps {
     session: string
 }
 
+export interface CheckUserSessionPayload {
+    message: boolean
+}
+
 
 export class UserAPI {
+    static async checkUserSession(payload: string) {
+        const {data} = await instance.get(`user/session_in_db/${payload}`)
+        return data
+    }
+
     static async getUser({session}: IGetUserProps) {
         const {data} = await instance.get<GetUserPayload>(`user/${session}`)
         return data

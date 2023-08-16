@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import cls from './Header.module.scss'
 import {AuthBtn, ProfileBtn} from "../AuthBtn/AuthBtn";
 import {useAppSelector} from "../../../hooks/redux";
@@ -6,12 +6,20 @@ import {useActions} from "../../../hooks/useActions";
 
 const Header = () => {
     const {user_session} = useAppSelector(state => state.authSlice)
-    const {logout} = useActions()
+    // const {checkedSession} = useAppSelector(state => state.userSlice)
+    const {logout, checkSession} = useActions()
+    // const [isLoading, setIsLoading] = useState(false)
 
     const handleLogout = () => {
         logout()
-        localStorage.removeItem('user_session')
     }
+
+
+    useEffect(() => {
+        // setIsLoading(true)
+        if (localStorage.getItem('user_session')) checkSession(localStorage.getItem('user_session') as string)
+        // setIsLoading(false)
+    }, [])
 
     return (
         <header className={cls.header}>
@@ -23,7 +31,10 @@ const Header = () => {
                     isLogged={Boolean(user_session)}
                     handleLogout={handleLogout}
                 />
-                <ProfileBtn/>
+                {
+                    localStorage.getItem('user_session')
+                    && <ProfileBtn/>
+                }
             </div>
         </header>
     );

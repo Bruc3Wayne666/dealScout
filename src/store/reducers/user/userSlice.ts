@@ -2,7 +2,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {
     changeMailing,
     changeUserLogin,
-    changeUserPhoto, getUserInfo
+    changeUserPhoto,
+    getUserInfo
 } from "./userActions";
 import {IUser} from "../../../models/User";
 import {GetUserPayload} from "../../../api/user";
@@ -10,6 +11,7 @@ import {GetUserPayload} from "../../../api/user";
 
 interface IUserState extends IUser {
     isLoading: boolean
+    checkedSession: boolean
 }
 
 const initialState: IUserState = {
@@ -18,7 +20,8 @@ const initialState: IUserState = {
     my_code: '',
     referral_code: '',
     mailing: false,
-    photo: ''
+    photo: '',
+    checkedSession: false
 }
 
 export const userSlice = createSlice({
@@ -51,7 +54,7 @@ export const userSlice = createSlice({
         [changeMailing.pending.type]: (state) => {
             state.isLoading = true
         },
-        [changeMailing.fulfilled.type]: (state, {payload}: PayloadAction<string>) => {
+        [changeMailing.fulfilled.type]: (state) => {
             state.isLoading = false
             state.mailing = !state.mailing
         },
