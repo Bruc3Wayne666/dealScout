@@ -28,7 +28,7 @@ const Plans = () => {
 
             <div className={cls.info}>
                 {
-                    plans.length !== 1
+                    plans.length !== 0
                         ? plans.map(plan => (
                             <div className={`${cls.plan} ${cls[PlanTitles[plan.plan_id].toLowerCase()]}`}>
                                 <span>
