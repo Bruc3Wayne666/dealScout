@@ -102,6 +102,7 @@ export const authSlice = createSlice({
         [requestResetPasswordPin.fulfilled.type]: (state) => {
             state.isLoading = false
             state.error = false
+            state.authType = AuthType.PIN
         },
         [requestResetPasswordPin.rejected.type]: (state) => {
             state.isLoading = false

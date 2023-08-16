@@ -50,11 +50,9 @@ const Login: FC<LoginProps> = ({
             </div>
             <div className={cls.bottom}>
                 <div className={cls.text}>
-                    {t('DontHaveAcc')}? <span onClick={() => setType('register')}>{t('Sign Up')}!</span>
-                </div>
-                <div className={cls.text}>
                     <p onClick={() => setType('restore')}>{t('ForgotPass')}</p>
                 </div>
+
                 <button type='submit' disabled={isLoading}>
                     {
                         isLoading
@@ -67,6 +65,10 @@ const Login: FC<LoginProps> = ({
                             : t('Sign In')
                     }
                 </button>
+
+                <div className={cls.text}>
+                    {t('DontHaveAcc')}? <span onClick={() => setType('register')}>{t('Sign Up')}!</span>
+                </div>
             </div>
         </>
     )

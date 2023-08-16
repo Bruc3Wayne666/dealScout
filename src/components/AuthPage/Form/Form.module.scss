@@ -2,42 +2,23 @@
     display: flex;
     flex-direction: column;
     background-color: #36383E;
-    width: 60%;
+    //width: 60%;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 24px;
+    width: 100%;
+    align-items: center;
 
-    @media screen and (max-width: 1024px){
-        width: 70%;
-    }
+    border: 2px solid white;
 
-    @media screen and (max-width: 702px){
-        width: 80%;
-    }
 
-    @media screen and (max-width: 610px){
-        width: 90%;
-    }
-
-    @media screen and (max-width: 610px){
-        width: 96%;
-    }
-
-    /*border: 2px sold white;*/
-
-    //.login {
-    //    height: 32%;
-    //}
-    //
-    //.register {
-    //    height: 43%;
-    //}
 }
 
 
 .content {
     display: flex;
     flex-direction: column;
+    width: 70%;
 
     h3 {
         color: white;
@@ -88,8 +69,9 @@
 
     .bottom {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        //justify-content: space-between;
+        //align-items: center;
+        flex-direction: column;
 
         .text{
             font-size: 18px;

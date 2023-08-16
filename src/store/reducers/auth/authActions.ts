@@ -43,8 +43,7 @@ export const requestResetPasswordPin = createAsyncThunk(
     'auth/requestResetPasswordPin',
     async (args: IRequestPinProps, {rejectWithValue}) => {
         try {
-            const {pin} = await AuthAPI.requestPin({...args})
-            return pin
+            return await AuthAPI.requestPin({...args})
         } catch (err) {
             return rejectWithValue(err)
         }

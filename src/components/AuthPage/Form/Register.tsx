@@ -52,10 +52,8 @@ const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleCha
                     disabled={isLoading}
                 />
             </div>
+
             <div className={cls.bottom}>
-                <div className={cls.text}>
-                    {t('AlreadyHaveAcc')} <span onClick={() => setType('login')}>{t('Sign In')}!</span>
-                </div>
                 <button type='submit' disabled={isLoading}>
                     {
                         isLoading
@@ -68,6 +66,10 @@ const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleCha
                             : t('Sign Up')
                     }
                 </button>
+
+                <div className={cls.text}>
+                    {t('AlreadyHaveAcc')} <span onClick={() => setType('login')}>{t('Sign In')}!</span>
+                </div>
             </div>
         </>
     )

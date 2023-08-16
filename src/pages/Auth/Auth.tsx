@@ -1,12 +1,12 @@
 import React, {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import cls from './Auth.module.scss'
-import Form from "../../components/AuthPage/Form/Form";
-import {Link, useSearchParams} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import {AuthCredentials} from "../../models/Auth";
 import {useActions} from "../../hooks/useActions";
 import {useAppSelector} from "../../hooks/redux";
-import FormSwitcher from "../../components/AuthPage/FormSwitcher";
 import {AuthType} from "../../store/reducers/auth/authSlice";
+import Ad from "../../components/AuthPage/Ad";
+import AuthSection from "../../components/AuthPage/AuthSection";
 
 
 const initialState: AuthCredentials = {
@@ -44,8 +44,9 @@ const Auth = () => {
         } else if (authType === AuthType.PIN) {
             return resetUserPassword({email, password, pin})
         } else {
-            requestResetPasswordPin({email})
-            return setAuthType(AuthType.PIN)
+            return requestResetPasswordPin({email})
+            // requestResetPasswordPin({email})
+            // return setAuthType(AuthType.PIN)
         }
     }
 
@@ -58,28 +59,18 @@ const Auth = () => {
 
     return (
         <div className={cls.page}>
-            <Link to={'/'}>
-                <img
-                    src={require('../../assets/images/logo/logo_light.png')}
-                    alt="DealScout"
-                />
-            </Link>
 
-            {/*<button onClick={() => handleSetType(type === 'login' ? 'register' : 'login')}>Change</button>*/}
+            <Ad />
 
-            {/*<FormSwitcher*/}
-            {/*    handleSetType={handleSetType}*/}
-            {/*    type={authType}*/}
-            {/*/>*/}
-
-            <Form
-                type={authType}
+            <AuthSection
+                authType={authType}
                 isLoading={isLoading}
                 handleSetType={handleSetType}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
                 credentials={credentials}
             />
+
         </div>
     );
 };

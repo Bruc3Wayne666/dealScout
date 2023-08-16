@@ -50,14 +50,6 @@ const Restore: FC<RestoreProps> = ({
             <div className={cls.bottom}>
                 <button type='submit' disabled={isLoading}>
                     {
-                        // isLoading
-                        //     ? <img
-                        //         src={require('../../../assets/images/svg/spinner.svg').default}
-                        //         alt="Loading..."
-                        //         height={20}
-                        //         width={20}
-                        //     />
-                        //     :
                         t('Continue')
                     }
                 </button>

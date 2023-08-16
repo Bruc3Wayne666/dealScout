@@ -34,9 +34,6 @@ const Request: FC<RestoreProps> = ({
                 />
             </div>
             <div className={cls.bottom}>
-                <div className={cls.text}>
-                    <p onClick={() => setType('login')}>{t('ContinueAuth')}</p>
-                </div>
                 <button type='submit' disabled={isLoading}>
                     {
                         isLoading
@@ -49,6 +46,10 @@ const Request: FC<RestoreProps> = ({
                             : t('Get Code')
                     }
                 </button>
+
+                <div className={cls.text}>
+                    <p onClick={() => setType('login')}>{t('ContinueAuth')}</p>
+                </div>
             </div>
         </>
     )

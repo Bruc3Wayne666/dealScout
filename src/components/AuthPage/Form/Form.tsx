@@ -1,14 +1,15 @@
-import React, {ChangeEvent, FC, FormEvent, useState} from 'react';
+import React, {ChangeEvent, FC, FormEvent} from 'react';
 import cls from './Form.module.scss'
 import {AuthCredentials} from "../../../models/Auth";
 import Register from "./Register";
 import Login from "./Login";
 import Request from "./Request";
 import Restore from "./Restore";
+import {AuthType} from "../../../store/reducers/auth/authSlice";
 
 
 interface FormProps {
-    type: string
+    authType: string
     isLoading: boolean
     handleSetType: (v: string) => void
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void
@@ -17,7 +18,7 @@ interface FormProps {
 }
 
 const Form: FC<FormProps> = ({
-                                 type,
+                                 authType,
                                  isLoading,
                                  handleSetType,
                                  handleChange,
@@ -29,11 +30,12 @@ const Form: FC<FormProps> = ({
     return (
         <form
             onSubmit={handleSubmit}
-            className={`${cls.form} ${cls[type]}`}
+            className={`${cls.form} ${cls[authType]}`}
         >
+            <h1>{authType}</h1>
             <div className={cls.content}>
                 {
-                    type === 'register' &&
+                    authType ===  AuthType.REGISTER &&
                     <Register
                         isLoading={isLoading}
                         handleChange={handleChange}
@@ -43,7 +45,7 @@ const Form: FC<FormProps> = ({
                 }
                 {
 
-                    type === 'login' &&
+                    authType === AuthType.LOGIN &&
                     <Login
                         isLoading={isLoading}
                         handleChange={handleChange}
@@ -53,7 +55,7 @@ const Form: FC<FormProps> = ({
 
                 }
                 {
-                    type === 'restore' &&
+                    authType === AuthType.RESTORE &&
                     <Request
                         isLoading={isLoading}
                         email={email}
@@ -62,7 +64,7 @@ const Form: FC<FormProps> = ({
                     />
                 }
                 {
-                    type === 'pin' &&
+                    authType === AuthType.PIN &&
                     <Restore
                         isLoading={isLoading}
                         pin={pin}
