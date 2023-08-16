@@ -10,4 +10,5 @@ export interface AuthCredentials {
     username?: string
     pin: string
     referral_code: string
+    remember: boolean
 }

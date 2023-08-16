@@ -7,4 +7,8 @@
   align-items: center;
   justify-content: center;
   background-color: $secondary-colour-dark;
+
+  @media screen and (max-width: 1192px) {
+    flex: 1;
+  }
 }

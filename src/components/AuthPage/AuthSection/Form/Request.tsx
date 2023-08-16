@@ -18,10 +18,10 @@ const Request: FC<RestoreProps> = ({
     const {t} = useTranslation("reset")
     return (
         <>
-            <h3>{t("ResetPass")}</h3>
+            {/*<h3>{t("ResetPass")}</h3>*/}
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/at.svg').default}
+                    src={require('../../../../assets/images/svg/at.svg').default}
                     alt="lock"
                 />
                 <input
@@ -38,7 +38,7 @@ const Request: FC<RestoreProps> = ({
                     {
                         isLoading
                             ? <img
-                                src={require('../../../assets/images/svg/spinner.svg').default}
+                                src={require('../../../../assets/images/svg/spinner.svg').default}
                                 alt="Loading..."
                                 height={20}
                                 width={20}

@@ -6,13 +6,13 @@ import {useTranslation} from "react-i18next";
 interface RegisterProps extends LoginProps {}
 
 const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleChange}) => {
-    const {email, username, password} = credentials
+    const {email, username, password, remember} = credentials
     const {t} = useTranslation("register")
     return (
         <>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/user.svg').default}
+                    src={require('../../../../assets/images/svg/user.svg').default}
                     alt="at"
                 />
                 <input
@@ -26,7 +26,7 @@ const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleCha
             </div>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/at.svg').default}
+                    src={require('../../../../assets/images/svg/at.svg').default}
                     alt="lock"
                 />
                 <input
@@ -40,7 +40,7 @@ const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleCha
             </div>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/lock.svg').default}
+                    src={require('../../../../assets/images/svg/lock.svg').default}
                     alt="at"
                 />
                 <input
@@ -54,11 +54,24 @@ const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleCha
             </div>
 
             <div className={cls.bottom}>
+
+                <div className={`${cls.text} ${cls.top}`}>
+                    {/*<div className={cls.remember}>*/}
+                    {/*    <input*/}
+                    {/*        type='checkbox'*/}
+                    {/*        onChange={handleChange}*/}
+                    {/*        checked={remember}*/}
+                    {/*        name='remember'*/}
+                    {/*    />*/}
+                    {/*    <span>&nbsp;Remember me</span>*/}
+                    {/*</div>*/}
+                </div>
+
                 <button type='submit' disabled={isLoading}>
                     {
                         isLoading
                             ? <img
-                                src={require('../../../assets/images/svg/spinner.svg').default}
+                                src={require('../../../../assets/images/svg/spinner.svg').default}
                                 alt="Loading..."
                                 height={20}
                                 width={20}
@@ -68,7 +81,7 @@ const Register: FC<RegisterProps> = ({isLoading, setType, credentials, handleCha
                 </button>
 
                 <div className={cls.text}>
-                    {t('AlreadyHaveAcc')} <span onClick={() => setType('login')}>{t('Sign In')}!</span>
+                    {t('AlreadyHaveAcc')}&nbsp;<span onClick={() => setType('login')}>{t('Sign In')}!</span>
                 </div>
             </div>
         </>

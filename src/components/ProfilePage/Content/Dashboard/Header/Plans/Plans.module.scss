@@ -88,7 +88,8 @@
     .plan {
       //font-weight: 900;
       display: flex;
-      justify-content: space-between;
+      //justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       margin-bottom: 4px;
 
@@ -106,6 +107,7 @@
           border-radius: 6px;
           background-color: #679AE7;
           color: #222;
+          margin-left: 12px;
         }
       }
 

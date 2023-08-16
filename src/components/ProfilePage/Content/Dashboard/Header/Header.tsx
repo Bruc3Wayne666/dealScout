@@ -10,13 +10,14 @@ import {useTranslation} from "react-i18next";
 const Header = () => {
     const {theme} = useContext(ThemeContext) as ThemeContextType
     const {isLoading: isLoadingUser, mailing} = useAppSelector(state => state.userSlice)
-    const {isLoading: isLoadingPlans, plans} = useAppSelector(state => state.dashboardSlice)
-    const {changeMailing, getPlans} = useActions()
+    const {isLoading: isLoadingPlans, activePlans} = useAppSelector(state => state.dashboardSlice)
+    const {changeMailing, getPlans, getActivePlans} = useActions()
     const [showPlans, setShowPlans] = useState(false)
     const {t} = useTranslation('profile')
 
     useEffect(() => {
         getPlans(localStorage.getItem('user_session') || '')
+        getActivePlans(localStorage.getItem('user_session') || '')
     }, [])
 
 
@@ -34,7 +35,7 @@ const Header = () => {
             </div>
 
             <Plans
-                plans={plans}
+                plans={activePlans}
                 showPlans={showPlans}
                 setShowPlans={setShowPlans}
                 theme={theme}

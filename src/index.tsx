@@ -25,7 +25,7 @@ root.render(
         }}>
             <ThemeProvider>
                 <Provider store={store}>
-                    <SkeletonTheme baseColor='#666' highlightColor='#999'>
+                    <SkeletonTheme baseColor='#888' highlightColor='#bbb'>
                         <BrowserRouter>
                             <App/>
                         </BrowserRouter>

@@ -2,5 +2,7 @@
     "Enter PIN": "Enter PIN",
     "Enter PIN here": "Enter PIN here",
     "YourNewPass": "'Your new password'",
-    "Continue": "Continue"
+    "Continue": "Continue",
+  "resend": "resend",
+  "resend_code": "resend_code"
 }

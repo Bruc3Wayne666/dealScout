@@ -35,5 +35,6 @@
   "select": "Seleccionar",
   "confirm": "Confirmar",
   "ref_link": "Enlace de referencia",
-  "statistics": "Estadísticas"
+  "statistics": "Estadísticas",
+  "no_plans": "no_plans"
 }

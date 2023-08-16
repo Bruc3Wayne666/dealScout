@@ -15,7 +15,7 @@ interface PlansProps {
     showPlans: boolean
     setShowPlans: (val: boolean) => void
     theme: string
-    plans: Plan[]
+    plans: Omit<Plan, 'end_time'>[]
 }
 
 const Plans: FC<PlansProps> = ({showPlans, setShowPlans, theme, plans}) => {
@@ -39,12 +39,12 @@ const Plans: FC<PlansProps> = ({showPlans, setShowPlans, theme, plans}) => {
                             <div className={`${cls.plan} ${cls[PlanTitles[plan.plan_id].toLowerCase()]}`}>
                                 {index}.
                                 <span>
-                                {PlanTitles[plan.plan_id]}
-                            </span>
-                                until
-                                <span>
-                                {plan.end_time}
-                            </span>
+                                    {PlanTitles[plan.plan_id]}
+                                </span>
+                                {/*until*/}
+                            {/*    <span>*/}
+                            {/*    {plan.end_time}*/}
+                            {/*</span>*/}
                             </div>
                         ))
                         : <p>No plans</p>

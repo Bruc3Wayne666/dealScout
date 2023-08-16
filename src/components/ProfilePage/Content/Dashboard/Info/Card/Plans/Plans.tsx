@@ -28,7 +28,7 @@ const Plans = () => {
 
             <div className={cls.info}>
                 {
-                    plans.length !== 0
+                    plans.length !== 1
                         ? plans.map(plan => (
                             <div className={`${cls.plan} ${cls[PlanTitles[plan.plan_id].toLowerCase()]}`}>
                                 <span>
@@ -40,7 +40,9 @@ const Plans = () => {
                                 </span>
                             </div>
                         ))
-                        : <p>No plans</p>
+                        : <div className={cls.empty}>
+                            {t('no_plans')}
+                        </div>
                 }
 
             </div>

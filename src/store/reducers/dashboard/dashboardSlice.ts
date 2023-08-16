@@ -1,10 +1,14 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {downloadDeals, getPlans, getProfitDay} from "./dashboardActions";
+import {downloadDeals, getActivePlans, getPlans, getProfitDay} from "./dashboardActions";
 import {Plan} from "../../../models/Plan";
 
 
 interface IPlansPayload {
     plans: Plan[]
+}
+
+interface IActivePlansPayload {
+    activePlans: Omit<Plan, 'end_time'>[]
 }
 
 interface IProfitDay {
@@ -21,7 +25,7 @@ interface IProfitDay {
     }
 }
 
-interface IDashboardState extends IPlansPayload{
+interface IDashboardState extends IPlansPayload, IActivePlansPayload{
     success: boolean
     isLoading: boolean
     profit: IProfitDay
@@ -30,6 +34,7 @@ interface IDashboardState extends IPlansPayload{
 const initialState: IDashboardState = {
     success: false,
     plans: [],
+    activePlans: [],
     profit: {} as IProfitDay,
     isLoading: false
 }
@@ -51,6 +56,13 @@ export const dashboardSlice = createSlice({
         [getPlans.fulfilled.type]: (state, {payload}: PayloadAction<IPlansPayload>) => {
             state.isLoading = false
             state.plans = payload.plans
+        },
+        [getActivePlans.pending.type]: (state) => {
+            state.isLoading = true
+        },
+        [getActivePlans.fulfilled.type]: (state, {payload}: PayloadAction<IPlansPayload>) => {
+            state.isLoading = false
+            state.activePlans = payload.plans
         },
         [getProfitDay.pending.type]: (state) => {
             state.isLoading = true

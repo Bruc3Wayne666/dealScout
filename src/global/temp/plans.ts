@@ -1,5 +1,5 @@
 export const plans = [
-    {plan: 'start', price: 24.99,
+    {plan: 'start', price: 1,
         description: ['For $24.99, gain access to 5 daily profitable deals and start boosting your sales.', 'Designed for first-time sellers or those who want to try the service.^For $24.99, you get access to 5 profitable trades a day to help you start increasing your profits.']
     },
     {plan: 'advanced', price: 34.99,

@@ -14,7 +14,8 @@ const initialState: AuthCredentials = {
     email: '',
     password: '',
     pin: '',
-    referral_code: ''
+    referral_code: '',
+    remember: false
 }
 
 const Auth = () => {
@@ -22,7 +23,7 @@ const Auth = () => {
     const {authType, isLoading} = useAppSelector(state => state.authSlice)
     const [params] = useSearchParams()
     const [credentials, setCredentials] = useState(initialState)
-    const {email, username, password, pin} = credentials
+    const {email, username, password, pin, remember} = credentials
 
     useEffect(() => {
         if (params.get('ref')) {
@@ -38,19 +39,24 @@ const Auth = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (authType === AuthType.REGISTER) {
-            return register({...credentials, username: username || ''})
+            return register({...credentials, username: username || '', remember})
         } else if (authType === AuthType.LOGIN) {
-            return login({email, password})
+            return login({email, password, remember})
         } else if (authType === AuthType.PIN) {
-            return resetUserPassword({email, password, pin})
+            return resetUserPassword({email, password, pin, remember})
         } else {
-            return requestResetPasswordPin({email})
+            handleSetType(AuthType.PIN) // костыль (((((
+            return requestResetPasswordPin({email}) // TODO: WTF стейт меняется на pin, но реакт не видит
             // requestResetPasswordPin({email})
             // return setAuthType(AuthType.PIN)
         }
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.currentTarget.name === 'remember') return setCredentials({
+            ...credentials,
+            remember: e.currentTarget.checked
+        })
         setCredentials({
             ...credentials,
             [e.currentTarget.name]: e.currentTarget.value
@@ -60,7 +66,7 @@ const Auth = () => {
     return (
         <div className={cls.page}>
 
-            <Ad />
+            <Ad/>
 
             <AuthSection
                 authType={authType}

@@ -21,11 +21,13 @@ export interface RequestPinPayload {
 export interface ILoginArgs {
     email: string
     password: string
+    remember: boolean
 }
 
 export interface IRegisterArgs extends ILoginArgs {
     username: string
     referral_code: string
+    remember: boolean
 }
 
 export interface IRequestPinProps {
@@ -36,6 +38,7 @@ export interface IResetPasswordProps {
     email: string,
     password: string
     pin: string
+    remember: boolean
 }
 
 

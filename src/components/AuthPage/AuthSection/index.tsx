@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, FormEvent} from 'react';
 import cls from './AuthSection.module.scss'
-import Form from "../Form/Form";
+import Form from "./Form/Form";
 import {AuthCredentials} from "../../../models/Auth";
 
 

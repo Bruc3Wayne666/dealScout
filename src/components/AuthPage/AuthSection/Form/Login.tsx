@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC} from "react";
-import {AuthCredentials} from "../../../models/Auth";
+import {AuthCredentials} from "../../../../models/Auth";
 import cls from "./Form.module.scss";
 import {useTranslation} from "react-i18next";
 
@@ -16,13 +16,13 @@ const Login: FC<LoginProps> = ({
                                    credentials,
                                    handleChange,
                                }) => {
-    const {email, password} = credentials
+    const {email, password, remember} = credentials
     const {t} = useTranslation('login')
     return (
         <>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/at.svg').default}
+                    src={require('../../../../assets/images/svg/at.svg').default}
                     alt="lock"
                 />
                 <input
@@ -36,7 +36,7 @@ const Login: FC<LoginProps> = ({
             </div>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/lock.svg').default}
+                    src={require('../../../../assets/images/svg/lock.svg').default}
                     alt="at"
                 />
                 <input
@@ -49,15 +49,25 @@ const Login: FC<LoginProps> = ({
                 />
             </div>
             <div className={cls.bottom}>
-                <div className={cls.text}>
-                    <p onClick={() => setType('restore')}>{t('ForgotPass')}</p>
+
+                <div className={`${cls.text} ${cls.top}`}>
+                    {/*<div className={cls.remember}>*/}
+                    {/*    <input*/}
+                    {/*        type='checkbox'*/}
+                    {/*        onChange={handleChange}*/}
+                    {/*        checked={remember}*/}
+                    {/*        name='remember'*/}
+                    {/*    />*/}
+                    {/*    <span>&nbsp;Remember me</span>*/}
+                    {/*</div>*/}
+                    <p onClick={() => setType('restore')}>{t('ForgotPass')}?</p>
                 </div>
 
                 <button type='submit' disabled={isLoading}>
                     {
                         isLoading
                             ? <img
-                                src={require('../../../assets/images/svg/spinner.svg').default}
+                                src={require('../../../../assets/images/svg/spinner.svg').default}
                                 alt="Loading..."
                                 height={20}
                                 width={20}
@@ -67,7 +77,7 @@ const Login: FC<LoginProps> = ({
                 </button>
 
                 <div className={cls.text}>
-                    {t('DontHaveAcc')}? <span onClick={() => setType('register')}>{t('Sign Up')}!</span>
+                    {t('DontHaveAcc')}?&nbsp;<span onClick={() => setType('register')}>{t('Sign Up')}!</span>
                 </div>
             </div>
         </>

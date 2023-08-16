@@ -18,10 +18,10 @@ const Restore: FC<RestoreProps> = ({
     const {t} = useTranslation("restore")
     return (
         <>
-            <h3>{t('Enter PIN')}</h3>
+            {/*<h3>{t('Enter PIN')}</h3>*/}
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/at.svg').default}
+                    src={require('../../../../assets/images/svg/at.svg').default}
                     alt="lock"
                 />
                 <input
@@ -35,7 +35,7 @@ const Restore: FC<RestoreProps> = ({
             </div>
             <div className={cls.input}>
                 <img
-                    src={require('../../../assets/images/svg/lock.svg').default}
+                    src={require('../../../../assets/images/svg/lock.svg').default}
                     alt="lock"
                 />
                 <input
@@ -53,6 +53,10 @@ const Restore: FC<RestoreProps> = ({
                         t('Continue')
                     }
                 </button>
+
+                {/*<div className={cls.text}>*/}
+                {/*    <p>{t('resend_code')}</p>*/}
+                {/*</div>*/}
             </div>
         </>
     )
