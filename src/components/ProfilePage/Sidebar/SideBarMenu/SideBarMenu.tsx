@@ -10,7 +10,8 @@ export enum SideBarOptions {
     ACTIVITY_HISTORY = 'Activity History',
     MY_DEALS = 'My Deals',
     FAVORITE_DEALS = 'Favorite Deals',
-    SETTINGS = 'Settings'
+    SETTINGS = 'Settings',
+    PURCHASE = 'Get Plan'
 
 }
 
@@ -19,6 +20,7 @@ const options = [
     {title: SideBarOptions.ACTIVITY_HISTORY},
     {title: SideBarOptions.MY_DEALS},
     {title: SideBarOptions.FAVORITE_DEALS},
+    {title: SideBarOptions.PURCHASE},
     {title: SideBarOptions.SETTINGS}
 ]
 

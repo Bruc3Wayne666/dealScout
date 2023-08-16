@@ -7,6 +7,7 @@ import AuthRequire from "./hoc/AuthRequire";
 import {useActions} from "./hooks/useActions";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from "./components/MainPage/Modal/Modal";
 
 function App() {
     const {setSession, logout} = useActions()
@@ -34,6 +35,7 @@ function App() {
                 <Route path={'*'} element={<Navigate to={'/'}/>}/>\
             </Routes>
             <ToastContainer/>
+            <Modal/>
         </div>
     );
 }

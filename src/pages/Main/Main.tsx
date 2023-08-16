@@ -21,7 +21,6 @@ const Main = () => {
             <WelcomeSection handleScroll={handleScroll}/>
             <AboutSection/>
             <PlansSection sectionRef={plansRef}/>
-            <Modal/>
         </div>
     );
 };

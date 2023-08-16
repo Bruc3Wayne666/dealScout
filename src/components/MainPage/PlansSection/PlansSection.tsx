@@ -9,7 +9,7 @@ import {plans} from "../../../global/temp/plans";
 
 interface PlansSectionProps {
     // ref: LegacyRef<HTMLDivElement>
-    sectionRef: LegacyRef<HTMLDivElement>
+    sectionRef?: LegacyRef<HTMLDivElement>
 }
 
 const PlansSection: FC<PlansSectionProps> = ({sectionRef}) => {

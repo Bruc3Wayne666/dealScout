@@ -7,6 +7,7 @@ import Settings from "./Settings/Settings";
 import Dashboard from "./Dashboard/Dashboard";
 import Favorites from "./Deals/Favorites";
 import History from "./History";
+import Purchase from "./Purchase";
 
 
 
@@ -16,6 +17,7 @@ const content: Record<SideBarOptions, ReactNode> = {
     'Favorite Deals': <Favorites/>,
     'Settings': <Settings/>,
     'Activity History': <History/>,
+    'Get Plan': <Purchase/>
 }
 
 const Content = ({theme}: { theme: string }) => {

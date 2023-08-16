@@ -14,6 +14,7 @@
   z-index: 9;
   margin-bottom: 6px;
   margin-right: 2%;
+  color: black;
 
   .description {
     color: #222;
@@ -38,7 +39,7 @@
   }
 
   &.pro {
-    color: white;
+    color: white !important;
     transition: 0.3s;
     //background: linear-gradient(180deg, #121562 0%, #5D6694 100%);
     background: linear-gradient(160deg, #121562, #5d6694, #c50);
@@ -50,6 +51,10 @@
 
     .info .top span {
       color: #999999;
+    }
+
+    .info .bottom span {
+      color: white;
     }
 
     .description {
@@ -168,6 +173,7 @@
       //position: relative;
 
       span {
+        color: #222;
         font-size: 16px;
         cursor: pointer;
         text-decoration: underline dotted;
