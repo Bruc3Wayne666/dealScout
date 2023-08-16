@@ -16,6 +16,13 @@ const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
     const {t} = useTranslation('main')
     const {setShow} = useActions()
 
+    const handleClick = () => {
+        if (localStorage.getItem('user_session')) {
+            return setShow(plan)
+        }
+        window.location.href = 'auth'
+    }
+
     return (
         <div
             ref={ref}
@@ -53,7 +60,7 @@ const Plan: FC<PlanProps> = forwardRef(({plan, price}, ref: any) => {
                                 <span onClick={() => setIsShowInfo(true)}>{t('info')}</span>
                                 <button
                                     // onClick={() => navigate(`plan/${plan}`)}
-                                    onClick={() => setShow(plan)}
+                                    onClick={handleClick}
                                 >
                                     {t('Get')}
                                 </button>

@@ -1,6 +1,5 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useState} from 'react';
 import {PayPalButtons} from "@paypal/react-paypal-js";
-import {ThemeContext, ThemeContextType} from "../../providers/ThemeProvider";
 
 
 const PaypalCheckoutButton: FC<any> = ({product}) => {
