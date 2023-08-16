@@ -19,6 +19,8 @@ function App() {
         }
     }, [])
 
+    // console.log(process.env.REACT_APP_PAYPAL_CLIENT_ID)
+
     return (
         <div className="App">
             <Routes>
