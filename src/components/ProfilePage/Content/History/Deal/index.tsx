@@ -11,11 +11,12 @@ interface DealProps {
         title: string
     },
     index: number
+    tr: string[]
 }
 
 
 
-const Deal: FC<DealProps> = ({theme, deal, index}) => {
+const Deal: FC<DealProps> = ({theme, deal, index, tr}) => {
     return (
         <div className={`${cls.deal} ${cls[theme]}`}>
             <div className={cls.title}>
@@ -23,8 +24,8 @@ const Deal: FC<DealProps> = ({theme, deal, index}) => {
                 <h4 className={cls[deal.title.toLowerCase()]}>{deal.title}</h4>
             </div>
             <div className={cls.dates}>
-                <p>Buy time: <span>{deal.buy_time}</span></p>
-                <p>End time: <span>{deal.end_time}</span></p>
+                <p>{tr[0]}: <span>{deal.buy_time}</span></p>
+                <p>{tr[1]}: <span>{deal.end_time}</span></p>
             </div>
             <div className={cls.price}>
                 <span>${deal.price}</span>

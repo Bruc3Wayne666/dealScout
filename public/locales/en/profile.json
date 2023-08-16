@@ -35,5 +35,10 @@
     "select": "Select",
     "confirm": "Confirm",
     "ref_link": "Referral link,",
-    "statistics": "Statistics"
+    "statistics": "Statistics",
+    "goods_processed": "Goods Processed",
+    "no_plans": "No plans",
+    "buy_time": "Buy time",
+    "end_time": "End time",
+    "there_are_no_any_deals": "There are no any deals"
 }

@@ -35,5 +35,10 @@
     "select": "Выбрать",
     "confirm": "Подтвердить",
     "ref_link": "Реферальная ссылка",
-    "statistics": "Статистика"
+    "statistics": "Статистика",
+    "goods_processed": "Товаров обработано",
+    "no_plans": "Нет планов",
+    "buy_time": "Время покупки",
+    "end_time": "Время истечения",
+    "there_are_no_any_deals": "Нет сделок"
 }

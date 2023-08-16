@@ -51,6 +51,11 @@
 
     .copy {
       background-image: url(../../../../../assets/images/svg/light/copy.svg);
+
+      &:hover {
+        color: #999999;
+        background-color: #ddd;
+      }
     }
   }
 
@@ -68,11 +73,16 @@
 
     .copy {
       background-image: url(../../../../../assets/images/svg/dark/copy.svg);
+
+      &:hover {
+        color: #999999;
+        background-color: $secondary-colour-dark;
+      }
     }
   }
 
   .copy {
-    background-color: $secondary-colour-dark;
+    //background-color: $secondary-colour-dark;
     border: 1px solid #999999;
     color: #999999;
     background-size: 20px;
@@ -86,11 +96,6 @@
     span {
       color: #999999;
       margin-right: 20px;
-    }
-
-    &:hover {
-      color: #999999;
-      background-color: $secondary-colour-dark;
     }
   }
 }

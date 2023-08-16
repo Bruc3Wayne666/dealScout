@@ -49,6 +49,7 @@ const History = () => {
                             deal={{...deal, title: PlanTitles[deal.plan_id]}}
                             index={index}
                             key={index}
+                            tr={[t('buy_time'), t('end_time')]}
                         />)
                     }
                 </div>

@@ -47,7 +47,7 @@ const Plans: FC<PlansProps> = ({showPlans, setShowPlans, theme, plans}) => {
                             {/*</span>*/}
                             </div>
                         ))
-                        : <p>No plans</p>
+                        : <p>{t('no_plans')}</p>
                 }
 
             </div>

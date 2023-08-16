@@ -23,7 +23,7 @@ export const AuthBtn: FC<AuthBtnProps> = ({isLogged, handleLogout}) => {
             {/*    <img src={require('../../../assets/images/svg/google.svg').default} alt="Sign In"/>*/}
             {/*</div>*/}
             <div className={cls.authBtnSection}>
-                <span>{isLogged ? 'Log Out' : t('Sign In')}</span>
+                <span>{isLogged ? t('logout') : t('Sign In')}</span>
             </div>
         </Link>
     );

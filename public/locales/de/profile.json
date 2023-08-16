@@ -35,5 +35,10 @@
     "select": "Wählen",
     "confirm": "Bestätigen",
     "ref_link": "Empfehlungslink",
-    "statistics": "Statistiken"
+    "statistics": "Statistiken",
+    "goods_processed": "Artikel verarbeitet",
+    "no_plans": "Keine Pläne",
+    "buy_time": "Kaufzeit",
+    "end_time": "Ablaufzeit",
+    "there_are_no_any_deals": "Es gibt keine Angebote"
 }

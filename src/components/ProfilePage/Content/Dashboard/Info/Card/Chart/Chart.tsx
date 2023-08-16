@@ -59,7 +59,7 @@ const ChartContent = () => {
     return (
         <div className={`${cls.chart} ${cls[theme]}`}>
             <div className={cls.top}>
-                <h3>{t('done_deals')}</h3>
+                <h3>{t('goods_processed')}</h3>
             </div>
             <div className={cls.donut}>
                 <Chart
