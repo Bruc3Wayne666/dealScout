@@ -2,12 +2,13 @@ import React, {FC, useState} from 'react';
 import {PayPalButtons} from "@paypal/react-paypal-js";
 
 
-const PaypalCheckoutButton: FC<any> = ({product}) => {
+const PaypalCheckoutButton: FC<any> = ({product, isOpen, setIsOpen}) => {
     const [isPaid, setIsPaid] = useState(false)
     const [err, setErr] = useState<any>(null)
 
     const handleApprove = () => {
         setIsPaid(true)
+        setIsOpen(false)
 
         // send smth to backend and get response (upd status etc)
     }
@@ -29,6 +30,7 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
             (data, actions) => {
                 // validate
                 const alreadyPurchased = false
+                setIsOpen(true)
 
                 if (alreadyPurchased){
                     setErr('Already purchased.')
@@ -65,8 +67,14 @@ const PaypalCheckoutButton: FC<any> = ({product}) => {
             }
         }
 
-        onError={err => setErr(err)}
-        onCancel={() => alert('You have canceled')} // etc
+        onError={err => {
+            setErr(err)
+            setIsOpen(false)
+        }}
+        onCancel={() => {
+            alert('You have canceled')
+            setIsOpen(false)
+        }} // etc
     />
 };
 

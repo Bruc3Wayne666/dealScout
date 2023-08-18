@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import cls from './Modal.module.scss';
 import {useAppSelector} from "../../../hooks/redux";
 import {useActions} from "../../../hooks/useActions";
@@ -12,6 +12,7 @@ const Modal = () => {
     const {show, plan, price} = useAppSelector(state => state.modalSlice)
     const {setClose} = useActions()
     const {t} = useTranslation('main')
+    const [isOpen, setIsOpen] = useState(false)
 
     const desc = plans.find(item => item.plan === plan)?.description
 
@@ -21,7 +22,10 @@ const Modal = () => {
         <div className={`${cls.modal} ${show ? cls.show : ''}`}>
             <div className={cls.content}>
                 <span
-                    onClick={() => setClose()}
+                    onClick={() => {
+                        setClose()
+                        setIsOpen(false)
+                    }}
                     className={cls.close}
                 >
                     &times;
@@ -41,8 +45,11 @@ const Modal = () => {
                         <p>&mdash;&nbsp;{desc && t(plan).split('^')[0]}</p>
                         <p>&mdash;&nbsp;{desc && t(plan).split('^')[1]}</p>
                     </div>
-                    <div className={cls.bottom}>
-                        <PaypalCheckoutButton/>
+                    <div className={`${cls.bottom} ${isOpen ? cls.open : ''}`}>
+                        <PaypalCheckoutButton
+                            isOpen={isOpen}
+                            setIsOpen={setIsOpen}
+                        />
                     </div>
                 </div>
             </div>
