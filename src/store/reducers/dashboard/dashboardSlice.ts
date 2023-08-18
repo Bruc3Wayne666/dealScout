@@ -1,7 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {downloadDeals, getActivePlans, getPlans, getProfitDay} from "./dashboardActions";
+import {downloadDeals, getActivePlans, getPlans, getProcessedGoods, getProfitDay} from "./dashboardActions";
 import {Plan} from "../../../models/Plan";
 
+
+interface IProcessedGoodsPayload {
+    sea: Record<string, string>
+    calcul: Record<string, string>
+}
 
 interface IPlansPayload {
     plans: Plan[]
@@ -25,10 +30,12 @@ interface IProfitDay {
     }
 }
 
-interface IDashboardState extends IPlansPayload, IActivePlansPayload{
+interface IDashboardState extends IPlansPayload,
+    IActivePlansPayload {
     success: boolean
     isLoading: boolean
     profit: IProfitDay
+    processedGoods: Record<string, string>
 }
 
 const initialState: IDashboardState = {
@@ -36,6 +43,7 @@ const initialState: IDashboardState = {
     plans: [],
     activePlans: [],
     profit: {} as IProfitDay,
+    processedGoods: {},
     isLoading: false
 }
 
@@ -70,6 +78,13 @@ export const dashboardSlice = createSlice({
         [getProfitDay.fulfilled.type]: (state, {payload}: PayloadAction<IProfitDay>) => {
             state.isLoading = false
             state.profit = payload
+        },
+        [getProcessedGoods.pending.type]: (state) => {
+            state.isLoading = true
+        },
+        [getProcessedGoods.fulfilled.type]: (state, {payload}: PayloadAction<IProcessedGoodsPayload>) => {
+            state.processedGoods = payload.calcul
+            state.isLoading = false
         }
     }
 })

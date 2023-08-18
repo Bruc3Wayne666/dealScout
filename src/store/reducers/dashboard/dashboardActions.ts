@@ -1,6 +1,18 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {DashboardAPI} from "../../../api/dashboard";
 
+
+export const getProcessedGoods = createAsyncThunk(
+    'auth/getProcessedGoods',
+    async (_, {rejectWithValue}) => {
+        try {
+            return await DashboardAPI.getMyProcessedGoods()
+        } catch (err) {
+            return rejectWithValue(err)
+        }
+    }
+)
+
 export const downloadDeals = createAsyncThunk(
     'auth/downloadAllDeals',
     async (args: string, {rejectWithValue}) => {
