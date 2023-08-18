@@ -18,6 +18,14 @@
     }
   }
 
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //text-align: center;
+    flex: 1;
+  }
+
   .donut {
     box-sizing: border-box;
     display: flex;
@@ -36,7 +44,7 @@
 
       .list {
         .category {
-          border-bottom: 1px solid #efe26f;
+          border-bottom: 1px solid #666;
           display: flex;
           font-size: 14px;
           align-items: center;

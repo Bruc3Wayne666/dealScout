@@ -116,7 +116,7 @@ const ChartContent = () => {
 
             {
                 isLoading
-                    ? 'Loading...'
+                    ? <div className={cls.loading}>{t('getting_info')}...</div>
                     : <div className={cls.donut}>
                         <Chart
                             options={options}
