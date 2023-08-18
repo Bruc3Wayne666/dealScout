@@ -16,7 +16,10 @@ const PlansSection: FC<PlansSectionProps> = ({sectionRef}) => {
     const {t} = useTranslation('main')
 
     return (
-        <section ref={sectionRef} className={cls.section}>
+        <section
+            ref={sectionRef}
+            className={cls.section}
+        >
             <div className={cls.sectionHeader}>
                 <motion.h2
                     custom={1}
