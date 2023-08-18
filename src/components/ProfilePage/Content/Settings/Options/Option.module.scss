@@ -8,7 +8,7 @@
   appearance: none;
   color: white;
   outline: none;
-  border: none;
+  //border: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,6 +33,12 @@
     background-repeat: no-repeat;
     background-position: right 18px center;
     background-size: 12px;
+  }
+
+  &:has(.copy) {
+    //border: 1px solid white;
+    //text-decoration: underline;
+    justify-content: flex-start;
   }
 
   &.light {
@@ -92,10 +98,12 @@
     //width: 120px;
     transition: none;
     border-radius: 12px;
+    margin-left: 24px;
 
     span {
       color: #999999;
       margin-right: 20px;
+      //text-decoration: none !important;
     }
   }
 }

@@ -5,12 +5,15 @@ import {useActions} from "../../../hooks/useActions";
 import {useTranslation} from "react-i18next";
 import {capitalize} from "../../../shared/utils";
 import PaypalCheckoutButton from "../../PaypalCheckoutButton/PaypalCheckoutButton";
+import {plans} from "../../../global/temp/plans";
 
 
 const Modal = () => {
     const {show, plan, price} = useAppSelector(state => state.modalSlice)
     const {setClose} = useActions()
     const {t} = useTranslation('main')
+
+    const desc = plans.find(item => item.plan === plan)?.description
 
     if (!plan) return <></>
 
@@ -33,6 +36,10 @@ const Modal = () => {
                     <div className={cls.top}>
                         <h1>{t(`${capitalize(plan)} Plan`)}</h1>
                         <h2>${price}</h2>
+                    </div>
+                    <div className={cls.description}>
+                        <p>&mdash;&nbsp;{desc && t(plan).split('^')[0]}</p>
+                        <p>&mdash;&nbsp;{desc && t(plan).split('^')[1]}</p>
                     </div>
                     <div className={cls.bottom}>
                         <PaypalCheckoutButton/>

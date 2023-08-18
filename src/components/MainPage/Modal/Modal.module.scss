@@ -81,13 +81,33 @@
         h1 {
           color: white;
           margin: 0 0 12px;
-          font-size: 42px;
+          font-size: 54px;
         }
 
         h2 {
           margin: 0;
           color: #ddd;
-          font-size: 32px;
+          font-size: 40px;
+        }
+      }
+
+      .description {
+        width: 70%;
+        box-sizing: border-box;
+        //flex: 1;
+        //flex-grow: 1;
+        //border: 1px solid white;
+        //display: flex;
+        //flex-direction: column;
+        //justify-content: center;
+
+        p {
+          //display: inline-block;
+          //text-indent: 5%;
+          color: #888;
+          //margin: 0 0 32px;
+          font-size: 20px;
+          text-align: left;
         }
       }
 

@@ -42,5 +42,6 @@
     "end_time": "date d'expiration",
     "there_are_no_any_deals": "il n'y a pas d'offres",
     "Get Plan": "Obtenir un forfait",
-    "getting_info": "Obtenir des informations sur les produits"
+    "getting_info": "Obtenir des informations sur les produits",
+    "copied": "Lien copié dans le presse-papiers"
 }

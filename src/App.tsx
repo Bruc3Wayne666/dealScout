@@ -8,6 +8,7 @@ import {useActions} from "./hooks/useActions";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from "./components/MainPage/Modal/Modal";
+import {useAppSelector} from "./hooks/redux";
 
 function App() {
     const {setSession, logout} = useActions()
