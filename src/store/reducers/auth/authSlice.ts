@@ -119,7 +119,7 @@ export const authSlice = createSlice({
             state.error = false
             state.user_session = ''
             state.message = ''
-            state.authType = AuthType.REGISTER
+            state.authType = AuthType.LOGIN
             localStorage.removeItem('user_session')
             localStorage.removeItem('isLogin')
         }
