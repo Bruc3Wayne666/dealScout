@@ -154,7 +154,11 @@ const DealCard: FC<DealCardProps> = ({item, theme, handleAdd, translate}) => {
                     <a target='_blank' href={shop_link}>
                         <button>{store}</button>
                     </a>
-                    <a target='_blank' href={amazon_link}>
+                    <a target='_blank' href={
+                        amazon_link.includes('http')
+                            ? amazon_link
+                            : `https://${amazon_link}`
+                    }>
                         <button>
                             <img
                                 src={require('../../../../../assets/images/svg/amazon_logo.svg').default}
